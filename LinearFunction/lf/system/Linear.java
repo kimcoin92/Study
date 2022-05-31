@@ -1,9 +1,9 @@
 // 일차함수 계산 로직
 // 3. 코어
 
-package com.system;
+package lf.system;
 
-public class Function
+public class Linear
 {
 //	기울기
 	public double gradient;
@@ -12,14 +12,14 @@ public class Function
 	public double yIntercept;
 	
 //	초기화
-	public Function()
+	public Linear()
 	{
 		gradient   = 0;
 		yIntercept = 0;
 	}
 	
 //  로직 : 일차함수 (y = ax + b), 기울기와 축을 지나가는 한 점을 아는 상황
-	public Function(Position value1, Position value2)
+	public Linear(Position value1, Position value2)
 	{
 		double gd  = 0;
 		double yic = 0;

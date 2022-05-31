@@ -1,7 +1,7 @@
 // 일차함수 계산 로직
 // 1. 생성자
 
-package com.system;
+package lf.system;
 
 //	클래스명과 생성자 이름은 같아야한다
 public class Position
