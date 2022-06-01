@@ -1,5 +1,7 @@
 package sta.base;
 
+import java.util.Arrays;
+
 public class Stack {
 	
 //	경고
@@ -9,13 +11,13 @@ public class Stack {
 //	4. 목요일 전원 제출 전원 피드백.
 //	5. 스택, 큐, 리스트, 정렬, 바이너리서치.
 	
-	public static int str = 0;
+	public static int count = 0;
 	
-	private int[] stackFrame;
+	private int[] stackFrame = new int[10];
 	
 	public Stack()
 	{
-		
+		this.stackFrame = null;
 	}
 	
 	public Stack(int[] _stackFrame)
@@ -25,14 +27,26 @@ public class Stack {
 	
 	public boolean push(int _data)
 	{
-		str++;
+		for(int i = 0; i < stackFrame.length; i++)
+		{
+			int idx = 0;
+			
+			stackFrame[idx] = idx;
+		}
+		
+		count++;
 		return true;
 	}
 	
 	public int pop()
 	{
-		str--;
+		count--;
 		return 0;
+	}
+	
+	public void printout()
+	{
+		System.out.println(Arrays.toString(stackFrame));
 	}
 
 }
