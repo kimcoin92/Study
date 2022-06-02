@@ -1,12 +1,13 @@
+package qe.system;
 
 // ax^2 + bx + c = 0의 근을 구하는 클래스.
-public class QuadraticEquation 
+public class QuadraticEquation_Teacher
 {
 	private double a;
 	private double b;
 	private double c;
 	
-	public QuadraticEquation(double a, double b, double c)
+	public QuadraticEquation_Teacher(double a, double b, double c)
 	{
 		this.a = a;
 		this.b = b;
@@ -46,7 +47,4 @@ public class QuadraticEquation
 		
 	}
 	
-	
-		
-
 }

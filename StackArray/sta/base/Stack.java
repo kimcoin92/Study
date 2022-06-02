@@ -4,49 +4,104 @@ import java.util.Arrays;
 
 public class Stack {
 	
-//	경고
-//	1. 자기 생각을 그대로 코딩할 것.
-//	2. 코딩을 실패해도 된다. 하지만 생각을 실패하면 안됨.
-//	3. 코딩부터 덤비지 말 것. (주석부터, 생각을 정리하고 덤빌 것)
-//	4. 목요일 전원 제출 전원 피드백.
-//	5. 스택, 큐, 리스트, 정렬, 바이너리서치.
+//	##########################################################
+//	초기화
 	
-	public static int count = 0;
-	
-	private int[] stackFrame = new int[10];
+	private int              stackSize;     // 메모리 크기
+	private int[] 	         stackFrame;    // 스택 메모리
+	private int 	         stackPointer;  // 순서 정보
+	private int              count;         // push pop 카운터
+
+//	##########################################################
+//	생성자
 	
 	public Stack()
 	{
-		this.stackFrame = null;
+		
 	}
 	
-	public Stack(int[] _stackFrame)
+	public Stack(int[] _stackSize)
 	{
-		this.stackFrame = _stackFrame;
+		stackPointer    = 0;
+		count           = 0;
+		this.stackFrame = _stackSize;
+		stackFrame      = new int[stackSize];
 	}
+	
+//	##########################################################
+//	스택 리미터 : 가득 찬 상태와 비어있는 상태를 활성화
+	
+	public boolean full()
+	{
+		if (stackPointer == stackSize)
+		{
+			stackPointer = stackSize;
+			
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	public boolean empty()
+	{
+		if (stackPointer <= 0)
+		{
+			stackPointer = 0;
+			
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+//	##########################################################
+//	데이터 입력, 제거
 	
 	public boolean push(int _data)
 	{
-		for(int i = 0; i < stackFrame.length; i++)
-		{
-			int idx = 0;
-			
-			stackFrame[idx] = idx;
-		}
 		
-		count++;
-		return true;
+		if(full() == true)
+		{
+			return false;
+		}
+		else
+		{
+			stackFrame[stackPointer] = _data;
+			
+			stackPointer++;
+		}
+			return true;
 	}
+
 	
 	public int pop()
 	{
-		count--;
-		return 0;
+		if(empty() == true)
+		{
+			return 0;
+		}
+		else
+		{
+			int data = stackFrame[stackPointer - 1];
+			
+			stackFrame[stackPointer - 1] = 0;
+			
+			stackPointer--;
+			
+			return data;
+		}
 	}
 	
-	public void printout()
+//	##########################################################
+//	현재 배열 데이터 출력
+	
+	public void print()
 	{
-		System.out.println(Arrays.toString(stackFrame));
+		System.out.println(Arrays.toString(stackFrame) + " 배열위치 : " + stackPointer);
 	}
-
 }
