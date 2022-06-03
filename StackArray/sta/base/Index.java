@@ -9,14 +9,14 @@ public class Index
 		int    pop    = 20;
 		double data   = 0;
 		
-		Stack object = new Stack();
+		Stack object = new Stack(10);
 		
 		for(int i = 0; i < push; i++)
 		{
 			data = (Math.floor(Math.random() * 9)) + 1;
 			
 			object.push((int)data);
-			object.print();
+			System.out.println(object.getAll());
 			
 			idx = idx + 1;
 		}
@@ -24,7 +24,7 @@ public class Index
 		for(int k = 0; k < pop; k++)
 		{
 			object.pop();
-			object.print();
+			System.out.println(object.getAll());
 		}
 		
 	}
