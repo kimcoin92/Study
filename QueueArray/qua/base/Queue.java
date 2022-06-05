@@ -3,9 +3,7 @@ package qua.base;
 import java.util.Arrays;
 
 public class Queue {
-	
-//	아이디어 : enqueue와 dequeue는 고정하고, 데이터가 이동하도록. 테이프, CD 처럼
-	
+		
 	public static final int DEFAULT_QUEUE_SIZE   = 5;
 	public static final int ERROR_QUEUE_FULL     = 0;
 	public static final int ERROR_QUEUE_EMPTY    = Integer.MIN_VALUE;
@@ -110,4 +108,6 @@ public class Queue {
 		
 		return result;
 	}
+
 }
+
