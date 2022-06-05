@@ -8,7 +8,7 @@ public class ArrayQueue {
 
 		System.out.println("Compile Successful!");
 
-		object.push(1);
+		object.enqueue(1);
 		System.out.println("Push Initiated!");
 		System.out.println(object.getFrame());
 	}
@@ -20,8 +20,8 @@ public class ArrayQueue {
 	public static final int SUCCESS_QUEUE_INSERT = 1;
 	
 	private int[]           frame;
-	private int             enqueue;
-	private int             dequeue;
+	private int             front;
+	private int             rear;
 	private int             size;
 	private int             count;
 	
@@ -33,7 +33,7 @@ public class ArrayQueue {
 	public ArrayQueue(int _size)
 	{
 		count   = 0;
-		enqueue = 0;
+		front = 0;
 		size    = _size;
 		frame   = new int[_size];
 	}
@@ -48,14 +48,14 @@ public class ArrayQueue {
 		return count;
 	}
 	
-	public int getenqueue()
+	public int getFront()
 	{
-		return enqueue;
+		return front;
 	}
 	
-	public int getdequeue()
+	public int getRear()
 	{
-		return dequeue;
+		return rear;
 	}
 	
 	public String getFrame()
@@ -82,7 +82,7 @@ public class ArrayQueue {
 			
 	}
 	
-	public int push(int _data)
+	public int enqueue(int _data)
 	{
 		if(isFull())
 			
@@ -92,16 +92,16 @@ public class ArrayQueue {
 			
 			return ERROR_QUEUE_INVAILD;
 		
-		frame[enqueue] = _data;
+		frame[front] = _data;
 		
-		enqueue = (enqueue + 1) % size;
+		front = (front + 1) % size;
 		
 		count++;
 		
 		return SUCCESS_QUEUE_INSERT;
 	}
 	
-	public int pop()
+	public int dequeue()
 	{
 		int result = 0;
 		
@@ -109,9 +109,9 @@ public class ArrayQueue {
 			
 			return ERROR_QUEUE_EMPTY;
 		
-		result = frame[enqueue];
+		result = frame[front];
 		
-		dequeue = (dequeue + 1) % size;
+		rear = (rear + 1) % size;
 		
 		count--;
 		
