@@ -44,6 +44,8 @@ public class ArrEx2 {
 		System.out.println("더하기, 빼기 결정 (+,-)");
 		inputString = input.nextLine();
 		
+		input.close();
+		
 //		3. 계산
 		
 		result = object.proCal(a, b, inputString);
@@ -60,7 +62,7 @@ public class ArrEx2 {
 	{
 		int[][] total = new int[arr1.length][arr1[0].length];
 		
-		if (sign.contains("+") == true)
+		if (sign.equals("+") == true)
 		{
 			for(int i = 0; i < total.length; i++)
 			{
@@ -70,7 +72,7 @@ public class ArrEx2 {
 				}
 			}
 		}
-		else if (sign.contains("-") == true)
+		else if (sign.equals("-") == true)
 		{
 			for(int i = 0; i < total.length; i++)
 			{

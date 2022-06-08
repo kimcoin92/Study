@@ -3,82 +3,7 @@ package qua.base;
 import java.util.Arrays;
 
 public class QueueArray {
-
-	public static void main(String[] args)
-	{
-/*
- *		## 데이터의 순환 과정을 테스트합니다 ##
- */
-		int idx = 1;
-		
-		QueueArray object = new QueueArray();
-		
-		System.out.println("초기상태\n" + object.getPrint());
-		
-		for (int i = 0; i < 5; i++)
-		{
-			object.enqueue(idx);
-			
-			idx++;
-		}
-		
-		System.out.println("5개 삽입\n" + object.getPrint());
-		
-		for (int j = 0; j < 4; j++)
-		{
-			object.dequeue();
-		}
-		
-		System.out.println("4개 인출 (공백 현상)\n" + object.getPrint());
-		
-		for (int i = 0; i < 5; i++)
-		{
-			object.enqueue(idx);
-			
-			idx++;
-		}
-		
-		System.out.println("5개 삽입\n" + object.getPrint());
-		
-		for (int j = 0; j < 4; j++)
-		{
-			object.dequeue();
-		}
-		
-		System.out.println("4개 인출\n" + object.getPrint());
-		
-		for (int i = 0; i < 5; i++)
-		{
-			object.enqueue(idx);
-			
-			idx++;
-		}
-		
-		System.out.println("5개 삽입\n" + object.getPrint());
-		
-		for (int i = 0; i < 5; i++)
-		{
-			object.enqueue(idx);
-			
-			idx++;
-		}
-		
-		System.out.println("5개 삽입 (초과 삽입)\n" + object.getPrint());
-		
-		for (int j = 0; j < 4; j++)
-		{
-			object.dequeue();
-		}
-		
-		System.out.println("4개 인출\n" + object.getPrint());
-		
-		for (int j = 0; j < 6; j++)
-		{
-			object.dequeue();
-		}
-		
-		System.out.println("6개 인출 (위치 초기화 테스트)\n" + object.getPrint());
-	}
+	
 /*
  *	큐(Queue)는 선입선출 (FIFO : First In First Out)의 데이터 구조를 말합니다.
  *	링크 리스트를 활용하면 Front와 Back의 고정 + 데이터의 이동이 가능합니다.
@@ -90,6 +15,7 @@ public class QueueArray {
 	public static final int ERROR_INVAILD       = Integer.MAX_VALUE;
 	public static final int SUCCESS_INSERT      = 1;
 	public static final int INITIALIZE_POINTER = -1;
+	public static final int FRAME_CLEAR = 0;
 	
 	private int[]           frame;
 	private int             front;
@@ -169,9 +95,9 @@ public class QueueArray {
 			
 			return ERROR_INVAILD;
 
-		front = (front + 1) % size;
+		rear = (rear + 1) % size;
 
-		frame[front] = _data;
+		frame[rear] = _data;
 		
 		amount++;
 		
@@ -188,16 +114,15 @@ public class QueueArray {
 			
 			return ERROR_EMPTY;
 		
-		rear = (rear + 1) % size;
+		front = (front + 1) % size;
 		
-		result = frame[rear];
+		result = frame[front];
 
-		frame[rear] = 0;
+		frame[front] = FRAME_CLEAR;
 		
 		amount--;
 /*
  *		## Dequeue를 모두 마치면 위치를 초기화합니다. (Experimental) ##
- *		## 인출량이 삽입량보다 적으면 잔류된 데이터로 인해 배열 중간에 공백이 발생합니다. ##
  */
 		if (isEmpty())
 		{
@@ -223,5 +148,80 @@ public class QueueArray {
 		
 		return message;
 	}
-
+	
+	public static void main(String[] args)
+	{
+/*
+ *		## 데이터의 순환 과정을 테스트합니다 ##
+ */
+		int idx = 1;
+		
+		QueueArray object = new QueueArray();
+		
+		System.out.println("초기상태\n" + object.getPrint());
+		
+		for (int i = 0; i < 5; i++)
+		{
+			object.enqueue(idx);
+			
+			idx++;
+		}
+		
+		System.out.println("5개 삽입\n" + object.getPrint());
+		
+		for (int j = 0; j < 4; j++)
+		{
+			object.dequeue();
+		}
+		
+		System.out.println("4개 인출 (공백 현상)\n" + object.getPrint());
+		
+		for (int i = 0; i < 5; i++)
+		{
+			object.enqueue(idx);
+			
+			idx++;
+		}
+		
+		System.out.println("5개 삽입\n" + object.getPrint());
+		
+		for (int j = 0; j < 4; j++)
+		{
+			object.dequeue();
+		}
+		
+		System.out.println("4개 인출\n" + object.getPrint());
+		
+		for (int i = 0; i < 5; i++)
+		{
+			object.enqueue(idx);
+			
+			idx++;
+		}
+		
+		System.out.println("5개 삽입\n" + object.getPrint());
+		
+		for (int i = 0; i < 5; i++)
+		{
+			object.enqueue(idx);
+			
+			idx++;
+		}
+		
+		System.out.println("5개 삽입 (초과 삽입)\n" + object.getPrint());
+		
+		for (int j = 0; j < 4; j++)
+		{
+			object.dequeue();
+		}
+		
+		System.out.println("4개 인출\n" + object.getPrint());
+		
+		for (int j = 0; j < 6; j++)
+		{
+			object.dequeue();
+		}
+		
+		System.out.println("6개 인출 (위치 초기화 테스트)\n" + object.getPrint());
+	}
 }
