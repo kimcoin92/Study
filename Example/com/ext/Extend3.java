@@ -25,7 +25,7 @@ class Ultra extends Unit
 		System.out.printf("ultra run %d \n", speed);
 	}
 }
-public class ExtendExample3 {
+public class Extend3 {
 	public static void main(String[] args) {
 		Unit[] ar = new Unit[4];
 		ar[0] = new Hydra();

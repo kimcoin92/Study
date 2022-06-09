@@ -24,7 +24,7 @@ class Dog extends Animal
 	}
 }
 
-public class ExtendExample1 {
+public class Extend1 {
 
 	public static void main(String[] args) {
 		

@@ -6,19 +6,16 @@ public class MainQA {
 		
 		int data;
 		
-		AlgoQAt a = new AlgoQAt();
+		AlgoQAex a = new AlgoQAex();
 		
 		a.enqueue(11);
 		a.enqueue(22);
 		a.enqueue(33);
+		a.enqueue(44);
+		a.enqueue(55);
+		a.enqueue(66);
 		
-		data = a.dequeue();
-		data = a.dequeue();
-		data = a.dequeue();
-		
-		data = a.dequeue();
-		
-		System.out.println(data);
+		a.printAll();
 
 	}
 

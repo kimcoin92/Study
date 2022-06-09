@@ -1,11 +1,13 @@
 package com.algorithm.qa;
 
-public class AlgoQAt
+public class AlgoQAex
 {
 	public static final int DEFAULT_SIZE = 5;
 
 	// Queue의 배열
 	private int[] frame;
+	
+	private boolean[] swtch; // ********************
 	
 	private int size;
 	
@@ -19,23 +21,42 @@ public class AlgoQAt
 	private int count;
 	
 	// 기본 생성자
-	public AlgoQAt()
+	public AlgoQAex()
 	{
 		size  = DEFAULT_SIZE;
 		frame = new int[size];
+		swtch = new boolean[size]; // ********************
+		SettingSwtch();
 		rear  = 0;
 		front = 0;
 		count = 0;
 	}
 	
 	// 사이즈가 들어오면 프레임을 잡아주는 오버로딩 생성자
-	public AlgoQAt(int _size)
+	public AlgoQAex(int _size)
 	{
 		size  = _size;
 		frame = new int[size];
+		swtch = new boolean[size]; // ********************
+		SettingSwtch();
 		rear  = 0;
 		front = 0;
 		count = 0;
+	}
+	
+	public boolean[] getSwtch() // ********************
+	{
+		return swtch;
+	}
+	
+	public boolean[] SettingSwtch() // ********************
+	{
+		for(int i = 0; i < swtch.length; i++)
+		{
+			swtch[i] = false;
+		}
+		
+		return swtch;
 	}
 	
 	public int getSize()
@@ -75,6 +96,7 @@ public class AlgoQAt
 		
 		// 데이터를 넣어준다.
 		frame[rear] = _data;
+		swtch[rear] = true; // ********************
 		rear++;
 		count++;
 		
@@ -89,15 +111,21 @@ public class AlgoQAt
 		
 		front = front % size;
 		result = frame[front];
+		swtch[front] = false; // ********************
 		
 		front++;
 		count--;
 		return result;
 	}
 	
-	public void printAll()
+	public void printAll() // ********************
 	{
-		
+		// true인 것만 출력
+		for(int i = 0; i < swtch.length; i++)
+		{
+			if(swtch[i] == true)
+				System.out.println(frame[i]);
+		}
 	}
 	
 	// Queue의 내용을 덤프하는 문자열을 출력
