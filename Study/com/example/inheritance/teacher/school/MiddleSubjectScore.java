@@ -33,4 +33,36 @@ public class MiddleSubjectScore {
 		return true;
 	}
 
+	public int getKor() {
+		return kor;
+	}
+
+	public void setKor(int kor) {
+		this.kor = kor;
+	}
+
+	public int getEng() {
+		return eng;
+	}
+
+	public void setEng(int eng) {
+		this.eng = eng;
+	}
+
+	public int getMth() {
+		return mth;
+	}
+
+	public void setMth(int mth) {
+		this.mth = mth;
+	}
+
+	public int getSci() {
+		return sci;
+	}
+
+	public void setSci(int sci) {
+		this.sci = sci;
+	}
+
 }

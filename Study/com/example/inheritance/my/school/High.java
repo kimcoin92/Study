@@ -51,12 +51,6 @@ class High extends Student
 		score = _score;
 	}
 	
-	public int[][] getAverage(int[][] score)
-	{
-		int[][] result = score;
-		
-		return result;
-	}
 	public int getAverage(String which)
 	{
 		
