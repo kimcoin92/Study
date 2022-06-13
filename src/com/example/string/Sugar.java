@@ -1,4 +1,4 @@
-// String ¼±¾ğÀÇ ÀÏ¹İÄÚµå¿Í ½´°¡ÄÚµåÀÇ Â÷ÀÌÁ¡
+// String ì„ ì–¸ì˜ ì¼ë°˜ì½”ë“œì™€ ìŠˆê°€ì½”ë“œì˜ ì°¨ì´ì 
 
 package com.example.string;
 
@@ -11,11 +11,11 @@ public class Sugar {
 		
 		if(str1 == str2)
 		{
-			System.out.println("°°´Ù");
+			System.out.println("ê°™ë‹¤");
 		}
 		else
 		{
-			System.out.println("´Ù¸£´Ù");
+			System.out.println("ë‹¤ë¥´ë‹¤");
 		}
 		
 		String str3 = new String ("def");
@@ -23,11 +23,11 @@ public class Sugar {
 		
 		if(str3 == str4)
 		{
-			System.out.println("°°´Ù");
+			System.out.println("ê°™ë‹¤");
 		}
 		else
 		{
-			System.out.println("´Ù¸£´Ù");
+			System.out.println("ë‹¤ë¥´ë‹¤");
 		}
 
 	}

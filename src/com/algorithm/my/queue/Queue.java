@@ -18,7 +18,7 @@ public class Queue {
 	private int             size;
 	private int             amount;
 
-//  »ı¼ºÀÚ
+//  ìƒì„±ì
 	
 	public Queue()
 	{

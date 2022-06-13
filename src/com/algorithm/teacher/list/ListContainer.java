@@ -6,7 +6,7 @@ public class ListContainer {
 	protected Node head;
 	protected int  count;
 	
-	// ¸¶Áö¸· ³ëµå¸¦ Ã£¾Æ¿Â´Ù.
+	// ë§ˆì§€ë§‰ ë…¸ë“œë¥¼ ê°€ì ¸ì˜¨ë‹¤.
 	public Node getLastNode()
 	  {
 			Node lastNode = head;
@@ -18,7 +18,7 @@ public class ListContainer {
 			return lastNode;
 		}
 	
-	// ³ëµå¸¦ Ãß°¡ÇÑ´Ù.
+	// ë…¸ë“œë¥¼ ì¶”ê°€í•œë‹¤.
 	public boolean insertNode()
 	{
 		Node lastNode = null;
@@ -46,37 +46,37 @@ public class ListContainer {
 		return true;
 	}
 	
-	// ³ëµå¸¦ »èÁ¦ÇÑ´Ù.
+	// ë…¸ë“œë¥¼ ì§€ìš´ë‹¤.
 	public boolean deleteNodebyIndex(int index)
 	{
 		return true;
 	}
 	
-	// int °ªÀ» Ã£¾Æ¼­ ÇØ´ç ³ëµå¸¦ ¸®ÅÏÇÑ´Ù.
+	// Int ê°’ì„ ì°¾ì•„ì„œ í•´ë‹¹ ë…¸ë“œë¥¼ ë¦¬í„´í•œë‹¤.
 	public int findNode(int value)
 	{
 		return 0;
 	}
 	
-	// String °ªÀ» Ã£¾Æ¼­ ÇØ´ç ³ëµå¸¦ ¸®ÅÏÇÑ´Ù.
+	// String ê°’ì„ ì°¾ì•„ì„œ í•´ë‹¹ ë…¸ë“œë¥¼ ë¦¬í„´í•œë‹¤.
 	public int findNode(String value)
 	{
 		return 0;
 	}
 	
-	// ³ëµå µ¥ÀÌÅÍ¸¦ ¸®ÅÏÇÑ´Ù.
+	// ë…¸ë“œ ë°ì´í„°ë¥¼ ë¦¬í„´í•œë‹¤.
 	public NodeData getNodeData(int index)
 	{
 		return null;
 	}
 	
-	// ³ëµå °³¼ö¸¦ ¸®ÅÏÇÑ´Ù.
+	// ë…¸ë“œ ê°œìˆ˜ë¥¼ ë¦¬í„´í•œë‹¤.
 	public int getNodeCount()
 	{
 		return 0;
 	}
 	
-	// ¸ğµç ³ëµå¸¦ Ãâ·ÂÇÑ´Ù.
+	// ëª¨ë“  ë…¸ë“œë¥¼ ì¶œë ¥.
 	public void printAll()
 	{
 		

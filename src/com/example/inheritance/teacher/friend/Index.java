@@ -1,8 +1,8 @@
-// ÇĞ½À¸ñÇ¥ : »ó¼Ó¿¡ ´ëÇÑ ÀÌÇØ (ÀçÈ°¿ë, ±Ô¾à)
+// í•™ìŠµëª©í‘œ : ìƒì†ì— ëŒ€í•œ ì´í•´ (ì¬í™œìš©, ê·œì•½)
 
-// ¿ä±¸»çÇ×
-// - ´ëÇĞÄ£±¸ : ÀÌ¸§, Àü°ø,  ÀüÈ­¹øÈ£
-// - Á÷Àåµ¿·á : ÀÌ¸§, ºÎ¼­¸í, ÀüÈ­¹øÈ£
+// ìš”êµ¬ì‚¬í•­
+// - ëŒ€í•™ì¹œêµ¬ : ì´ë¦„, ì „ê³µ,  ì „í™”ë²ˆí˜¸
+// - ì§ì¥ë™ë£Œ : ì´ë¦„, ë¶€ì„œëª…, ì „í™”ë²ˆí˜¸
 
 package com.example.inheritance.teacher.friend;
 
@@ -13,16 +13,16 @@ public class Index {
 		Friend[] friend = new Friend[10];
 		int count = 0;
 		
-		friend[count++] = new UnivFriend("¹Ú»ó*", "ÄÄ**", "01*-1***-4***");
-		friend[count++] = new UnivFriend("ÀÌ¿¬*", "°æ**", "01*-4***-7***");
-		friend[count++] = new UnivFriend("¿îÁø*", "¼ö**", "01*-0***-3***");
-		friend[count++] = new UnivFriend("Á¤ÈÆ*", "¹®**", "01*-3***-9***");
-		friend[count++] = new UnivFriend("¹éÁö*", "¿µ**", "01*-5***-8***");
-		friend[count++] = new CompFriend("ÇÏ¼ö*", "µğ**", "01*-1***-8***");
-		friend[count++] = new CompFriend("±èÁø*", "Àü**", "01*-7***-2***");
-		friend[count++] = new CompFriend("¹ÚÇÏ*", "ÃÑ**", "01*-4***-1***");
-		friend[count++] = new CompFriend("ÁÖ¼¼*", "³»**", "01*-3***-0***");
-		friend[count++] = new CompFriend("À±¹Ì*", "Àü**", "01*-4***-0***");
+		friend[count++] = new UnivFriend("ë°•ìƒ*", "ì»´**", "01*-1***-4***");
+		friend[count++] = new UnivFriend("ì´ì—°*", "ê²½**", "01*-4***-7***");
+		friend[count++] = new UnivFriend("ìš´ì§„*", "ìˆ˜**", "01*-0***-3***");
+		friend[count++] = new UnivFriend("ì •í›ˆ*", "ë¬¸**", "01*-3***-9***");
+		friend[count++] = new UnivFriend("ë°±ì§€*", "ì˜**", "01*-5***-8***");
+		friend[count++] = new CompFriend("í•˜ìˆ˜*", "ë””**", "01*-1***-8***");
+		friend[count++] = new CompFriend("ê¹€ì§„*", "ì „**", "01*-7***-2***");
+		friend[count++] = new CompFriend("ë°•í•˜*", "ì´**", "01*-4***-1***");
+		friend[count++] = new CompFriend("ì£¼ì„¸*", "ë‚´**", "01*-3***-0***");
+		friend[count++] = new CompFriend("ìœ¤ë¯¸*", "ì „**", "01*-4***-0***");
 		
 		for (int i = 0; i < count; i++)
 		{

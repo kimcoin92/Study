@@ -1,12 +1,12 @@
 package com.example.inheritance.teacher.school;
 
 public class MiddleSubjectScore {
-	private String term;	// 切扁
+	private String term;	// 頃欔赴
 	
-	private int kor;		// 惫绢己利
-	private int eng;		// 康绢己利
-	private int mth;		// 荐切己利
-	private int sci;		// 苞切己利
+	private int kor;		// 甑柎靹膘爜
+	private int eng;		// 鞓侅柎靹膘爜
+	private int mth;		// 靾橅暀靹膘爜
+	private int sci;		// 瓿柬暀靹膘爜
 
 	public MiddleSubjectScore()
 	{

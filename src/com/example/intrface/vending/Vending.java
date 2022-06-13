@@ -1,10 +1,10 @@
-// ÀÚÆÇ±â ºñÀ¯¸¦ ÅëÇÑ interface ±â´É ¿¹½Ã
+// ìíŒê¸° ë¹„ìœ ë¥¼ í†µí•œ interface ê¸°ëŠ¥ ì˜ˆì‹œ
 
 package com.example.intrface.vending;
 
 interface Orderable
 {
-//	ÁÖ·Î »ç¿ëÇÏ´Â ±â´Éµé¸¸ ¸ğ¾ÆµÎ´Â °Í
+//	ì£¼ë¡œ ì‚¬ìš©í•˜ëŠ” ê¸°ëŠ¥ë“¤ë§Œ ëª¨ì•„ë‘ëŠ” ê²ƒ
 	public boolean putMoney(int money);
 	public boolean pushButton();
 	public int getChange();
@@ -13,31 +13,31 @@ interface Orderable
 class VendingMachine implements Orderable
 {
 	
-//	µ·À» ³Ö´Â´Ù.
+//	ëˆì„ ë„£ëŠ”ë‹¤.
 	public boolean putMoney(int money)
 	{
 		return true;
 	}
 	
-//	Äİ¶ó ¹öÆ°À» ´©¸¥´Ù.
+//	ì½œë¼ ë²„íŠ¼ì„ ëˆ„ë¥¸ë‹¤.
 	public boolean pushButton()
 	{
 		return true;
 	}
 	
-//	ÀÜµ·À» ¹Ş´Â´Ù.
+//	ì”ëˆì„ ë°›ëŠ”ë‹¤.
 	public int getChange()
 	{
 		return 0;
 	}
 	
-//	¸Å´ÏÀú¸¦ ºÎ¸¥´Ù.
+//	ë§¤ë‹ˆì €ë¥¼ ë¶€ë¥¸ë‹¤.
 	public boolean callManager()
 	{
 		return true;
 	}
 	
-//	Àç°í¸¦ È®ÀÎÇÑ´Ù.
+//	ì¬ê³ ë¥¼ í™•ì¸í•œë‹¤.
 	public int getStock()
 	{
 		return 100;
@@ -48,9 +48,9 @@ public class Vending {
 
 	public static void main(String[] args) {
 		
-//		Orderable interfaceÀÇ ÂüÁ¶Çü
-//		"³­ VendingMachineÀÌ Á¦°øÇÏ´Â ÀÌ°Í'¸¸' ¾²°Ú´Ù"
-//		"¸¸ : ±ÔÄ¢"
+//		Orderable interfaceì˜ ì°¸ì¡°í˜•
+//		"ë‚œ VendingMachineì´ ì œê³µí•˜ëŠ” ì´ê²ƒ'ë§Œ' ì“°ê² ë‹¤"
+//		"ë§Œ : ê·œì¹™"
 		Orderable customer = new VendingMachine();
 		
 		customer.putMoney(1);

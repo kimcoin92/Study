@@ -4,42 +4,42 @@ import java.util.Arrays;
 
 public class Stack {
 	
-//	                        ±âº» ½ºÅÃ »çÀÌÁî ÃÊ±âÈ­
+//	                        ê¸°ë³¸ ìŠ¤íƒ ì‚¬ì´ì¦ˆ ì´ˆê¸°í™”
 	public static final int DEFAULT_STACK_SIZE   = 10;
 	
-//	                        ²Ë Âù ½ºÅÃ ¿¡·¯
+//	                        ê½‰ ì°¬ ìŠ¤íƒ ì—ëŸ¬
 	public static final int ERROR_STACK_FULL     = 0;
 	
-//	                        ºó ½ºÅÃ ¿¡·¯
+//	                        ë¹ˆ ìŠ¤íƒ ì—ëŸ¬
 	public static final int ERROR_STACK_EMPTY    = Integer.MIN_VALUE;
 	
-//                          À¯È¿ÇÏÁö ¾Ê´Â °ª
+//                          ìœ íš¨í•˜ì§€ ì•ŠëŠ” ê°’
 	public static final int ERROR_INVALID_VALUE  = Integer.MAX_VALUE;
 	
-//	                        µ¥ÀÌÅÍ ½ºÅÂÅ· ¼º°ø
+//	                        ë°ì´í„° ìŠ¤íƒœí‚¹ ì„±ê³µ
 	public static final int SUCCESS_STACK_INSERT = 1;
 	
 
 	
-	//                      ¸Ş¸ğ¸® Å©±â
+	//                      ë©”ëª¨ë¦¬ í¬ê¸°
 	private int             size;
 	
-	//                      ½ºÅÃ ¸Ş¸ğ¸®
+	//                      ìŠ¤íƒ ë©”ëª¨ë¦¬
 	private int[]           frame;
 	
-	//                      µ¥ÀÌÅÍ ¼öÁ¤ À§Ä¡ ÁöÁ¤
+	//                      ë°ì´í„° ìˆ˜ì • ìœ„ì¹˜ ì§€ì •
 	private int             pointer;
 	
-//	                        ½ºÅÃ µ¥ÀÌÅÍ °³¼ö
+//	                        ìŠ¤íƒ ë°ì´í„° ê°œìˆ˜
 	private int             count;
 	
-	//                      ±âº» »ı¼ºÀÚ
+	//                      ê¸°ë³¸ ìƒì„±ì
 	public                  Stack()
 	{
 		this(Stack.         DEFAULT_STACK_SIZE);
 	}
 	
-	//                      ¿À¹ö·Îµù »ı¼ºÀÚ
+	//                      ì˜¤ë²„ë¡œë”© ìƒì„±ì
 	public                  Stack(int _size)
 	{
 		                    pointer    = 0;
@@ -47,17 +47,17 @@ public class Stack {
 		                    size       = _size;
 		                    frame      = new int[size];
 	}
-//	                        ½ºÅÃ »çÀÌÁî¸¦ ±¸ÇÑ´Ù
+//	                        ìŠ¤íƒ ì‚¬ì´ì¦ˆë¥¼ êµ¬í•œë‹¤
 	public int              getSize()
 	{
 		return size;
 	}
-//	                        ½ºÅÃ °³¼ö¸¦ Á¶È¸ÇÑ´Ù
+//	                        ìŠ¤íƒ ê°œìˆ˜ë¥¼ ì¡°íšŒí•œë‹¤
 	public int              getCount()
 	{
 		return count;
 	}
-//	                        ²Ë Âù ½ºÅÃÀÎÁö Ã¼Å©ÇÑ´Ù
+//	                        ê½‰ ì°¬ ìŠ¤íƒì¸ì§€ ì²´í¬í•œë‹¤
 	private boolean         isFull()
 	{
 		if(count == getCount())
@@ -67,7 +67,7 @@ public class Stack {
 			
 	}
 	
-//                          ºó ½ºÅÃÀÎÁö Ã¼Å©ÇÑ´Ù
+//                          ë¹ˆ ìŠ¤íƒì¸ì§€ ì²´í¬í•œë‹¤
 	private boolean         isEmpty()
 	{
 		if(0 == getCount())
@@ -76,7 +76,7 @@ public class Stack {
 			return false;
 			
 	}
-//	                        µ¥ÀÌÅÍ¸¦ »ğÀÔÇÑ´Ù
+//	                        ë°ì´í„°ë¥¼ ì‚½ì…í•œë‹¤
 	public int              push(int _data) 
 	{
 		if(isFull())
@@ -94,7 +94,7 @@ public class Stack {
 		return SUCCESS_STACK_INSERT;
 	}
 	
-//                          µ¥ÀÌÅÍ¸¦ ÀÎÃâÇÑ´Ù
+//                          ë°ì´í„°ë¥¼ ì¸ì¶œí•œë‹¤
 	public int              pop()
 	{
 		int result = 0;

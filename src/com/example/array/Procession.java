@@ -13,13 +13,13 @@ public class Procession {
 		int[][] a = new int[2][2];
 		int[][] b = new int[2][2];
 		
-//		1. »ç¿ëÀÚ·ÎºÎÅÍ 2 x 2 Çà·ÄÀ» ÀÔ·Â¹Ş´Â´Ù.
+//		1. ì‚¬ìš©ìë¡œë¶€í„° 2 x 2 í–‰ë ¬ì„ ì…ë ¥ë°›ëŠ”ë‹¤.
 		
 		Scanner input = new Scanner(System.in);
 		
 		String inputString;
 		
-		System.out.println("Ã¹¹øÂ° Çà·ÄÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä");
+		System.out.println("ì²«ë²ˆì§¸ í–‰ë ¬ì„ ì…ë ¥í•´ì£¼ì„¸ìš”");
 		inputString = input.nextLine();
 		
 		String[] str = inputString.split(" ");
@@ -29,7 +29,7 @@ public class Procession {
 		a[1][0] = Integer.parseInt(str[2]);
 		a[1][1] = Integer.parseInt(str[3]);
 		
-		System.out.println("µÎ¹øÂ° Çà·ÄÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä");
+		System.out.println("ë‘ë²ˆì§¸ í–‰ë ¬ì„ ì…ë ¥í•´ì£¼ì„¸ìš”");
 		inputString = input.nextLine();
 		
 		str = inputString.split(" ");
@@ -39,18 +39,18 @@ public class Procession {
 		b[1][0] = Integer.parseInt(str[2]);
 		b[1][1] = Integer.parseInt(str[3]);
 		
-//		2. ´õÇÒÁö »¬Áö ¼±ÅÃÇÏµµ·Ï
+//		2. ë”í• ì§€ ëº„ì§€ ì„ íƒí•˜ë„ë¡
 		
-		System.out.println("´õÇÏ±â, »©±â °áÁ¤ (+,-)");
+		System.out.println("ë”í•˜ê¸°, ë¹¼ê¸° ê²°ì • (+,-)");
 		inputString = input.nextLine();
 		
 		input.close();
 		
-//		3. °è»ê
+//		3. ê³„ì‚°
 		
 		result = object.proCal(a, b, inputString);
 		
-//		4. °á°ú¸¦ Ãâ·Â
+//		4. ê²°ê³¼ë¥¼ ì¶œë ¥
 		
 		System.out.println(object.getPrint(result));
 		
@@ -89,8 +89,8 @@ public class Procession {
 		
 		return total;
 		
-//		¸·Èû
-//		val, kalÀ» ´õÇÏ´Â ºÎºĞ¿¡¼­ ¹®Á¦
+//		ë§‰í˜
+//		val, kalì„ ë”í•˜ëŠ” ë¶€ë¶„ì—ì„œ ë¬¸ì œ
 //		
 //		The operator + is undefined for the argument type(s) int[], int[])
 //		
@@ -118,7 +118,7 @@ public class Procession {
 		}
 		else
 		{
-			result = "Àß¸øµÈ °ªÀÔ´Ï´Ù.";
+			result = "ì˜ëª»ëœ ê°’ì…ë‹ˆë‹¤.";
 		}
 		
 		return result;

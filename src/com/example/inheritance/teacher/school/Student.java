@@ -2,10 +2,10 @@ package com.example.inheritance.teacher.school;
 
 public class Student 
 {
-	protected String name;		// ÀÌ¸§, 
-	protected String birth;		// »ı³â¿ùÀÏ 
-	protected String gender;	// ¼ºº°
-	protected int  	 grade;		// ÇĞ³â
+	protected String name;		// ì´ë¦„, 
+	protected String birth;		// ìƒë…„ì›”ì¼ 
+	protected String gender;	// ì„±ë³„
+	protected int  	 grade;		// í•™ë…„
 	
 	public static int getTermIndex(String _term)
 	{
@@ -44,7 +44,7 @@ public class Student
 		return term_index;
 	}
 	
-	//»ı¼ºÀÚ
+	//ìƒì„±ì
 	public Student()
 	{
 		
@@ -108,7 +108,7 @@ public class Student
 		this.grade = _grade;
 	}
 	
-	// Student¸¦ ÅëÇØ¼­ MiddleStudent·Î Á¢±ÙÇÏ±â À§ÇÑ interface ¿ªÇÒ
+	// Studentë¥¼ í†µí•´ì„œ MiddleStudentë¡œ ì ‘ê·¼í•˜ê¸° ìœ„í•œ interface ì—­í• 
 	public boolean setScore(String _term, int _kor, int _eng, int _mth, int _sci) 
 	{
 			return false;

@@ -4,11 +4,11 @@ public class MiddleStudent extends Student{
 	
 	public static final int TERM_COUNT = 6;
 	
-	private String group;					//¹İ	
-	private MiddleSubjectScore[] score;		// ¼ºÀûÁ¤º¸
+	private String group;					//ë°˜	
+	private MiddleSubjectScore[] score;		// ì„±ì ì •ë³´
 	
 	
-	// Middle score ÀçÁ¤ÀÇ
+	// Middle score ì¬ì •ì˜
 	public boolean setScore(String _term, int _kor, int _eng, int _mth, int _sci) 
 	{
 		int termIndex = Student.getTermIndex(_term);
@@ -51,7 +51,7 @@ public class MiddleStudent extends Student{
 		this.score = score;
 	}
 
-	//°ú¸ñº° ÇĞ±âº° Æò±ÕÁ¡¼ö¸¦ ±¸ÇÏ´Â ¸Ş¼Òµå.
+	//ê³¼ëª©ë³„ í•™ê¸°ë³„ í‰ê· ì ìˆ˜ë¥¼ êµ¬í•˜ëŠ” ë©”ì†Œë“œ.
 	public float getSubjectAverage(String _subject)
 	{
 		int total = 0;
@@ -88,9 +88,9 @@ public class MiddleStudent extends Student{
 		
 		return total / TERM_COUNT;
 	}
-	//°ú¸ñº° Æò±ÕÁ¡¼ö : ±¹¾î 1-1, 1-2, 2-1 2-2 3-1 3-2
+	//ê³¼ëª©ë³„ í‰ê· ì ìˆ˜ : êµ­ì–´ 1-1, 1-2, 2-1 2-2 3-1 3-2
 	
-	//1-1ÇĞ±â Æò±ÕÁ¡¼ö : 1-1ÇĞ±âÀÇ (±¹¾î+¿µ¾î+¼öÇĞ+°úÇĞ) /4 
+	//1-1í•™ê¸° í‰ê· ì ìˆ˜ : 1-1í•™ê¸°ì˜ (êµ­ì–´+ì˜ì–´+ìˆ˜í•™+ê³¼í•™) /4 
 }
 
 

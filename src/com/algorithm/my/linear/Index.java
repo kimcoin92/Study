@@ -1,4 +1,4 @@
-// ÀÏÂ÷ ÇÔ¼ö (Linear Function)
+// ì¼ì°¨ í•¨ìˆ˜ (Linear Function)
 // y = ax + b
 
 package com.algorithm.my.linear;

@@ -7,14 +7,14 @@ public class LinkedList {
 		ListContainer list1 = new ListContainer();
 		ListContainer list2 = new ListContainer();
 		
-		// »õ·Î¿î ³ëµå¸¦ Ãß°¡
+		// ìƒˆë¡œìš´ ë…¸ë“œë¥¼ ì¶”ê°€
 		list1.insertNode();
 		list2.insertNode();
 		
-		// ÀÎµ¦½º À§Ä¡ÀÇ ³ëµå¸¦ »èÁ¦
+		// ì¸ë±ìŠ¤ ìœ„ì¹˜ì˜ ë…¸ë“œë¥¼ ì‚­ì œ
 //		list1.deleteNodebyIndex(2);
 		
-		// value2¿Í °°Àº ³ëµå¸¦ Ã£´Â´Ù
+		// value2ì™€ ê°™ì€ ë…¸ë“œë¥¼ ì°¾ëŠ”ë‹¤
 //		list1.findData("John");
 		
 	}

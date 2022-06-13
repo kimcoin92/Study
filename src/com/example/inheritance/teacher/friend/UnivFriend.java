@@ -2,9 +2,9 @@ package com.example.inheritance.teacher.friend;
 
 public class UnivFriend extends Friend {
 	
-//	private String name;  (»óÀ§ Å¬·¡½º¿¡¼­ Á¸¼Ó »óÅÂ : Friend)
+//	private String name;  (ìƒìœ„ í´ë˜ìŠ¤ì—ì„œ ì¡´ì† ìƒíƒœ : Friend)
 	private String major;
-//	private String phone; (»óÀ§ Å¬·¡½º¿¡¼­ Á¸¼Ó »óÅÂ : Friend)
+//	private String phone; (ìƒìœ„ í´ë˜ìŠ¤ì—ì„œ ì¡´ì† ìƒíƒœ : Friend)
 	
 	public UnivFriend()
 	{
@@ -13,22 +13,22 @@ public class UnivFriend extends Friend {
 	
 	public UnivFriend(String _name, String _major, String _phone)
 	{
-//		»óÀ§ Å¬·¡½ºÀÇ µ¥ÀÌÅÍ »ó¼Ó (Friend)
+//		ìƒìœ„ í´ë˜ìŠ¤ì˜ ë°ì´í„° ìƒì† (Friend)
 		super(_name, _phone);
 		
-//		name  = _name;   (»óÀ§ Å¬·¡½º¿¡¼­ Á¸¼Ó »óÅÂ : Friend)
+//		name  = _name;   (ìƒìœ„ í´ë˜ìŠ¤ì—ì„œ ì¡´ì† ìƒíƒœ : Friend)
 		major = _major;
-//		phone = _phone;  (»óÀ§ Å¬·¡½º¿¡¼­ Á¸¼Ó »óÅÂ : Friend)
+//		phone = _phone;  (ìƒìœ„ í´ë˜ìŠ¤ì—ì„œ ì¡´ì† ìƒíƒœ : Friend)
 	}
 	
 	public void print()
 	{
-//		»óÀ§ Å¬·¡½ºÀÇ µ¥ÀÌÅÍ »ó¼Ó (Friend.print)
+//		ìƒìœ„ í´ë˜ìŠ¤ì˜ ë°ì´í„° ìƒì† (Friend.print)
 		super.print();
 		
-//		System.out.println("ÀÌ¸§ : " + name);  (»óÀ§ Å¬·¡½º¿¡¼­ Á¸¼Ó »óÅÂ : Friend)
-		System.out.println("Àü°ø : " + major);
-//		System.out.println("¹øÈ£ : " + phone); (»óÀ§ Å¬·¡½º¿¡¼­ Á¸¼Ó »óÅÂ : Friend)
+//		System.out.println("ì´ë¦„ : " + name);  (ìƒìœ„ í´ë˜ìŠ¤ì—ì„œ ì¡´ì† ìƒíƒœ : Friend)
+		System.out.println("ì „ê³µ : " + major);
+//		System.out.println("ë²ˆí˜¸ : " + phone); (ìƒìœ„ í´ë˜ìŠ¤ì—ì„œ ì¡´ì† ìƒíƒœ : Friend)
 
 	}
 	
@@ -36,9 +36,9 @@ public class UnivFriend extends Friend {
 	{
 
 		
-//		»óÀ§ Å¬·¡½º¿¡¼­ Á¸¼Ó »óÅÂ : Friend
+//		ìƒìœ„ í´ë˜ìŠ¤ì—ì„œ ì¡´ì† ìƒíƒœ : Friend
 //		return "name = " + name + "major = " + major + " phone = " + phone);
 		return super.toString() + "major = " + major;
-//		»óÀ§ Å¬·¡½ºÀÇ µ¥ÀÌÅÍ »ó¼Ó (Friend.toString)
+//		ìƒìœ„ í´ë˜ìŠ¤ì˜ ë°ì´í„° ìƒì† (Friend.toString)
 	}
 }

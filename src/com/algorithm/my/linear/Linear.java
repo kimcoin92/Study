@@ -2,45 +2,45 @@ package com.algorithm.my.linear;
 
 public class Linear
 {
-//	±â¿ï±â
+//	ê¸°ìš¸ê¸°
 	public double gradient;
 	
-//	yÀıÆí
+//	yì ˆí¸
 	public double yIntercept;
 	
-//	ÃÊ±âÈ­
+//	ì´ˆê¸°í™”
 	public Linear()
 	{
 		gradient   = 0;
 		yIntercept = 0;
 	}
 	
-//  ·ÎÁ÷ : ÀÏÂ÷ÇÔ¼ö (y = ax + b), ±â¿ï±â¿Í ÃàÀ» Áö³ª°¡´Â ÇÑ Á¡À» ¾Æ´Â »óÈ²
+//  ë¡œì§ : ì¼ì°¨í•¨ìˆ˜ (y = ax + b), ê¸°ìš¸ê¸°ì™€ ì¶•ì„ ì§€ë‚˜ê°€ëŠ” í•œ ì ì„ ì•„ëŠ” ìƒí™©
 	public Linear(Position value1, Position value2)
 	{
 		double gd  = 0;
 		double yic = 0;
 		
-		// gd(gradient) : °¢µµ °è»ê
+		// gd(gradient) : ê°ë„ ê³„ì‚°
 		gd         = (value2.y - value1.y) / (value2.x - value1.x);
 		
-		// yic(y-intercept) : yÀıÆí °è»ê
+		// yic(y-intercept) : yì ˆí¸ ê³„ì‚°
 		yic        = value1.y - (gd * value1.x);
 		
 		gradient   = gd;
 		yIntercept = yic;
 	}
 	
-// 	x°ªÀÌ ÁÖ¾îÁ³À»¶§ y°ªÀ» Ãâ·ÂÇÏ´Â ±â´É
+// 	xê°’ì´ ì£¼ì–´ì¡Œì„ë•Œ yê°’ì„ ì¶œë ¥í•˜ëŠ” ê¸°ëŠ¥
 	public double getValue(double x)
 	{
 		return gradient * x + yIntercept;
 	}
 	
-//	ÁÂÇ¥ µÎ ÁöÁ¡À» ¾Æ´Â »óÈ²
-//	xÀıÆí°ú yÀıÆíÀ» ¾Æ´Â »óÈ²
+//	ì¢Œí‘œ ë‘ ì§€ì ì„ ì•„ëŠ” ìƒí™©
+//	xì ˆí¸ê³¼ yì ˆí¸ì„ ì•„ëŠ” ìƒí™©
 	
-//	"y = ax + b" ÇüÅÂ·Î °ø½ÄÀ» Ãâ·Â
+//	"y = ax + b" í˜•íƒœë¡œ ê³µì‹ì„ ì¶œë ¥
 	public String printForm()
 	{
 		return "y = " + gradient + "x + " + yIntercept;

@@ -1,10 +1,10 @@
 package com.example.inheritance.teacher.friend;
 
 public class Friend {
-//	»ó¼Ó°ü°è
-//	ºÎ¸ğ : Friend
-//	ÀÚ½Ä : UnivFriend
-//	ÀÚ½Ä : CompFriend
+//	ìƒì†ê´€ê³„
+//	ë¶€ëª¨ : Friend
+//	ìì‹ : UnivFriend
+//	ìì‹ : CompFriend
 	
 	protected String name;
 	protected String phone;
@@ -32,8 +32,8 @@ public class Friend {
 	
 	public void print()
 	{
-		System.out.println("ÀÌ¸§ : " + name);
-		System.out.println("¹øÈ£ : " + phone);
+		System.out.println("ì´ë¦„ : " + name);
+		System.out.println("ë²ˆí˜¸ : " + phone);
 	}
 	
 	public String toString()

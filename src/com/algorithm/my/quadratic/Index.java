@@ -1,5 +1,5 @@
-// Quadratic Equation (ÀÌÂ÷ ¹æÁ¤½Ä)
-// ±ÙÀÇ °ø½ÄÀ» »ç¿ë
+// Quadratic Equation (ì´ì°¨ ë°©ì •ì‹)
+// ê·¼ì˜ ê³µì‹ì„ ì‚¬ìš©
 
 package com.algorithm.my.quadratic;
 

@@ -1,5 +1,5 @@
-// Å¥ (Queue)
-// ¼±ÀÔ¼±Ãâ (FIFO : First In First Out)ÀÇ µ¥ÀÌÅÍ ±¸Á¶
+// í (Queue)
+// ì„ ì…ì„ ì¶œ (FIFO : First In First Out)ì˜ ë°ì´í„° êµ¬ì¡°
 
 package com.algorithm.my.queue;
 
@@ -11,7 +11,7 @@ public class Index {
 		
 		Queue object = new Queue();
 		
-		System.out.println("ÃÊ±â»óÅÂ\n" + object.getPrint());
+		System.out.println("ì´ˆê¸°ìƒíƒœ\n" + object.getPrint());
 		
 		for (int i = 0; i < 5; i++)
 		{
@@ -20,14 +20,14 @@ public class Index {
 			idx++;
 		}
 		
-		System.out.println("5°³ »ğÀÔ\n" + object.getPrint());
+		System.out.println("5ê°œ ì‚½ì…\n" + object.getPrint());
 		
 		for (int j = 0; j < 4; j++)
 		{
 			object.dequeue();
 		}
 		
-		System.out.println("4°³ ÀÎÃâ (°ø¹é Çö»ó)\n" + object.getPrint());
+		System.out.println("4ê°œ ì¸ì¶œ (ê³µë°± í˜„ìƒ)\n" + object.getPrint());
 		
 		for (int i = 0; i < 5; i++)
 		{
@@ -36,14 +36,14 @@ public class Index {
 			idx++;
 		}
 		
-		System.out.println("5°³ »ğÀÔ\n" + object.getPrint());
+		System.out.println("5ê°œ ì‚½ì…\n" + object.getPrint());
 		
 		for (int j = 0; j < 4; j++)
 		{
 			object.dequeue();
 		}
 		
-		System.out.println("4°³ ÀÎÃâ\n" + object.getPrint());
+		System.out.println("4ê°œ ì¸ì¶œ\n" + object.getPrint());
 		
 		for (int i = 0; i < 5; i++)
 		{
@@ -52,7 +52,7 @@ public class Index {
 			idx++;
 		}
 		
-		System.out.println("5°³ »ğÀÔ\n" + object.getPrint());
+		System.out.println("5ê°œ ì‚½ì…\n" + object.getPrint());
 		
 		for (int i = 0; i < 5; i++)
 		{
@@ -61,20 +61,20 @@ public class Index {
 			idx++;
 		}
 		
-		System.out.println("5°³ »ğÀÔ (ÃÊ°ú »ğÀÔ)\n" + object.getPrint());
+		System.out.println("5ê°œ ì‚½ì… (ì´ˆê³¼ ì‚½ì…)\n" + object.getPrint());
 		
 		for (int j = 0; j < 4; j++)
 		{
 			object.dequeue();
 		}
 		
-		System.out.println("4°³ ÀÎÃâ\n" + object.getPrint());
+		System.out.println("4ê°œ ì¸ì¶œ\n" + object.getPrint());
 		
 		for (int j = 0; j < 6; j++)
 		{
 			object.dequeue();
 		}
 		
-		System.out.println("6°³ ÀÎÃâ (À§Ä¡ ÃÊ±âÈ­ Å×½ºÆ®)\n" + object.getPrint());
+		System.out.println("6ê°œ ì¸ì¶œ (ìœ„ì¹˜ ì´ˆê¸°í™” í…ŒìŠ¤íŠ¸)\n" + object.getPrint());
 	}
 }

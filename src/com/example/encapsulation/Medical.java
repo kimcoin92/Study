@@ -24,7 +24,7 @@ class FeverPill
 	}
 }
 
-// ĸ��ȭ
+// 캡슐화
 public class Medical
 {
 	private void InjectThroth()

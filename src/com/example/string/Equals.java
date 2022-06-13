@@ -1,4 +1,4 @@
-// StringÀÇ ÀÏ¹İ ÄÚµå¿Í ½´°¡ ÄÚµåÀÇ Â÷ÀÌÁ¡ ºñ±³
+// Stringì˜ ì¼ë°˜ ì½”ë“œì™€ ìŠˆê°€ ì½”ë“œì˜ ì°¨ì´ì  ë¹„êµ
 
 package com.example.string;
 
@@ -11,11 +11,11 @@ public class Equals {
 		
 		if(true == str1.equals(str2))
 		{
-			System.out.println("°°´Ù");
+			System.out.println("ê°™ë‹¤");
 		}
 		else
 		{
-			System.out.println("´Ù¸£´Ù");
+			System.out.println("ë‹¤ë¥´ë‹¤");
 		}
 		
 		String str3 = new String ("def");
@@ -23,11 +23,11 @@ public class Equals {
 		
 		if(true == str3.equals(str4))
 		{
-			System.out.println("°°´Ù");
+			System.out.println("ê°™ë‹¤");
 		}
 		else
 		{
-			System.out.println("´Ù¸£´Ù");
+			System.out.println("ë‹¤ë¥´ë‹¤");
 		}
 		
 		String str5 = new String ("ghi");
@@ -35,11 +35,11 @@ public class Equals {
 		
 		if(true == str5.equalsIgnoreCase(str6))
 		{
-			System.out.println("°°´Ù");
+			System.out.println("ê°™ë‹¤");
 		}
 		else
 		{
-			System.out.println("´Ù¸£´Ù");
+			System.out.println("ë‹¤ë¥´ë‹¤");
 		}
 
 	}

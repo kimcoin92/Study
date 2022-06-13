@@ -1,4 +1,4 @@
-// SubstringÀ¸·Î ¹®ÀÚ¿­ ÀÏºÎ¸¦ Ãß·Á³»±â
+// Substringìœ¼ë¡œ ë¬¸ìì—´ ì¼ë¶€ë¥¼ ì¶”ë ¤ë‚´ê¸°
 
 package com.example.string;
 

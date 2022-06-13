@@ -1,4 +1,4 @@
-// StringBuilderÀÇ Æ¯Â¡
+// StringBuilderì˜ íŠ¹ì§•
 
 package com.example.string;
 
@@ -13,15 +13,15 @@ public class Builder {
 		
 		     if(0 == comp)
 		{
-			System.out.println("µÎ ¹®ÀÚ¿­ÀÌ °°´Ù");
+			System.out.println("ë‘ ë¬¸ìì—´ì´ ê°™ë‹¤");
 		}
 		else if(0 <  comp)
 		{
-			System.out.println("»çÀü »ó ¾Õ¿¡ ÀÖ´Â °æ¿ì");
+			System.out.println("ì‚¬ì „ ìƒ ì•ì— ìˆëŠ” ê²½ìš°");
 		}
 		else if(0 >  comp)
 		{
-			System.out.println("»çÀü »ó µÚ¿¡ ÀÖ´Â °æ¿ì");
+			System.out.println("ì‚¬ì „ ìƒ ë’¤ì— ìˆëŠ” ê²½ìš°");
 		}
 		else
 		{

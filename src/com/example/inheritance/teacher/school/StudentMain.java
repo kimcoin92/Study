@@ -6,7 +6,7 @@ public class StudentMain {
 		
 		Student[] student = new Student[5];
 		
-		// ÁßÇĞ»ı ÀÎ½ºÅÏ½º¸¦ »ı¼º
+		// ì¤‘í•™ìƒ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ìƒì„±
 		student[0] = new MiddleStudent("1");
 		
 		student[0].setStudent("Kim", "19901010", "male", 1);
@@ -21,7 +21,7 @@ public class StudentMain {
 //		float avg;
 //		avg = student[0].getSubjectAverage("kor");
 //		
-//		System.out.printf("ÀüÇĞ±â ±¹¾î Æò±Õ = %.2f \n " ,avg);
+//		System.out.printf("ì „í•™ê¸° êµ­ì–´ í‰ê·  = %.2f \n " ,avg);
 
 	}
 

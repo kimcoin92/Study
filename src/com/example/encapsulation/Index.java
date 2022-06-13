@@ -8,7 +8,7 @@ public class Index
 		
 		cold.take();
 		
-//		ÄÚµå ÃÖÀûÈ­ ÀÌÀü
+//		ì½”ë“œ ìµœì í™” ì´ì „
 		
 //		SysMD_old patient1 = new SysMD_old();
 //		

@@ -4,9 +4,9 @@ public class Container {
 
 	public static final int MAX_CAPACITY = 100;
 	
-	private Node head;
-	private Node tail;
-	private int  count;
+//	private Node head;
+//	private Node tail;
+//	private int  count;
 	
 	public Container()
 	{

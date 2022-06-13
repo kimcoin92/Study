@@ -1,19 +1,19 @@
 package com.algorithm.my.linear;
 
-//	Å¬·¡½º¸í°ú »ı¼ºÀÚ ÀÌ¸§Àº °°¾Æ¾ßÇÑ´Ù
+//	í´ë˜ìŠ¤ëª…ê³¼ ìƒì„±ì ì´ë¦„ì€ ê°™ì•„ì•¼í•œë‹¤
 public class Position
 {
 	public double x;
 	public double y;
 	
-//	ÃÊ±âÈ­
+//	ì´ˆê¸°í™”
 	public Position()
 	{
 		x = 0;
 		y = 0;
 	}
 	
-//	¿À¹ö·Îµù
+//	ì˜¤ë²„ë¡œë”©
 	public Position(double _x, double _y)
 	{
 		x = _x;

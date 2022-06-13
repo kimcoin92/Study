@@ -15,13 +15,13 @@ public class Quadratic {
 	
 	public double getSolution(boolean bPlus)
 	{
-		double solution = 0; // 2Â÷ ¹æÁ¤½ÄÀÇ ±Ù
+		double solution = 0; // 2ì°¨ ë°©ì •ì‹ì˜ ê·¼
 		
 		double d = Math.pow(b, 2) - (4 * a * c);
 		
 		if(d < 0)
 		{
-			System.out.println("Çã±ÙÀÌ±â ¶§¹®¿¡ ¿¬»êÀ» Á¾·áÇÕ´Ï´Ù.");
+			System.out.println("í—ˆê·¼ì´ê¸° ë•Œë¬¸ì— ì—°ì‚°ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
 			return 0;
 		}
 		if(bPlus == true)

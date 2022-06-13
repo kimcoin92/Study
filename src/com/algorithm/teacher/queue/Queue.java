@@ -3,11 +3,11 @@ package com.algorithm.teacher.queue;
 public class Queue {
 	public static final int DEFAULT_SIZE = 5;
 	
-	private int[] frame;		// queueÀÇ ¹è¿­
-	private int size;			// queue frameÀÇ Å©±â
-	private int rear;			// enqueue¸¦ À§ÇÑ À§Ä¡Á¤º¸
-	private int front;			// dequeue¸¦ À§ÇÑ À§Ä¡Á¤º¸
-	private int count;			// queue¿¡ µé¾îÀÖ´Â data count
+	private int[] frame;		// queueì˜ ë°°ì—´
+	private int size;			// queue frameì˜ í¬ê¸°
+	private int rear;			// enqueueë¥¼ ìœ„í•œ ìœ„ì¹˜ì •ë³´
+	private int front;			// dequeueë¥¼ ìœ„í•œ ìœ„ì¹˜ì •ë³´
+	private int count;			// queueì— ë“¤ì–´ìˆëŠ” data count
 	
 	public Queue()
 	{
@@ -65,7 +65,7 @@ public class Queue {
 		if (isFull())
 			return false;
 		
-		//µ¥ÀÌÅÍ¸¦ ³Ö¾îÁØ´Ù.
+		//ë°ì´í„°ë¥¼ ë„£ì–´ì¤€ë‹¤.
 		rear = rear % size;
 		frame[rear] = _data;
 		
@@ -106,7 +106,7 @@ public class Queue {
 	
 	public String toString()
 	{
-		// ÃßÈÄ¿¡ queueÀÇ ³»¿ëÀ» ´ıÇÁÇÏ´Â ¹®ÀÚ¿­·Î ±³Ã¼.
+		// ì¶”í›„ì— queueì˜ ë‚´ìš©ì„ ë¤í”„í•˜ëŠ” ë¬¸ìì—´ë¡œ êµì²´.
 		return getClass().getName();
 	}
 	
