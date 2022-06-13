@@ -3,8 +3,6 @@ package com.algorithm.my.stack;
 //import java.util.Arrays;
 
 public class Stack {
-
-//	"�� ������ ���� �ٽ� ����� ����"
 	
 //	private boolean isEmpty() {
 //		if (count <= 0) {

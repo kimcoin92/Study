@@ -1,5 +1,5 @@
-// ½ºÅÃ (Stack)
-// ¼±ÀÔÈÄÃâ (FILO : First In Last Out)ÀÇ µ¥ÀÌÅÍ ±¸Á¶
+// ìŠ¤íƒ (Stack)
+// ì„ ì…í›„ì¶œ (FILO : First In Last Out)ì˜ ë°ì´í„° êµ¬ì¡°
 
 package com.algorithm.my.stack;
 
