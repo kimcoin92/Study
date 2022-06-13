@@ -1,10 +1,10 @@
 package com.algorithm.my.stack;
 
-import java.util.Arrays;
+//import java.util.Arrays;
 
 public class Stack {
 
-//	"³» ¼ÕÀ¸·Î Á÷Á¢ ´Ù½Ã ¸¸µé°í ¸¸´Ù"
+//	"ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"
 	
 //	private boolean isEmpty() {
 //		if (count <= 0) {

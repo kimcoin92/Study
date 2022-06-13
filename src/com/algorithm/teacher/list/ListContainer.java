@@ -2,7 +2,45 @@ package com.algorithm.teacher.list;
 
 public class ListContainer {
 	
+	public static final int MAX_COUNT = 10;
+	protected Node head;
+	protected int  count;
+	
+	// 마지막 노드를 찾아온다.
+	public Node getLastNode()
+	  {
+			Node lastNode = head;
+			
+			for (int i = 0; i < count - 1; i++)
+	    {
+				lastNode = lastNode.getNext();
+			}
+			return lastNode;
+		}
+	
 	// 노드를 추가한다.
+	public boolean insertNode()
+	{
+		Node lastNode = null;
+	    Node newNode = new Node();
+	
+	    if(count >= MAX_COUNT)
+	      
+	    	return false;
+	    
+	    if(head == null)
+	    	
+	    	head = newNode;
+	    
+	    lastNode = getLastNode();
+	    lastNode.setNext(newNode);
+	    
+	    count++;
+	    
+	    return true;
+	    
+	}
+	
 	public boolean insertNode(Node newNode)
 	{
 		return true;
