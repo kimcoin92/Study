@@ -124,7 +124,7 @@ class High extends Student
 			
 		break;
 		
-		case "±¹¾î" :
+		case "êµ­ì–´" :
 			
 			for(int i = 0; i < score.length; i++)
 			{
@@ -135,7 +135,7 @@ class High extends Student
 			
 		break;
 		
-		case "¿µ¾î" :
+		case "ì˜ì–´" :
 			
 			for(int i = 0; i < score.length; i++)
 			{
@@ -146,7 +146,7 @@ class High extends Student
 			
 		break;
 		
-		case "¼öÇÐ" :
+		case "ìˆ˜í•™" :
 			
 			for(int i = 0; i < score.length; i++)
 			{
@@ -157,7 +157,7 @@ class High extends Student
 			
 		break;
 		
-		case "°úÇÐ" :
+		case "ê³¼í•™" :
 			
 			for(int i = 0; i < score.length; i++)
 			{
@@ -168,7 +168,7 @@ class High extends Student
 			
 		break;
 		
-		case "»çÈ¸" :
+		case "ì‚¬íšŒ" :
 			
 			for(int i = 0; i < score.length; i++)
 			{
@@ -179,7 +179,7 @@ class High extends Student
 			
 		break;
 		
-		case "¿ª»ç" :
+		case "ì—­ì‚¬" :
 			
 			for(int i = 0; i < score.length; i++)
 			{

@@ -126,7 +126,7 @@ class Middle extends Student
 			
 		break;
 		
-		case "±¹¾î" :
+		case "ï¿½ï¿½ï¿½ï¿½" :
 			
 			for(int i = 0; i < score.length; i++)
 			{
@@ -137,7 +137,18 @@ class Middle extends Student
 			
 		break;
 		
-		case "¿µ¾î" :
+		case "êµ­ì–´" :
+			
+			for(int i = 0; i < score.length; i++)
+			{
+				result += score[i][0];
+			}
+			
+			result = result / score.length;
+			
+		break;
+		
+		case "ì˜ì–´" :
 			
 			for(int i = 0; i < score.length; i++)
 			{
@@ -148,7 +159,7 @@ class Middle extends Student
 			
 		break;
 		
-		case "¼öÇÐ" :
+		case "ìˆ˜í•™" :
 			
 			for(int i = 0; i < score.length; i++)
 			{
@@ -159,7 +170,7 @@ class Middle extends Student
 			
 		break;
 		
-		case "°úÇÐ" :
+		case "ê³¼í•™" :
 			
 			for(int i = 0; i < score.length; i++)
 			{
@@ -169,6 +180,7 @@ class Middle extends Student
 			result = result / score.length;
 			
 		break;
+		
 		}
 		
 		return result;
