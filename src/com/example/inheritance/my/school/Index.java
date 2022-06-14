@@ -32,6 +32,6 @@ public class Index
 		
 		mstu.setScore(mstuScore);
 		
-		System.out.println(mstu.getAverage("과학"));
+		System.out.println(mstu.getAveragebySubject("과학"));
 	}
 }

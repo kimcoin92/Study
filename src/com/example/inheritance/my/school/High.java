@@ -2,9 +2,9 @@ package com.example.inheritance.my.school;
 
 class High extends Student
 {
-	private String  grade;
-	private String  clss;
-	private int[][] score;
+	protected String  grade;
+	protected String  clss;
+	protected int[][] score;
 	
 	public High()
 	{
@@ -51,12 +51,12 @@ class High extends Student
 		score = _score;
 	}
 	
-	public int getAverage(String which)
+	public int getAveragebySeason(String _season)
 	{
 		
 		int result = 0;
 		
-		switch(which)
+		switch(_season)
 		{
 		case "1-1" :
 			
@@ -124,17 +124,23 @@ class High extends Student
 			
 		break;
 		
-		case "국어" :
+		default :
 			
-			for(int i = 0; i < score.length; i++)
-			{
-				result += score[i][0];
-			}
-			
-			result = result / score.length;
+			result = ERROR_INVAILD;
 			
 		break;
+		}
 		
+		return result;
+	}
+	
+	public int getAveragebySubject(String _subject)
+	{
+		
+		int result = 0;
+		
+		switch(_subject)
+		{
 		case "영어" :
 			
 			for(int i = 0; i < score.length; i++)

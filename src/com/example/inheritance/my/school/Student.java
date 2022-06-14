@@ -4,9 +4,9 @@ class Student
 {
 	public static final int ERROR_INVAILD = -1;
 	
-	private String name;
-	private String birth;
-	private String gender;
+	protected String name;
+	protected String birth;
+	protected String gender;
 	
 	public Student()
 	{

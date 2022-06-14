@@ -1,6 +1,6 @@
 // 자판기 비유를 통한 interface 기능 예시
 
-package com.example.intrface.vending;
+package com.example.intrface.teacher.vending;
 
 interface Orderable
 {

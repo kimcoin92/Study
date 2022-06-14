@@ -1,15 +1,15 @@
 package com.algorithm.my.list;
 
-public class Memory
+public class NodeData
 {
 	private String element;
 	
-	public Memory()
+	public NodeData()
 	{
 		
 	}
 	
-	public Memory(String _element)
+	public NodeData(String _element)
 	{
 		this.element = _element;
 	}

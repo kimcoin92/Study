@@ -2,7 +2,7 @@ package com.algorithm.my.list;
 
 public class Node
 {
-	private Memory element;
+	private NodeData element;
 	private Node next;
 	private Node prev;
 	
@@ -11,17 +11,17 @@ public class Node
 		
 	}
 	
-	public Node(Memory _element)
+	public Node(NodeData _element)
 	{
 		this.element = _element;
 	}
 	
-	public Memory getElement()
+	public NodeData getElement()
 	{
 		return element;
 	}
 
-	public void setElement(Memory element)
+	public void setElement(NodeData element)
 	{
 		this.element = element;
 	}
