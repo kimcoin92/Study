@@ -1,78 +1,15 @@
-/**
- *  ● Linkedlist Description
- * 
- *	● 리스트의 표면적 정의 (List)
- *	- 데이터를 분산하여 배치한다.
- *	- 리스트 종류로는 Array-list, Single Linked-list, Double Linked-list가 있다.
- *
- *	● 배열과 리스트 특징
- *	
- *	1. 배열
- *	-  데이터의 입출력이 비가변적이다.
- *  -  구조가 연속적이다.
- *	
- *	2. 리스트
- *	-  데이터의 입출력이 가변적이다.
- *  -  구조가 비연속적이다.
- *  
- *  #가변성 : <내용상세 보충예정>
- *  #연속성 : <내용상세 보충예정>
- *
- *	● 배열의 단점
- *  - 비가변성의 문제 : <내용상세 보충예정>
- *  - 연속성의 문제 : <내용상세 보충예정>
- *	
- *  ● 리스트의 단점
- *	- 가변성의 문제 : <내용상세 보충예정>
- *  - 비연속성의 문제 : <내용상세 보충예정>
- *  
- *  ● 리스트 전반 설명
- *  - 참조변수 : heap에 할당된 메모리의 레퍼런스 값을 저장하는 변수
- *  - 레퍼런스값 : heap에 할당된 메모리의 시작정보
- *  - 이러한 참조변수를 링크라고 칭한다.
- *  
- *  #링크 : 떨어져있는 노드를 연결하기 위한 연결정보
- *
- *  ● 리스트의 단점의 보완법
- *  - 데이터마다 같은 유형의 공간을 할당하여 서로의 위치를 저장한다.
- *  - 임의로 결정된 순서로 각 데이터의 레퍼런스값을 참조변수에 저장한다.
- *  - 노드 참조변수 link와 노드 데이터를 참조하는 참조변수 data로 레퍼런스값을 저장한다.
- *  
- *  #노드 : 리스트를 구성하고 있는 기초적인 작은 단위이다.
- *  
- *  ● 노드의 역할
- *  - 데이터와 옆의 노드를 연결할 링크에 대한 정보로 서로 연결한다.
- *  - 다수의 데이터를 저장하기 위해서는 노드 자체에 대한 생성, 연결, 삭제하는 컨테이너 기능이 필요하다.
- *  
- *  #컨테이너 : 다수의 리스트를 만들수 있도록 리스트를 관리하는 프레임 구성
- *  
- *  ● 리스트의 구성
- *  - header가 첫 노드의 레퍼런스값을 저장한다.
- *  - 다음 노드의 next가 그 앞의 레퍼런스값을 저장하는 연결 구조 상태이다.
- *  - 다음 노드가 없는 마지막 노드의 링크(next)는 null이며, 가장 마지막 노드의 데이터 영역(data)에 데이터값(value)이 저장된다.
- * 
- *  ● 노드 삭제의 원리
- *  - 지우는 노드의 시작정보는 그 이전 노드가 가지고 있다.
- *  - 이전 노드의 시작정보를 지우는 노드의 앞 노드와 연결시킨다.
- *  - 앞 노드와의 연결은 지우는 노드의 앞 노드의 시작정보를 이전 노드에게 전달하여 연결시킨다.
- *  - 연결 정보지우는 노드와 데이터는 이전 노드와의 연결이 끊겨 Garbage Collector에게 정리된다.
- * 
- */
-
 package com.algorithm.my.list;
-
-import com.algorithm.teacher.list.Node;
-import com.algorithm.teacher.list.NodeData;
 
 public class ListContainer {
 	
-	private Node header;
+	public static final int NO_DATA_FOUND = -1;
+	
+	private Node head;
 	private int  count;
 	
-	// 마지막 노드를 가져온다.
 	public Node getLastNode()
 	  {
-			Node lastNode = header;
+			Node lastNode = head;
 			
 			for (int i = 0; i < count - 1; i++)
 			{
@@ -81,15 +18,14 @@ public class ListContainer {
 			return lastNode;
 		}
 	
-	// 노드를 추가한다.
 	public boolean insertNode()
 	{
 		Node lastNode = null;
 	    Node newNode = new Node();
 	    
-	    if(header == null)
+	    if(head == null)
 	    	
-	    	header = newNode;
+	    	head = newNode;
 	    
 	    lastNode = getLastNode();
 	    lastNode.setNext(newNode);
@@ -104,9 +40,9 @@ public class ListContainer {
 		Node lastNode = null;
 	    Node newNode = _newNode;
 	    
-	    if(header == null)
+	    if(head == null)
 	    	
-	    	header = newNode;
+	    	head = newNode;
 	    
 	    lastNode = getLastNode();
 	    lastNode.setNext(newNode);
@@ -121,9 +57,9 @@ public class ListContainer {
 		Node lastNode = null;
 	    Node newNode = new Node(_value1, _value2);
 	    
-	    if(header == null)
+	    if(head == null)
 	    	
-	    	header = newNode;
+	    	head = newNode;
 	    
 	    lastNode = getLastNode();
 	    lastNode.setNext(newNode);
@@ -133,116 +69,83 @@ public class ListContainer {
 	    return true;
 	}
 	
-//	deleteNodebyIndex(4)
-	
-//            0.(25)   1.(29)   2.(30)   3.(31)   4.(30)   5.(31)  <= address
-//	******** ******** ******** ******** ******** ******** ********
-//  *      * * data * * data * * data * * data * * data * * data *
-//	*header* ******** ******** ******** ******** ******** ********
-//  *0.(25)* *1.(27)* *2.(28)* *3.(29)* *4.(30)* *5.(21)* * null * <= next
-//	******** ******** ******** ******** ******** ******** ********
-//	   //
-//	********
-//	*      * 
-//	*target*
-//	*      *
-//	********
-//	   //
-//	********
-//	*      * 
-//	* prev *
-//	*      *
-//	********
-	
-//            0.(25)   1.(29)   2.(30)   3.(31)   4.(30)   5.(31)  <= address
-//  ******** ******** ******** ******** ******** ******** ********
-//  *      * * data * * data * * data * * data * * data * * data *
-//  *header* ******** ******** ******** ******** ******** ********
-//  *0.(25)* *1.(27)* *2.(28)* *3.(29)* *4.(30)* *5.(31)* * null * <= next
-//  ******** ******** ******** ******** ******** ******** ********
-//	   //           "target.getNext() to index - 1"
-//     //                      ********
-//     //                      *      * 
-//     //                      *target*
-//     //                      *      *
-//     //                      ********
-//	   //
-//	********
-//	*      * 
-//	* prev *
-//	*      *
-//	********
-	
-//            0.(25)   1.(29)   2.(30)   3.(31)   4.(30)   5.(31)  <= address
-//  ******** ******** ******** ******** ******** ******** ********
-//  *      * * data * * data * * data * * data * * data * * data *
-//  *header* ******** ******** ******** ******** ******** ********
-//  *0.(25)* *1.(27)* *2.(28)* *3.(29)* *4.(30)* *5.(21)* * null * <= next
-//  ******** ******** ******** ******** ******** ******** ********
-//                                //
-//                             ********
-//                             *      * 
-//                             *target*
-//                             *      *
-//                             ********
-//                  "prev.setNext(target.getNext())"
-//                             ********
-//                             *      * 
-//                             * prev *
-//                             *4.(30)*
-//                             ********
-	
-//            0.(25)   1.(29)   2.(30)   4.(30)   5.(31)  <= address
-//  ******** ******** ******** ******** ******** ********
-//  *      * * data * * data * * data * * data * * data *
-//  *header* ******** ******** ******** ******** ********
-//  *0.(25)* *1.(27)* *2.(28)* *3.(29)* *5.(21)* * null * <= next
-//  ******** ******** ******** ******** ******** ********
-//                                //
-//                             ********
-//                             *      * 
-//                             *target*
-//                             *      *
-//                             ********
-//
-//                             ********
-//                             *      * 
-//                             * prev *
-//                             *4.(30)*
-//                             ********
-	
-	
-	
-	// 특정 인덱스를 찾아 노드를 지운다.
-	public boolean deleteNodebyIndex(int index)
+	public boolean deleteNodebyIndex(int _index)
 	{
-		Node target = header;
-		Node prev   = header;
+		Node target = head;
+		Node prev   = null;
 		
-		for (int i = 0; i < index - 1; i++)
+		if (0 == count)
 		{
+			return false;
+		}
+		
+		if ((count <= _index) || (_index < 0))
+		{
+			return false;
+		}
+			
+		for (int i = 0; i < _index; i++)
+		{
+			prev   = target;
 			target = target.getNext();
 		}
 		
-		prev.setNext(target.getNext());
-		
-		target = null;
-		
+		if (prev == null)
+		{
+			head = target.getNext();
+		}
+		else
+		{
+			prev.setNext(target.getNext());
+		}
+			
 		count--;
 		
 	    return true;
 	}
 	
-	// Int 값을 찾아서 해당 노드를 리턴한다.
+	// Int 값을 찾아서 해당 노드 위치를 리턴한다.
 	public int findNode(int value)
 	{
-		return value;
+		int index = -1;
+		
+		Node target = head;
+		NodeData data = null;
+		
+		
+		while (value != data.getValue1())
+		{
+			target = target.getNext();
+			
+			index++;
+
+		}
+		
+		return index;
 	}
 	
-	// String 값을 찾아서 해당 노드를 리턴한다.
+	// String 값을 찾아서 노드 위치를 리턴한다.
 	public int findNode(String value)
 	{
-		return 0;
+		int index = -1;
+		
+		Node target = head;
+		
+		while (value != target.getData().getValue2())
+			// getData에 null값이 들어가면 예외 발생
+			// 위의 구조는 문제점 발생의 소지가 있다.
+		{
+			target = target.getNext();
+			
+			index++;
+			
+			if (target == null)
+			{
+				return NO_DATA_FOUND;
+			}
+		}
+		
+		return index;
 	}
 	
 	// 노드 데이터를 리턴한다.
@@ -260,6 +163,27 @@ public class ListContainer {
 	// 모든 노드를 출력.
 	public void printAll()
 	{
+		Node target = head;
+		NodeData data = null;
 		
+		for (int i = 0; i < count; i++)
+		{
+			data = target.getData();
+			
+			System.out.println("index = " + i);
+			
+			if (null == data)
+			{
+				System.out.println("null");
+			}
+			else
+			{
+				System.out.println("index = " + i);
+				System.out.printf("%d, %s\n", data.getValue1(), data.getValue2());
+			}
+			System.out.println("----------------------------");
+			
+			target = target.getNext();
+		}
 	}
 }

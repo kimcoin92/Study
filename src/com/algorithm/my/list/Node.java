@@ -1,50 +1,55 @@
 package com.algorithm.my.list;
 
 public class Node
-{
-	private NodeData element;
+  {
+	private NodeData data;
 	private Node next;
-	private Node prev;
-	
-	public Node()
-	{
-		
-	}
-	
-	public Node(NodeData _element)
-	{
-		this.element = _element;
-	}
-	
-	public NodeData getElement()
-	{
-		return element;
-	}
 
-	public void setElement(NodeData element)
-	{
-		this.element = element;
-	}
+    public Node()
+    {
+      data = null;
+      next = null;
+    }
 
-	public Node getNext()
-	{
-		return next;
-	}
+    public Node(NodeData _data)
+    {
+      data = _data;
+      next = null;
+    }
 
-	public void setNext(Node next)
-	{
-		this.next = next;
-	}
+    public Node(int _value1, String _value2)
+    {
+      data = new NodeData(_value1, _value2);
+      next = null;
+    }
 
-	public Node getPrev()
-	{
-		return prev;
-	}
+    public NodeData getData()
+    {
+      return data;
+    }
 
-	public void setPrev(Node prev)
-	{
-		this.prev = prev;
-	}
+    public void setData(NodeData _data)
+    {
+      data = _data;
+    }
 
+    public void setData(int _value1, String _value2)
+    {
+      if(data == null)
+        
+        data = new NodeData(_value1, _value2);
+      
+      data.setValue1(_value1);
+      data.setValue2(_value2);
+    }
 
-}
+    public Node getNext()
+    {
+      return next;
+    }
+    
+    public void setNext(Node _next)
+    {
+      next = _next;
+    }
+  }
