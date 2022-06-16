@@ -1,5 +1,8 @@
 package com.algorithm.my.singlylink;
 
+import com.algorithm.teacher.singlylist.Node;
+import com.algorithm.teacher.singlylist.NodeData;
+
 public class ListContainer {
 	
 	public static final int NEGATIVE = -1;
@@ -105,28 +108,45 @@ public class ListContainer {
 	}
 	
 	// Int 값을 찾아서 해당 노드 위치를 리턴한다.
-	public int findNode(int _value)
+	public int[] findNode(int _value)
 	{
-		int index = NEGATIVE;
-		Node target = head;
+		Node target   = head;
 		NodeData data = null;
+		int[] result  = null;
+		int arcount   = 0;
+		int aridx     = 0;
 		
 		for (int i = 0; i < count; i++)
 		{
 			data = target.getData();
 			
-			if (target != null)
+			if (_value == data.getvalue1())
 			{
-				if (_value != data.getValue1())
+				arcount++;
+			}
+			target = target.getNext();
+		}
+		
+		result = new int[arcount];
+		
+		target = head;
+		
+		for (int k = 0; k < count; k++)
+		{
+			data = target.getData();
+				
+			if (null != data)
+			{
+				if (_value == data.getvalue1())
 				{
-					index = i;
+					result[aridx] = k;
 					
-					break;
+					aridx++;
 				}
 			}
 			target = target.getNext();
 		}
-		return index;
+		return result;
 	}
 	
 	// String 값을 찾아서 노드 위치를 리턴한다.
@@ -142,7 +162,7 @@ public class ListContainer {
 			
 			if (target != null)
 			{
-				if (_value != data.getValue2())
+				if (_value != data.getvalue2())
 				{
 					index = i;
 					
@@ -160,18 +180,19 @@ public class ListContainer {
 		Node target = head;
 		NodeData data = null;
 		
-		for (int i = 0; i < count; i++)
+		if (count <= index)
 		{
-			data = target.getData();
-			
-			if (index != i)
-			{
-				index = i;
-				
-				break;
-			}
-			target = target.getNext();
+			target = getLastNode();
 		}
+		else
+		{
+			for (int i = 0; i < index; i++)
+			{
+				target = target.getNext();
+			}
+		}
+		data = target.getData();
+		
 		return data;
 	}
 	
@@ -200,7 +221,7 @@ public class ListContainer {
 			else
 			{
 				System.out.println("index = " + i);
-				System.out.printf("%d, %s\n", data.getValue1(), data.getValue2());
+				System.out.printf("%d, %s\n", data.getvalue1(), data.getvalue2());
 			}
 			System.out.println("----------------------------");
 			

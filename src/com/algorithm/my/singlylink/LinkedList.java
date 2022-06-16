@@ -106,11 +106,11 @@ public class LinkedList {
 		list1.insertNode(5, "e");
 		
 		// 인덱스 위치의 노드를 삭제
-//		list1.deleteNodebyIndex(0);
+		list1.deleteNodebyIndex(0);
 		
-		 System.out.println(list1.getNodeData(1));
+		System.out.println(list1.getNodeData(1));
 		
-//		list1.printAll();
+		list1.printAll();
 	}
 	
 }
