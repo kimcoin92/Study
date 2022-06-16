@@ -89,7 +89,7 @@
  *  - 모든 노드를 출력한다.
  */
 
-package com.algorithm.teacher.list;
+package com.algorithm.teacher.singlylist;
 
 public class Node
   {

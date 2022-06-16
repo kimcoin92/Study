@@ -1,5 +1,4 @@
-/** 
- *  상세 (Description)
+/** 상세 (Description)
  * 
  *  ● 자료구조 (Data Structure) - 단일 연결 리스트 (Singly Linked List)
  *  
@@ -89,48 +88,29 @@
  *  - 모든 노드를 출력한다.
  */
 
-package com.algorithm.teacher.list;
+package com.algorithm.my.singlylink;
 
-public class NodeData {
+public class LinkedList {
+
+	public static void main(String[] args) {
+
+		ListContainer list1 = new ListContainer();
+		
+		// 새로운 노드를 추가
+		
+		// 외부해서 노드와 참조 값을 입력
+		list1.insertNode(1, "a");
+		list1.insertNode(2, "b");
+		list1.insertNode(3, "c");
+		list1.insertNode(4, "d");
+		list1.insertNode(5, "e");
+		
+		// 인덱스 위치의 노드를 삭제
+//		list1.deleteNodebyIndex(0);
+		
+		 System.out.println(list1.getNodeData(1));
+		
+//		list1.printAll();
+	}
 	
-	private int    value1;
-	private String value2;
-	
-	public NodeData()
-	{
-		value1 = 0;
-		value2 = "";
-	}
-	
-	public NodeData(int _value1, String _value2)
-	{
-		this.value1 = _value1;
-		this.value2 = _value2;
-	}
-	
-	public void setNodeData(int _value1, String _value2)
-	{
-		this.value1 = _value1;
-		this.value2 = _value2;
-	}
-
-	public int getValue1()
-	{
-		return value1;
-	}
-
-	public void setValue1(int _value1)
-	{
-		this.value1 = _value1;
-	}
-
-	public String getValue2()
-	{
-		return value2;
-	}
-
-	public void setValue2(String _value2)
-	{
-		this.value2 = _value2;
-	}
 }

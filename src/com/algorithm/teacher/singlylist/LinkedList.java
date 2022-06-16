@@ -1,4 +1,4 @@
-package com.algorithm.teacher.list;
+package com.algorithm.teacher.singlylist;
 
 public class LinkedList {
 

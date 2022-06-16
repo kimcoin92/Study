@@ -1,16 +1,15 @@
-package com.algorithm.teacher.list;
-
-import com.algorithm.my.list.Node;
-import com.algorithm.my.list.NodeData;
+package com.algorithm.my.singlylink;
 
 public class ListContainer {
 	
-	private Node header;
+	public static final int NEGATIVE = -1;
+	
+	private Node head;
 	private int  count;
 	
 	public Node getLastNode()
 	  {
-			Node lastNode = header;
+			Node lastNode = head;
 			
 			for (int i = 0; i < count - 1; i++)
 			{
@@ -24,9 +23,9 @@ public class ListContainer {
 		Node lastNode = null;
 	    Node newNode = new Node();
 	    
-	    if(header == null)
+	    if(head == null)
 	    	
-	    	header = newNode;
+	    	head = newNode;
 	    
 	    lastNode = getLastNode();
 	    lastNode.setNext(newNode);
@@ -41,9 +40,9 @@ public class ListContainer {
 		Node lastNode = null;
 	    Node newNode = _newNode;
 	    
-	    if(header == null)
+	    if(head == null)
 	    	
-	    	header = newNode;
+	    	head = newNode;
 	    
 	    lastNode = getLastNode();
 	    lastNode.setNext(newNode);
@@ -58,9 +57,9 @@ public class ListContainer {
 		Node lastNode = null;
 	    Node newNode = new Node(_value1, _value2);
 	    
-	    if(header == null)
+	    if(head == null)
 	    	
-	    	header = newNode;
+	    	head = newNode;
 	    
 	    lastNode = getLastNode();
 	    lastNode.setNext(newNode);
@@ -70,104 +69,110 @@ public class ListContainer {
 	    return true;
 	}
 	
-	public boolean deleteNodebyIndex(int index)
+	public boolean deleteNodebyIndex(int _index)
 	{
-		Node target = header;
-		Node before = null;
+		Node target = head;
+		Node prev   = null;
 		
-		// count의 유효성을 검사
-		if (count == 0)
+		if (0 == count)
 		{
 			return false;
 		}
 		
-		// index의 유효성을 검사
-		if ((count <= index) || (index < 0))
+		if ((count <= _index) || (_index < 0))
 		{
 			return false;
 		}
-		
-		for (int i = 0; i < index; i++)
+			
+		for (int i = 0; i < _index; i++)
 		{
-			before = target;
-		    target = target.getNext();
+			prev   = target;
+			target = target.getNext();
 		}
 		
-		// 0번째 인덱스를 지운다.
-		if (before == null)
+		if (prev == null)
 		{
-			header = target.getNext();
+			head = target.getNext();
 		}
 		else
 		{
-			before.setNext(target.getNext());
+			prev.setNext(target.getNext());
 		}
-		
+			
 		count--;
 		
 	    return true;
 	}
 	
-	// Int 값을 찾아서 해당 노드 위치 리턴한다.
-	public int findNode(int value)
+	// Int 값을 찾아서 해당 노드 위치를 리턴한다.
+	public int findNode(int _value)
 	{
-		// 노드를 헤더부터 마지막 노드까지 순회하면서
-		// 만약 value를 찾는다면 그 노드의 인덱스를 리턴한다.
-		
-		Node target = header;
+		int index = NEGATIVE;
+		Node target = head;
 		NodeData data = null;
-		int result = -1;
 		
 		for (int i = 0; i < count; i++)
 		{
 			data = target.getData();
 			
-			if(null != data)
+			if (target != null)
 			{
-				if (value != data.getValue1())
+				if (_value != data.getValue1())
 				{
-					result = i;
+					index = i;
 					
 					break;
 				}
 			}
 			target = target.getNext();
 		}
-		
-		return result;
+		return index;
 	}
 	
-	// String 값을 찾아서 해당 노드 위치 리턴한다.
-	public int findNode(String value)
+	// String 값을 찾아서 노드 위치를 리턴한다.
+	public int findNode(String _value)
 	{
-		Node target = header;
+		int index = NEGATIVE;
+		Node target = head;
 		NodeData data = null;
-		
-		int result = -1;
 		
 		for (int i = 0; i < count; i++)
 		{
-			if(null != data)
+			data = target.getData();
+			
+			if (target != null)
 			{
-				if (value != data.getValue2())
+				if (_value != data.getValue2())
 				{
-					result = i;
+					index = i;
 					
 					break;
 				}
 			}
 			target = target.getNext();
 		}
-		
-		return 0;
+		return index;
 	}
 	
 	// 노드 데이터를 리턴한다.
 	public NodeData getNodeData(int index)
 	{
+		Node target = head;
+		NodeData data = null;
 		
-		
-		return null;
+		for (int i = 0; i < count; i++)
+		{
+			data = target.getData();
+			
+			if (index != i)
+			{
+				index = i;
+				
+				break;
+			}
+			target = target.getNext();
+		}
+		return data;
 	}
 	
 	// 노드 개수를 리턴한다.
@@ -176,17 +181,17 @@ public class ListContainer {
 		return count;
 	}
 	
-	// 모든 노드를 출력.
+	// 모든 노드를 출력한다.
 	public void printAll()
 	{
-		Node target = header;
+		Node target = head;
 		NodeData data = null;
+		
+		System.out.println("----------------------------");
 		
 		for (int i = 0; i < count; i++)
 		{
 			data = target.getData();
-			
-			System.out.println("index = " + i);
 			
 			if (null == data)
 			{

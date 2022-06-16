@@ -15,8 +15,10 @@ public class DividesOn3
 		{
 			try
 			{
+				System.out.println("숫자를 입력하세요.");
 				a = kbScan.nextInt();
 				System.out.println("a = " + a);
+				System.out.println("숫자를 입력하세요.");
 				b = kbScan.nextInt();
 				System.out.println("b = " + b);
 				c = a / b;
@@ -45,13 +47,16 @@ public class DividesOn3
 			{
 				i--;
 				
-				kbScan.nextLine(); // kbScan buffer flush.
-				// "남아있는 데이터를 다 가져와라."
+				System.out.println("숫자가 아닙니다!");
 				
-				System.out.println("숫자가 아닙니다! 다시 시도해주세요.");
+				kbScan.nextLine();
+
+				// kbScan buffer flush.
+				// "남아있는 데이터를 다 가져와라."
 				
 				continue;
 			}
+			break;
 		}
 		
 		kbScan.close();
