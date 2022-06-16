@@ -1,6 +1,5 @@
 package com.example.teacher.exception;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class excep2 {
@@ -17,6 +16,8 @@ public class excep2 {
 		
 		// b가 0일 경우 java.lang.ArithmedicException 발생
 		c = a / b;
+		
+		kbScan.close();
 		
 		System.out.println("c = " + c);
 	}
