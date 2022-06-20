@@ -1,6 +1,6 @@
 package com.example.teacher.exception;
 
-public class excep6 {
+public class ArrOutBounds {
 	
 	public static void main(String[] args)
 	{

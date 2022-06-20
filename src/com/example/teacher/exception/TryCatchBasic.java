@@ -3,7 +3,7 @@ package com.example.teacher.exception;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class excep {
+public class TryCatchBasic {
 	
 	public static void main(String[] args)
 	{

@@ -2,7 +2,7 @@ package com.example.teacher.exception;
 
 import java.util.Scanner;
 
-public class excep5 {
+public class ThrowableBasic {
 	
 	@SuppressWarnings("unused")
 	public static void main(String[] args)

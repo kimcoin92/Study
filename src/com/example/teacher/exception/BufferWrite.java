@@ -6,7 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class excep8
+public class BufferWrite
 {
 	public static void func2() throws IOException // throws : 나를 호출한 메서드에게 이 예외를 보낼꺼야.
 	{

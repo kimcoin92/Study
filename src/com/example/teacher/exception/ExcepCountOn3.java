@@ -2,7 +2,7 @@ package com.example.teacher.exception;
 
 import java.util.Scanner;
 
-public class excep3 {
+public class ExcepCountOn3 {
 	
 	public static void main(String[] args)
 	{

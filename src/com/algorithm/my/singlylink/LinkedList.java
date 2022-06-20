@@ -100,17 +100,65 @@ public class LinkedList {
 		
 		// 외부해서 노드와 참조 값을 입력
 		list1.insertNode(1, "a");
-		list1.insertNode(2, "b");
-		list1.insertNode(3, "c");
-		list1.insertNode(4, "d");
-		list1.insertNode(5, "e");
+		list1.insertNode(1, "b");
+		list1.insertNode(2, "c");
+		list1.insertNode(1, "d");
+		list1.insertNode(3, "e");
+		list1.insertNode(7, "d");
+		list1.insertNode(9, "e");
+		list1.insertNode(1, "c");
+		list1.insertNode(4, "a");
 		
 		// 인덱스 위치의 노드를 삭제
-		list1.deleteNodebyIndex(0);
+//		list1.deleteNodebyIndex(0);
 		
-		System.out.println(list1.getNodeData(1));
+		// 노드 데이터 가져오기
+//		System.out.println(list1.getNodeData(1));
 		
-		list1.printAll();
+//		// 모든 노드 출력하기
+//		list1.printAll();
+		
+		int index = 0;
+		
+		index = list1.findFirst(4);
+		
+		System.out.println(index);
+//		
+//		index = list1.findNext(4, index);
+//		
+//		System.out.println(index);
+//		
+//		index = list1.findNext(4, index);
+//		
+//		System.out.println(index);
+//		
+//		index = list1.findNext(4, index);
+//		
+//		System.out.println(index);
+//		
+//		index = list1.findNext(4, index);
+//		
+//		System.out.println(index);
+//		
+//		index = list1.findNext(4, index);
+//		
+//		System.out.println(index);
+//		
+//		index = list1.findNext(4, index);
+//		
+//		System.out.println(index);
+//		
+//		index = list1.findNext(4, index);
+//		
+//		System.out.println(index);
+//		
+//		index = list1.findNext(4, index);
+//		
+//		System.out.println(index);
+//		
+//		index = list1.findNext(4, index);
+//		
+//		System.out.println(index);
 	}
 	
 }

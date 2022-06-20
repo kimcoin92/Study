@@ -1,6 +1,6 @@
 package com.example.teacher.exception;
 
-public class excep4 {
+public class RollbackBasic {
 	
 	public static void func2(int a)
 	{

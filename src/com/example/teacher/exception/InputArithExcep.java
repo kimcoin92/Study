@@ -2,7 +2,7 @@ package com.example.teacher.exception;
 
 import java.util.Scanner;
 
-public class excep2 {
+public class InputArithExcep {
 	
 	public static void main(String[] args)
 	{

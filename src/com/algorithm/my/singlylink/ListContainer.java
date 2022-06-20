@@ -107,6 +107,91 @@ public class ListContainer {
 	    return true;
 	}
 	
+	// DEV
+	// 같은 값을 가진 노드들을 리턴하는 findData 함수를 어떻게 구할 것인가?
+	
+	// 1. value에 해당하는 노드가 몇 개가 있는지를 알아본다.
+	// 2. 그 개수만큼 배열을 할당한다.
+	// 3. 노드를 순회하면서 value와 같은 노드 인덱스를 배열에 저장한다.
+	
+	// 1. 찾는 로직을 만들었다 치고 외부에서
+	// int count = lc.findFirst(3);
+	// NodeData data = null;
+	// for (int = 0; i < count; i++)
+	// index = lc.findNext();
+	// data = lc.getNodeData(index);
+	// sysout(data.getvalue1);
+	// sysout(data.getvalue2);
+	
+	// findFirst 첫 index를 찾아내는 로직
+	
+	// 예) 폴더 안에 특정 파일을 찾는 로직을 만드는 경우
+	// file의 개수 = findFile("NCS 학습 모듈")
+	
+	private int findIndex;
+	public static final int NO_VALUE_FOUND = -1;
+	
+	// 마지막 인덱스 위치까지 도달하지 않는 문제
+	public int findFirst(int _value)
+	{
+		NodeData data = null;
+		Node target   = head;
+		int amount     = 0;
+		
+		for (int i = 0; i < count; i++)
+		{
+			data = target.getData();
+			
+			if (_value == data.getvalue1())
+			{
+				amount++;
+			}
+			target = target.getNext();
+		}
+		return amount;
+	}
+	
+	public int findNext()
+	{
+		for (int i = 0; i < count; i++)
+		{
+			
+		}
+		
+		return findIndex;
+	}
+	
+	public int findNext(String _value, int _index)
+	{
+		NodeData data = null;
+		Node target   = head;
+		int index     = _index;
+		
+		for (int i = 0; i < count; i++)
+		{
+			data = target.getData();
+			
+			if(null == target.getNext())
+			{
+				index = NO_VALUE_FOUND;
+				
+				break;
+			}
+			else if ((_value == data.getvalue2()))
+			{
+				break;
+			}
+			else if ((null == data) || _value != data.getvalue2())
+			{
+				target = target.getNext();
+				
+				index++;
+			}
+			else {}
+		}
+		return index;
+	}
+	
 	// Int 값을 찾아서 해당 노드 위치를 리턴한다.
 	public int[] findNode(int _value)
 	{

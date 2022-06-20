@@ -11,7 +11,7 @@ class ClassB extends ClassA
 	
 }
 
-public class excep7 {
+public class ClassCast {
 	
 	@SuppressWarnings("unused")
 	public static void main(String[] args)
