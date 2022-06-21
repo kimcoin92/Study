@@ -1,4 +1,4 @@
-package com.example.teacher.finalization;
+package com.example.teacher.objectclass;
 
 /* public class Person
 {

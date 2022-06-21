@@ -2,18 +2,26 @@ package com.algorithm.my.doublylink;
 
 public class ListContainer {
 	
+//	▲ head : 참조변수 next만을 가지고 첫 노드에 대한 이정표 역할을 담당하는 레퍼런스 변수
 	private Node head;
-	private int        count;
 	
+//	▲ count : 전체 노드의 개수
+	private int  count;
+	
+//	◆ ListContainer() : 기본 생성자
 	public ListContainer()
 	{
 		head = null;
 		count = 0;	
 	}
-  
+	
+//	◆ insertNode() : 데이터가 없는 새 노드를 삽입한다.
 	public boolean insertNode()
 	{
+//		▲ target : 해당 위치에 있는 노드를 조작할 수 있도록 동기화하는 레퍼런스 변수
 		Node target  = null;
+		
+//		▲ newNode : 새 노드
 		Node newNode = new Node();
 		
 		if (count == 0)
@@ -24,17 +32,21 @@ public class ListContainer {
 		{
 		    target = getNode(count - 1);
 		    
-		    target.setNext(newNode);
+//		    ◎ 해당 노드의 next에 새 노드의 주소값을 입력한다.
+		    target.setNext(newNode); 
+		    
+//		    ◎ 새 노드의 prev에 해당 노드의 주소값을 입력한다.
 		    newNode.setPrev(target);
 		}
 	    count++;
 	    return true;
 	}
 
-  public boolean insertNode(Node _newNode)
+//	◆ insertNode(Node) : 외부에서 직접 데이터가 없는 새 노드를 생성하여 삽입한다.
+	public boolean insertNode(Node _newNode)
 	{
 		Node target  = null;
-    Node newNode = _newNode;
+		Node newNode = _newNode;
 		
 		if (count == 0)
 		{
@@ -48,17 +60,16 @@ public class ListContainer {
 		    newNode.setPrev(target);
 		}
 	    count++;
-	    
 	    return true;
 	}
 	
-
-    public boolean insertNode(NodeData _newNodeData)
+//	◆ insertNode(NodeData) : 외부에서 새 노드의 데이터를 입력하여 삽입한다.
+    public boolean insertNode(NodeData _newData)
 	{
 		Node target  = null;
-    Node newNode = null;
-    
-    newNode.setData(_newNodeData);
+		Node newNode = new Node();
+		
+		newNode.setData(_newData);
 		
 		if (count == 0)
 		{

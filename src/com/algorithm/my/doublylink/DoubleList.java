@@ -83,14 +83,14 @@ public class DoubleList {
 
 		ListContainer list = new ListContainer();
 		
-//		list.InsertNode();
-//		list.InsertNode(1);
-//		list.InsertNode(new Node);
-//		list.InsertNode(new Node(), 1);
-//		list.InsertNode(new NodeData(1, "a"));
-//		list.InsertNode(new NodeData(2, "b"), 3);
-//		list.InsertNode(3, "c");
-//		list.InsertNode(4, "d", 5);
+		list.insertNode();
+//		list.insertNode(1);
+//		list.insertNode(new Node);
+//		list.insertNode(new Node(), 1);
+		list.insertNode(new NodeData(1, "a"));
+//		list.insertNode(new NodeData(2, "b"), 3);
+//		list.insertNode(3, "c");
+//		list.insertNode(4, "d", 5);
 		
 	}
 }
