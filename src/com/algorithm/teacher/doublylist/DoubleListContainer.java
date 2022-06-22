@@ -2,7 +2,7 @@ package com.algorithm.teacher.doublylist;
 
 public class DoubleListContainer {
 
-	private DoubleNode 	header;
+	private Node header;
 	private int 	    count;
 	
 	public DoubleListContainer()
@@ -11,10 +11,25 @@ public class DoubleListContainer {
 		count  = 0;
 	}		
 	
-	// DONE
-	private DoubleNode getLastNode()
+	public Node getNode(int _index)
 	{
-		DoubleNode lastNode = header;
+		Node result = header;
+    
+		if (_index >= count)
+		{
+			return null;
+		}
+		for (int i = 0; i < _index; i++)
+		{
+			result = result.getNext();
+		}
+		return result;
+	}
+	
+	// DONE
+	private Node getLastNode()
+	{
+		Node lastNode = header;
 		
 		for (int i = 0; i < count - 1; i++)
 		{
@@ -30,9 +45,9 @@ public class DoubleListContainer {
 	// DONE 노드를 추가한다. 
 	public boolean insertNode()
 	{
-		DoubleNode lastNode = null;
+		Node lastNode = null;
 		//1. 새로운 노드를 하나 생성한다.
-		DoubleNode newNode = new DoubleNode();
+		Node newNode = new Node();
 		
 		if (count == 0)
 		{
@@ -51,9 +66,9 @@ public class DoubleListContainer {
 	}
 
 	// DONE
-	public boolean insertNode(DoubleNode _newNode)
+	public boolean insertNode(Node _newNode)
 	{
-		DoubleNode lastNode = null;				 
+		Node lastNode = null;				 
 		
 		if (count == 0)
 		{
@@ -75,10 +90,10 @@ public class DoubleListContainer {
 	// DONE
 	public boolean insertNode(int _value1, String _value2)
 	{
-		DoubleNode lastNode = null;
+		Node lastNode = null;
 		//1. 새로운 노드를 하나 생성한다.
 		
-		DoubleNode newNode = new DoubleNode(_value1, _value2);
+		Node newNode = new Node(_value1, _value2);
 		
 		if (count == 0)
 		{
@@ -100,34 +115,72 @@ public class DoubleListContainer {
 	
 		
 	// DONE
+//	◆ 지정 index의 노드를 삭제한다.
 	public boolean deleteNodebyIndex(int _index)
 	{
-		DoubleNode target = header;
-		DoubleNode before = null;
+//		◎ getNode 메서드로 target에 index 위치의 노드를 가져온다.
+		Node target   = getNode(_index);
+		Node nextNode = target.getNext();
+		Node prevNode = target.getPrev();
 		
-		// count의 유효성 검사
-		if (count == 0)
-			return false;
-		
-		// index의 유효성을 검사
-		if ((count <= _index) ||  (_index < 0))
-			return false;
-		
-		//1. target과 before를 찾는다.		
-		for (int i = 0; i < _index; i++)
+//		◎ 리스트에 노드의 존재 유무와 범위 유효성을 검사한다.
+		if ((0 == count) || (count <= _index) || (_index < 0))
 		{
-			before = target;
-			target = target.getNext();
+			return false;
+		}
+//		◎ 첫 노드를 선택한 경우 (prev가 null이다.)
+		if (prevNode == null)
+		{
+			header = nextNode;
+			target.setNext(null);
+			nextNode.setPrev(null);
+		}
+//		◎ 마지막 노드를 선택한 경우 (next가 null이다.)
+		else if (nextNode == null)
+		{
+			prevNode.setNext(null);
+		}
+		else
+//		◎ 리스트 사이의 노드를 선택한 경우
+		{
+			nextNode.setPrev(prevNode);
+			prevNode.setNext(nextNode);
+		}
+		count--;
+	    return true;
+	}
+	
+//	◆ value1이 5인 데이터를 지워라.
+	public int deleteNodebyValue(int _value)
+	{
+		Node target   = header;
+		NodeData data = null;
+		int index     = 0;
+		int delCount  = 0;
+		
+		if (count == 0)
+		{
+			return 0;
 		}
 		
-		// 0번 인덱스를 지워라라는 의미
-		if (before == null)
-			header = target.getNext();
-		else
-			before.setNext(target.getNext());	
+		while(null != target.getNext())
+		{
+			data = target.getData();
+			
+			if (_value == data.getvalue1())
+			{
+				deleteNodebyIndex(index);
+				target = header;
+			}
+			else
+			{
+				
+			}
+		}
+
 		
 		count--;
-		return true;
+	    return delCount;
 	}
 	
 	// DEV
@@ -153,8 +206,8 @@ public class DoubleListContainer {
 	{
 		// 
 		
-		DoubleNode target   = header;
-		DoubleNodeData data = null;
+		Node target   = header;
+		NodeData data = null;
 		int[] result  = null;
 		int arcount   = 0;
 		int aridx     = 0;
@@ -195,8 +248,8 @@ public class DoubleListContainer {
 	// String 값을 찾아서 해당 노드를 리턴한다.
 	public int findNode(String _value)
 	{
-		DoubleNode target = header;
-		DoubleNodeData data = null;
+		Node target = header;
+		NodeData data = null;
 		int result = -1;
 		
 		for (int i = 0; i < count; i++)
@@ -229,10 +282,10 @@ public class DoubleListContainer {
 	
 	
 	// 노드 데이터를 리턴한다.
-	public DoubleNodeData getNodeData(int _index)
+	public NodeData getNodeData(int _index)
 	{
-		DoubleNode target = header;
-		DoubleNodeData data = null;
+		Node target = header;
+		NodeData data = null;
 		
 		if (count <= _index)
 		{
@@ -253,10 +306,10 @@ public class DoubleListContainer {
 	// DEV
 	// _index : 집어넣을 노드 인덱스
 	// _data  : 집어넣을 데이터
-	public boolean setNodeData (int _index, DoubleNodeData _data) // 외부에서 만들어진 노드 데이터를 넣는다.
+	public boolean setNodeData (int _index, NodeData _data) // 외부에서 만들어진 노드 데이터를 넣는다.
 	{
-		DoubleNode target = header;
-		DoubleNodeData insert = null;
+		Node target = header;
+		NodeData insert = null;
 		
 		for(int i = 0; i < _index; i++)
 		{
@@ -278,8 +331,8 @@ public class DoubleListContainer {
 	
 	public boolean setNodeData (int _index, int _value1, String _value2) // 외부에서 직접 데이터값을 넣는다.
 	{
-		DoubleNode target = header;
-		DoubleNodeData insert = null;
+		Node target = header;
+		NodeData insert = null;
 		
 		for(int i = 0; i < _index; i++)
 		{
@@ -328,8 +381,8 @@ public class DoubleListContainer {
 	// 1, "abc"
 	public void printAll()
 	{
-		DoubleNode target = header;
-		DoubleNodeData data = null;
+		Node target = header;
+		NodeData data = null;
 		
 		for (int i = 0; i < count; i++)
 		{

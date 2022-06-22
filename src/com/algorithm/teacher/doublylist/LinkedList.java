@@ -2,7 +2,7 @@ package com.algorithm.teacher.doublylist;
 
 import java.util.Arrays;
 
-public class DoubleLinkedList {
+public class LinkedList {
 
 	public static void main(String[] args) {
 

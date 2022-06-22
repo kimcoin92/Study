@@ -5,17 +5,20 @@ import java.lang.CloneNotSupportedException;
 
 public class Rectangle implements Cloneable
 {
+	public  String name;
 	private Point upperLeft;
 	private Point lowerRight;
 	
 	public Rectangle()
 	{
+		name = "no-name";
 		upperLeft  = new Point();
 		lowerRight = new Point();
 	}
 	
 	public Rectangle(int _left, int _top, int _right, int _bottom)
 	{
+		name = "no-name";
 		upperLeft  = new Point(_left, _top);
 		lowerRight = new Point(_right, _bottom);
 	}
@@ -63,13 +66,26 @@ public class Rectangle implements Cloneable
 	}
 	
 	@Override
-	public String toString() {
-		return "Rectangle [upperLeft=" + upperLeft + ", lowerRight=" + lowerRight + "]";
+	public String toString()
+	{
+		return "Rectangle [upperLeft=" + upperLeft + ", lowerRight=" + lowerRight + ", name = " + name + "]";
 	}
 
 	@Override
 	public Object clone() throws CloneNotSupportedException
 	{
-		return super.clone();
+		Rectangle result = null;
+		
+		// 깊은 복사
+		result = (Rectangle) super.clone();
+		
+		result.upperLeft  = (Point) upperLeft.clone();
+		result.lowerRight = (Point) lowerRight.clone();
+		
+//		String은 자동으로 메모리에 할당하기 때문에 clonable을 허용하지 않는다.
+//		result.name = (String) name.clone();
+		result.name = new String(this.name);
+		
+		return result;
 	}
 }
