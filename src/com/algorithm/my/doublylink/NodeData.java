@@ -42,9 +42,4 @@ public class NodeData {
 	{
 		value2 = _value2;
 	}
-
-	@Override
-	public String toString() {
-		return "NodeData [value1=" + value1 + ", value2=" + value2 + "]";
-	}
 }
