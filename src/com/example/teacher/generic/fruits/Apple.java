@@ -1,11 +1,15 @@
 package com.example.teacher.generic.fruits;
 
-public class Apple {
+public class Apple implements Eatable {
 	
-	@Override
-	public String toString()
+//	@Override
+//	public String toString()
+//	{
+//		return "I am an Apple.";
+//	}
+	
+	public String eat()
 	{
-		return "I am an Apple.";
+		return "It tastes so good!";
 	}
-
 }

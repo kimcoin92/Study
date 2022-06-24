@@ -1,453 +1,708 @@
 package com.algorithm.my.doublylink;
 
 public class ListContainer {
-
 	private Node head;
-
-	private int  count;
-
+	private Node tail;
+	private Node recent;
+	private int  recentIndex;
+	private int count;
+	
 	public ListContainer()
 	{
 		head = null;
-		count = 0;	
+		tail = null;
+		recent = null;
+		recentIndex = 0;
+		count = 0;		
 	}
 	
-//	새 노드를 삽입한다. (빈 노드)
-	public boolean insertNode()
-	{
-		Node target  = null;
-		Node newNode = new Node();
-		if (count == 0)
-		{
-			head = newNode;
-		}
-		else
-		{
-		    target = getNode(count - 1);
-		    target.setNext(newNode); 
-		    newNode.setPrev(target);
-		}
-	    count++;
-	    return true;
-	}
-	
-//	 새 노드를 삽입한다. (빈 노드, 리스트 사이에 삽입)
-	 public boolean insertNode(int _pos)
-	 {
-		Node target  = head;
-		Node newNode = new Node();
-		
-		if (_pos < 0)
-	    {
-	      return false;
-	    }
-		else if (count == 0)
-		{
-			head = newNode;
-		}
-	    else if (_pos == 0)
-	    {
-	    	target = getNode(_pos);
-	    	newNode.setNext(target);
-	    	newNode.setPrev(target.getPrev());
-	    	target.setPrev(newNode);
-	    	newNode.getPrev().setNext(newNode);
-	    }
-	    else if (_pos >= count)
-	    {
-	      for (int i = 0; i < count; i++)
-	        {
-	          target = target.getNext();
-	        }
-	      newNode = getNode(count - 1);
-	      target.setNext(newNode);
-	    }
-	    else
-	    {
-	      target = getNode(_pos);
-	      newNode.setNext(target);
-	      newNode.setPrev(target.getPrev());
-	      target.setPrev(newNode);
-	      newNode.getPrev().setNext(newNode);
-	    }
-		count++;
-		return true;
-		}
-	
-//	새 노드를 삽입한다. (외부 빈 노드 생성)
-	public boolean insertNode(Node _newNode)
-	{
-		Node target  = null;
-		Node newNode = _newNode;
-		
-		if (count == 0)
-		{
-			head = newNode;
-		}
-		else
-		{
-		    target = getNode(count - 1);
-		    
-		    target.setNext(newNode);
-		    newNode.setPrev(target);
-		}
-	    count++;
-	    
-	    return true;
-	}
-
-//	새 노드를 삽입한다. (빈 노드, 리스트 사이에 삽입)
-	public boolean insertNode(Node _newNode, int _pos)
-	{
-		Node target  = head;
-		Node newNode = _newNode;
-    
-    if (_pos < 0)
-    {
-      return false;
-    }
-		else if (count == 0)
-		{
-			head = newNode;
-		}
-    else if (_pos == 0)
-    {
-      target = getNode(_pos);
-      newNode.setNext(target);
-      newNode.setPrev(target.getPrev());
-      target.setPrev(newNode);
-      newNode.getPrev().setNext(newNode);
-    }
-    else if (_pos >= count)
-    {
-      for (int i = 0; i < count; i++)
-        {
-          target = target.getNext();
-        }
-      newNode = getNode(count - 1);
-      target.setNext(newNode);
-    }
-    else
-    {
-      for (int k = 0; k < _pos; k++)
-      {
-        target = target.getNext();
-      }
-      newNode.setNext(target);
-      newNode.setPrev(target.getPrev());
-      target.setPrev(newNode);
-      newNode.getPrev().setNext(newNode);
-    }
-    count++;
-    return true;
-  }
-	
-//	새 노드를 삽입한다. (외부 데이터 입력)
-	public boolean insertNode(NodeData _newData)
-	{
-		Node target  = null;
-		Node newNode = new Node(_newData);
-		
-		if (count == 0)
-		{
-			head = newNode;
-		}
-		else
-		{
-		    target = getNode(count - 1);
-		    
-		    target.setNext(newNode);
-		    newNode.setPrev(target);
-		}
-	    count++;
-	    
-	    return true;
-	}
-	
-//	새 노드를 삽입한다. (외부 데이터 입력, 리스트 사이에 삽입)
-	public boolean insertNode(NodeData _newData, int _pos)
-	{
-		Node target  = null;
-		Node newNode = new Node(_newData);
-		
-	    if (_pos < 0)
-	    {
-	      return false;
-	    }
-			else if (count == 0)
-			{
-				head = newNode;
-			}
-	    else if (_pos == 0)
-	    {
-	      target = getNode(_pos);
-	      newNode.setNext(target);
-	      newNode.setPrev(target.getPrev());
-	      target.setPrev(newNode);
-	      newNode.getPrev().setNext(newNode);
-	    }
-	    else if (_pos >= count)
-	    {
-	      for (int i = 0; i < count; i++)
-	        {
-	          target = target.getNext();
-	        }
-	      newNode = getNode(count - 1);
-	      target.setNext(newNode);
-	    }
-	    else
-	    {
-	      for (int k = 0; k < _pos; k++)
-	      {
-	        target = target.getNext();
-	      }
-	      newNode.setNext(target);
-	      newNode.setPrev(target.getPrev());
-	      target.setPrev(newNode);
-	      newNode.getPrev().setNext(newNode);
-	    }
-	    count++;
-	    return true;
-	}
-	
-//	새 노드를 삽입한다. (외부 데이터 값 입력)
-	public boolean insertNode(int _value1, String _value2)
-	{
-		Node target  = null;
-		Node newNode = new Node(_value1, _value2);
-		
-		if (count == 0)
-		{
-			head = newNode;
-		}
-		else
-		{
-		    target = getNode(count - 1);
-		    
-		    target.setNext(newNode);
-		    newNode.setPrev(target);
-		}
-	    count++;
-	    
-	    return true;
-	}
-	
-//	새 노드를 삽입한다. (외부 데이터 입력, 리스트 사이에 삽입)
-	public boolean insertNode(int _value1, String _value2, int _pos)
-	{
-		Node target  = head;
-		Node newNode = new Node(_value1, _value2);
-    
-    if (_pos < 0)
-    {
-      return false;
-    }
-		else if (count == 0)
-		{
-			head = newNode;
-		}
-    else if (_pos == 0)
-    {
-      target = getNode(_pos);
-      newNode.setNext(target);
-      newNode.setPrev(target.getPrev());
-      target.setPrev(newNode);
-      newNode.getPrev().setNext(newNode);
-    }
-    else if (_pos >= count)
-    {
-      for (int i = 0; i < count; i++)
-        {
-          target = target.getNext();
-        }
-      newNode = getNode(count - 1);
-      target.setNext(newNode);
-    }
-    else
-    {
-      for (int k = 0; k < _pos; k++)
-      {
-        target = target.getNext();
-      }
-      newNode.setNext(target);
-      newNode.setPrev(target.getPrev());
-      target.setPrev(newNode);
-      newNode.getPrev().setNext(newNode);
-    }
-    count++;
-    return true;
-  }
-	
-//	노드 위치를 특정한다.
-	public Node getNode(int _index)
+	public Node getNode(int index)
 	{
 		Node result = head;
-    
-		if (_index >= count)
+		
+		if (index >= count)
 		{
 			return null;
 		}
-		for (int i = 0; i < _index; i++)
+			
+		for (int i = 0; i < index; i++)
 		{
 			result = result.getNext();
 		}
+		
 		return result;
 	}
 	
-//	특정 위치의 노드를 삭제한다.
-	public boolean deleteNodebyIndex(int _index)
+	public Node getNodeByRecent(int index)
 	{
-		Node target   = getNode(_index);
-		Node nextNode = target.getNext();
-		Node prevNode = target.getPrev();
+		Node result = null;
 		
-		if ((0 == count) || (count <= _index) || (_index < 0))
+		if (index >= count)
+		{
+			return null;
+		}
+		
+		if (recent == null)
+		{
+			result = head;
+			
+			for (int i = 0; i < index; i++)
+			{
+				result = result.getNext();
+				recentIndex++;
+			}
+		}
+		else
+		{
+			result = recent;
+			
+			if  (recentIndex > index)
+			{
+				for (int i = 0; i < recentIndex - index; i++)
+				{
+					result = result.getPrev();
+					recentIndex--;
+				}
+			}
+			else if (recentIndex < index)
+			{
+				for (int i = 0; i < index - recentIndex; i++)
+				{
+					result = result.getNext();
+					recentIndex++;
+				}
+			}
+		}
+		
+		recent = result;
+		return result;
+	}
+
+	public Node getNodeByHalf(int index)
+	{
+		Node result = null;
+		
+		if (index >= count)
+		{
+			return null;
+		}
+		
+		if (index < count / 2)
+		{
+			result = head;
+			
+			for (int i = 0; i < index; i++)
+			{
+				result = result.getNext();
+			}
+		}
+		else if (index > count / 2)
+		{
+			result = tail;
+			
+			for (int i = 0; i < index; i++)
+			{
+				result = result.getPrev();
+			}
+		}
+		return result;
+	}
+
+	public boolean insertNode()
+	{
+		Node target = null;
+		Node newNode = new Node();
+		
+		// 노드가 하나도 없음.
+		if (count == 0)
+		{
+			head = newNode;
+		}
+		else if (count == 1)
+		{
+			head = newNode;
+			
+			target = getNode(count - 1);
+			
+			target.setNext(newNode);
+			newNode.setPrev(target);
+		}
+		else
+		{
+			// 마지막 노드를 가지고 와서 그 뒤에 물린다.
+			target = getNode(count - 1);
+			
+			target.setNext(newNode);
+			newNode.setPrev(target);
+		}
+		
+		count++;
+		return true;
+	}
+
+	public boolean insertNode(int pos)
+	{
+		Node target = null;
+		Node newNode = new Node();
+		
+		if (pos < 0)
 		{
 			return false;
 		}
 		
-		if (prevNode == null)
+		
+		if (count == 0)
 		{
-			head = nextNode;
-			target.setNext(null);
-			nextNode.setPrev(null);
+			//OK
+			head = newNode;
+			
 		}
-		else if (nextNode == null)
+		else if (pos > count)
 		{
-			prevNode.setNext(null);
+			//OK
+			target = getNode(count - 1);
+			target.setNext(newNode);
+			newNode.setPrev(target);
+			
+		}
+		else if (pos == 0)
+		{
+			// OK
+			target = getNode(pos);
+			
+			newNode.setNext(target);
+			target.setPrev(newNode);
+			
+			head = newNode;
+			
 		}
 		else
 		{
-			nextNode.setPrev(prevNode);
-			prevNode.setNext(nextNode);
+			target = getNode(pos);
+			
+			newNode.setNext(target);
+			newNode.setPrev(target.getPrev());
+			
+			target.setPrev(newNode);
+			newNode.getPrev().setNext(newNode);
+			
 		}
-		count--;
-	    return true;
+		
+		count++;
+		return true;
+	}
+
+	public boolean insertNode(Node _newNode)
+	{
+		Node target = null;
+		Node newNode = _newNode;
+		
+		// 노드가 하나도 없음.
+		if (count == 0)
+		{
+			head = newNode;			
+		}
+		else
+		{
+			// 마지막 노드를 가지고 와서 그 뒤에 물린다.
+			target = getNode(count - 1);
+			
+			target.setNext(newNode);
+			newNode.setPrev(target);
+		}
+		
+		count++;
+
+		return true;
 	}
 	
-//	특정 정수값의 노드를 검색한다.
-	public Node getNodebyValue(int _value)
+	public boolean insertNode(Node _newNode, int pos)
 	{
-		Node     target = head;
-		NodeData search = null;
+		Node target = null;
+		Node newNode = _newNode;
 		
-		if (0 == count)
+		if (pos < 0)
+		{
+			return false;
+		}
+		
+		
+		if (count == 0)
+		{
+			//OK
+			head = newNode;
+			
+		}
+		else if (pos > count)
+		{
+			//OK
+			target = getNode(count - 1);
+			target.setNext(newNode);
+			newNode.setPrev(target);
+			
+		}
+		else if (pos == 0)
+		{
+			// OK
+			target = getNode(pos);
+			
+			newNode.setNext(target);
+			target.setPrev(newNode);
+			
+			head = newNode;
+			
+		}
+		else
+		{
+			target = getNode(pos);
+			
+			newNode.setNext(target);
+			newNode.setPrev(target.getPrev());
+			
+			target.setPrev(newNode);
+			newNode.getPrev().setNext(newNode);
+			
+		}
+		
+		count++;
+		return true;
+		
+	}
+
+	public boolean insertNode(NodeData _newNodeData)
+	{
+		Node target = null;
+		Node newNode = new Node();
+		
+		newNode.setData(_newNodeData);
+		
+		// 노드가 하나도 없음.
+		if (count == 0)
+		{
+			head = newNode;			
+		}
+		else
+		{
+			// 마지막 노드를 가지고 와서 그 뒤에 물린다.
+			target = getNode(count - 1);
+			
+			target.setNext(newNode);
+			newNode.setPrev(target);
+		}
+		
+		count++;
+		
+		return true;
+	}
+	
+	public boolean insertNode(NodeData _newNodeData, int pos)
+	{
+		Node target = null;
+		Node newNode = new Node();
+		newNode.setData(_newNodeData);
+		
+		if (pos < 0)
+		{
+			return false;
+		}
+		
+		
+		if (count == 0)
+		{
+			//OK
+			head = newNode;
+			
+		}
+		else if (pos > count)
+		{
+			//OK
+			target = getNode(count - 1);
+			target.setNext(newNode);
+			newNode.setPrev(target);
+			
+		}
+		else if (pos == 0)
+		{
+			// OK
+			target = getNode(pos);
+			
+			newNode.setNext(target);
+			target.setPrev(newNode);
+			
+			head = newNode;
+			
+		}
+		else
+		{
+			target = getNode(pos);
+			
+			newNode.setNext(target);
+			newNode.setPrev(target.getPrev());
+			
+			target.setPrev(newNode);
+			newNode.getPrev().setNext(newNode);
+			
+		}
+		
+		count++;
+		return true;
+	}
+
+	public boolean insertNode(int _value1, String _value2)
+	{
+		Node target = null;
+		
+		Node newNode = new Node();
+		newNode.setData(_value1, _value2);
+		
+		// 노드가 하나도 없음.
+		if (count == 0)
+		{
+			head = newNode;			
+		}
+		else
+		{
+			// 마지막 노드를 가지고 와서 그 뒤에 물린다.
+			target = getNode(count - 1);
+			
+			target.setNext(newNode);
+			newNode.setPrev(target);
+		}
+		
+		count++;
+		return true;		
+	}
+	
+	public boolean insertNode(int _value1, String _value2, int pos)
+	{
+		Node target = null;
+		
+		Node newNode = new Node();
+		newNode.setData(_value1, _value2);
+		
+		if (pos < 0)
+		{
+			return false;
+		}
+			
+		if (count == 0)
+		{
+			//OK
+			head = newNode;
+			
+		}
+		else if (pos > count)
+		{
+			//OK
+			target = getNode(count - 1);
+			target.setNext(newNode);
+			newNode.setPrev(target);
+			
+		}
+		else if (pos == 0)
+		{
+			// OK
+			target = getNode(pos);
+			
+			newNode.setNext(target);
+			target.setPrev(newNode);
+			
+			head = newNode;
+			
+		}
+		else
+		{
+			target = getNode(pos);
+			
+			newNode.setNext(target);
+			newNode.setPrev(target.getPrev());
+			
+			target.setPrev(newNode);
+			newNode.getPrev().setNext(newNode);
+			
+		}
+		
+		count++;			
+		return true;
+	
+	}
+		
+	public boolean deleteNodebyIndex(int _index)
+	{
+		Node target = null;
+		Node prevNode = null;
+		Node nextNode = null;
+		
+		if (count <= _index)
+			return false;
+
+		target = getNode(_index);
+		
+		if (_index == 0)
+		{
+			nextNode = target.getNext();			
+		
+			nextNode.setPrev(null);
+			head = target.getNext();
+			
+		}
+		else if (_index == (count-1))
+		{			
+			prevNode = target.getPrev();
+			prevNode.setNext(null);
+			
+		}
+		else
+		{					
+			prevNode = target.getPrev();
+			nextNode = target.getNext();
+			
+			prevNode.setNext(nextNode);
+			nextNode.setPrev(prevNode);
+					
+		}
+		
+		count--;
+		return true;
+	}
+
+	public int deleteNodebyValue(int _value1)
+	{		
+		int delCount = 0;
+		int i = 0;
+		Node target = head;
+		NodeData data = null;
+		
+		do
+		{
+			// 1. 데이터를 가지온다. 
+			data = target.getData();
+			
+			// 데이터가 지워할 놈이면
+			if (_value1 == data.getValue1())
+			{
+				//지운뒤 지운 횟수 증가
+				deleteNodebyIndex(i - delCount);
+				delCount++;
+							
+			}
+
+			// 타겟을 다음으로 옮긴다.
+			target = target.getNext();							
+			i++;
+			
+		} while(target != null);
+		
+		return delCount;
+		
+	}
+	
+	public int deleteNodebyValue(String _value2)
+	{
+		int delCount = 0;
+		int i = 0;
+		Node target = head;
+		NodeData data = null;
+		
+		do
+		{
+			// 1. 데이터를 가지온다. 
+			data = target.getData();
+			
+			// 데이터가 지워할 놈이면
+			if (true == _value2.equals(data.getValue2()))
+			{
+				//지운뒤 지운 횟수 증가
+				deleteNodebyIndex(i - delCount);
+				delCount++;
+							
+			}
+
+			// 타겟을 다음으로 옮긴다.
+			target = target.getNext();							
+			i++;
+			
+		} while(target != null);
+		
+		return delCount;
+		
+	}
+	
+	public int deleteNodebyValue(int _value1, String _value2)
+	{
+		int delCount = 0;
+		int i = 0;
+		Node target = head;
+		NodeData data = null;
+		
+		do
+		{
+			// 1. 데이터를 가지온다. 
+			data = target.getData();
+			
+			// 데이터가 지워할 놈이면
+			if ((_value1 == data.getValue1()) && (true == _value2.equals(data.getValue2())))
+			{
+				//지운뒤 지운 횟수 증가
+				deleteNodebyIndex(i - delCount);
+				delCount++;
+							
+			}
+
+			// 타겟을 다음으로 옮긴다.
+			target = target.getNext();							
+			i++;
+			
+		} while(target != null);
+		
+		return delCount;
+		
+	}
+	
+	public void printAll()
+	{
+		Node target = head;
+		NodeData data = null;
+		
+		for (int i = 0; i < count; i++)
+		{
+			data = target.getData();
+			
+			System.out.println("index = " + i);
+
+			if (null == data)				
+				System.out.println("null");
+			else
+				System.out.printf("%d, %s\n", data.getValue1(), data.getValue2());
+				
+			System.out.println("-------------------");
+			
+			target = target.getNext();
+		}
+				
+	}
+
+	public int[] findNode (int _value1)
+	{
+		Node target    = head;
+		NodeData data  = null;
+		int matchCount = 0;
+		int idx        = 0;
+		int[] result;
+		
+		while (target != null)
+		{
+			data   = target.getData();
+			
+			if (_value1 == data.getValue1())
+			{
+				matchCount++;
+			}
+			target = target.getNext();
+		}
+		
+		if (matchCount == 0)
 		{
 			return null;
 		}
 		
-		for (int i = 0; i < count; i++)
-		{
-			search = target.getData();
-			
-			if ((target.getNext() == null) || (search.getValue1() == _value))
-			{
-				break;
-			}
-			
-			target = target.getNext();
-		}
-		return target;
-	}
-	
-//	특정 정수값의 모든 노드를 삭제한다.
-	public int deleteNodebyValue(int _value)
-	{
-		int  delCount = 0;
-		Node target   = getNodebyValue(_value);
-		Node nextNode = target.getNext();
-		Node prevNode = target.getPrev();
-		
-		if ((0 == count) || (target == null))
-		{
-			return 0;
-		}
+		result = new int[matchCount];
+		target = head;
 		
 		for (int i = 0; i < count; i++)
 		{
-			if (target == null)
-			{
-				break;
-			}
+			data   = target.getData();
 			
-			if (prevNode == null)
+			if (_value1 == data.getValue1())
 			{
-				head = nextNode;
-				target.setNext(null);
-				nextNode.setPrev(null);
-			}
-			else if (nextNode == null)
-			{
-				prevNode.setNext(null);
-			}
-			else
-			{
-				nextNode.setPrev(prevNode);
-				prevNode.setNext(nextNode);
-			}
-			
-			target   = getNodebyValue(_value);
-			nextNode = target.getNext();
-			prevNode = target.getPrev();
-			
-			count--;
-			delCount++;
-		}
-	    return delCount;
-	}
-	
-	public int deleteNodebyValue2(int _value)
-	{
-		Node target = head;
-		NodeData data = null;
-		int delCount = 0;
-		int i = 0;
-		
-		do
-		{
-			data = target.getData();
-			
-			if (_value == data.getValue1())
-			{
-				deleteNodebyIndex(i - delCount);
-				delCount++;
+				result[idx] = i;
+				idx++;
 			}
 			target = target.getNext();
-			i++;
 		}
-		while (target != null);
+		return result;
+	}
+	
+	public int[] findNode (String _value2)
+	{
+		Node target    = head;
+		NodeData data  = null;
+		int matchCount = 0;
+		int idx        = 0;
+		int[] result;
 		
-		return delCount;
-	}
-	
-	public int deleteNodebyString(String _str)
-	{
-		return 0;
-	}
-	
-	public boolean deleteNodebyIndex(int _value, String _value2)
-	{
-		return true;
-	}
-	
-	public void printList()
-	{
-		Node target = head;
-		NodeData data = null;
+		while (target != null)
+		{
+			data   = target.getData();
+			
+			if (true == _value2.equals(data.getValue2()))
+			{
+				matchCount++;
+			}
+			target = target.getNext();
+		}
+		
+		if (matchCount == 0)
+		{
+			return null;
+		}
+		
+		result = new int[matchCount];
+		target = head;
 		
 		for (int i = 0; i < count; i++)
 		{
-			data = target.getData();
+			data   = target.getData();
 			
-			if (null == data)
+			if (true == _value2.equals(data.getValue2()))
 			{
-				System.out.println("null");
-			}
-			else
-			{
-				System.out.println("index = " + i + ", " + data.getValue1() + ", " + data.getValue2());
+				result[idx] = i;
+				idx++;
 			}
 			target = target.getNext();
 		}
+		return result;
 	}
+	
+	public int[] findNode (int _value1, String _value2)
+	{
+		Node target    = head;
+		NodeData data  = null;
+		int matchCount = 0;
+		int idx        = 0;
+		int[] result;
+		
+		while (target != null)
+		{
+			data   = target.getData();
+			
+			if ((_value1 == data.getValue1()) && (true == _value2.equals(data.getValue2())))
+			{
+				matchCount++;
+			}
+			target = target.getNext();
+		}
+		
+		if (matchCount == 0)
+		{
+			return null;
+		}
+		
+		result = new int[matchCount];
+		target = head;
+		
+		for (int i = 0; i < count; i++)
+		{
+			data   = target.getData();
+			
+			if ((_value1 == data.getValue1()) && (true == _value2.equals(data.getValue2())))
+			{
+				result[idx] = i;
+				idx++;
+			}
+			target = target.getNext();
+		}
+		return result;
+	}
+
 }

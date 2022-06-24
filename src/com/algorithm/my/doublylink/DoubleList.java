@@ -15,11 +15,21 @@ public class DoubleList {
 //		list.insertNode(6, "a");
 //		list.insertNode(4, "d", 5);
 		
+		list.insertNode(6, "a");
+		list.insertNode(6, "b");
+		list.insertNode(6, "c");
+		list.insertNode(6, "d");
+		list.insertNode(6, "e");
+		list.insertNode(6, "f");
+		list.insertNode(6, "g");
+		list.insertNode(6, "h");
+		list.insertNode(6, "i");
+		
 //		◆ 0번 index의 데이터를 지워라.
-//		list.deleteNodebyValue(4); 
+//		list.deleteNodebyIndex(4); 
 
 //		◆ value1이 5인 데이터를 지워라.
-//		list.deleteNodebyValue2(6);
+//		list.deleteNodebyValue(6);
 		
 //		◆ value2가 abc인 데이터를 지워라.
 //		◇ int deleteNodebyString(String _str)
@@ -27,7 +37,7 @@ public class DoubleList {
 //		◆ value1이 5이고 value2가 abc인 데이터를 지워라. (and 조건)
 //		◇ boolean deleteNodebyIndex(int _value, String _value2)
 		
-//		list.printList();
+		list.printAll();
 		
 	}
 }

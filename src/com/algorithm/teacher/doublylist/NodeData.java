@@ -1,10 +1,13 @@
 package com.algorithm.teacher.doublylist;
 
 public class NodeData {
+	
 	private int 	value1;
 	private String 	value2;
 	
-	public NodeData() {		
+	public NodeData() {
+		value1 = 0;
+		value2 = "";
 		
 	}
 	

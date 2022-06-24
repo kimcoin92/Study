@@ -2,14 +2,16 @@ package com.algorithm.teacher.doublylist;
 
 public class Node {
 	private NodeData 	data;		// 노드데이터
-	private Node 		next;		// 다음노드의 링크정보.
-	private Node		prev;
+	private Node 		prev;		// 이전노드 링크정보
+	private Node 		next;		// 다음노드 링크정보.
+	
 
 	public Node()
 	{
 		data = null;
 		next = null;
 		prev = null;
+		
 	}
 
 	public Node(NodeData _data)
@@ -56,6 +58,7 @@ public class Node {
 		return next;
 	}
 	
+	
 	public void setNext(Node _next)
 	{
 		next = _next;
@@ -66,10 +69,10 @@ public class Node {
 		return prev;
 	}
 	
+	
 	public void setPrev(Node _prev)
 	{
 		prev = _prev;
 	}
-	
 	
 }
