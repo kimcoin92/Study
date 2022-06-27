@@ -1,4 +1,4 @@
-package com.example.teacher.generic.fruits;
+package com.example.teacher.generic.restrict;
 
 public class BoxFactory
 {

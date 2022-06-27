@@ -1,4 +1,4 @@
-package com.algorithm.my.singlylink;
+package com.algorithm.my.singlylist;
 
 public class Node
   {

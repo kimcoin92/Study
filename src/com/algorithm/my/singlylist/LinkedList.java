@@ -137,7 +137,7 @@
  *  - 모든 노드를 출력한다.
  */
 
-package com.algorithm.my.singlylink;
+package com.algorithm.my.singlylist;
 
 public class LinkedList {
 

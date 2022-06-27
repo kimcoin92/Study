@@ -1,4 +1,4 @@
-package com.algorithm.my.singlylink;
+package com.algorithm.my.singlylist;
 
 import com.algorithm.teacher.singlylist.Node;
 import com.algorithm.teacher.singlylist.NodeData;

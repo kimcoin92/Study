@@ -1,4 +1,4 @@
-package com.algorithm.my.doublylink;
+package com.algorithm.my.doublylist;
 
 public class ListContainer {
 	private Node head;
