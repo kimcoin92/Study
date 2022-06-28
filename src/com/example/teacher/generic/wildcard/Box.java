@@ -20,9 +20,9 @@ public class Box <T> {
 		obj = _obj;
 	}
 	
-	public T get(T _obj)
+	public T get()
 	{
-		return _obj;
+		return obj;
 	}
 
 	@Override

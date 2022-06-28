@@ -66,4 +66,9 @@ public class Node
     {
       prev = _prev;
     }
+    
+	@Override
+	public String toString() {
+		return "Node [data=" + data + "]";
+	}
   }

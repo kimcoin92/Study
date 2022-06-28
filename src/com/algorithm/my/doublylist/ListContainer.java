@@ -3,109 +3,44 @@ package com.algorithm.my.doublylist;
 public class ListContainer {
 	private Node head;
 	private Node tail;
-	private Node recent;
-	private int  recentIndex;
 	private int count;
 	
 	public ListContainer()
 	{
 		head = null;
 		tail = null;
-		recent = null;
-		recentIndex = 0;
-		count = 0;		
+		count = 0;
 	}
 	
-	public Node getNode(int index)
+	public Node getNode(int _index)
 	{
-		Node result = head;
+		Node target = null;
+		int middle = count / 2;
 		
-		if (index >= count)
-		{
-			return null;
-		}
-			
-		for (int i = 0; i < index; i++)
-		{
-			result = result.getNext();
-		}
-		
-		return result;
-	}
-	
-	public Node getNodeByRecent(int index)
-	{
-		Node result = null;
-		
-		if (index >= count)
+		if ((_index < 0) || (_index >= count))
 		{
 			return null;
 		}
 		
-		if (recent == null)
+		if (_index <= middle)
 		{
-			result = head;
+			target = head;
 			
-			for (int i = 0; i < index; i++)
+			for (int i = 0; i < _index; i++)
 			{
-				result = result.getNext();
-				recentIndex++;
+				target = target.getNext();
 			}
 		}
-		else
+		else if (_index > middle)
 		{
-			result = recent;
+			target = tail;
 			
-			if  (recentIndex > index)
+			for (int i = 0; i < (count - _index - 1); i++)
 			{
-				for (int i = 0; i < recentIndex - index; i++)
-				{
-					result = result.getPrev();
-					recentIndex--;
-				}
-			}
-			else if (recentIndex < index)
-			{
-				for (int i = 0; i < index - recentIndex; i++)
-				{
-					result = result.getNext();
-					recentIndex++;
-				}
+				target = target.getPrev();
 			}
 		}
-		
-		recent = result;
-		return result;
-	}
-
-	public Node getNodeByHalf(int index)
-	{
-		Node result = null;
-		
-		if (index >= count)
-		{
-			return null;
-		}
-		
-		if (index < count / 2)
-		{
-			result = head;
-			
-			for (int i = 0; i < index; i++)
-			{
-				result = result.getNext();
-			}
-		}
-		else if (index > count / 2)
-		{
-			result = tail;
-			
-			for (int i = 0; i < index; i++)
-			{
-				result = result.getPrev();
-			}
-		}
-		return result;
+		return target;
 	}
 
 	public boolean insertNode()
@@ -113,7 +48,6 @@ public class ListContainer {
 		Node target = null;
 		Node newNode = new Node();
 		
-		// 노드가 하나도 없음.
 		if (count == 0)
 		{
 			head = newNode;
@@ -129,13 +63,12 @@ public class ListContainer {
 		}
 		else
 		{
-			// 마지막 노드를 가지고 와서 그 뒤에 물린다.
 			target = getNode(count - 1);
 			
 			target.setNext(newNode);
 			newNode.setPrev(target);
 		}
-		
+		tail = newNode;
 		count++;
 		return true;
 	}
@@ -149,43 +82,37 @@ public class ListContainer {
 		{
 			return false;
 		}
-		
-		
 		if (count == 0)
 		{
-			//OK
 			head = newNode;
-			
 		}
 		else if (pos > count)
 		{
-			//OK
 			target = getNode(count - 1);
 			target.setNext(newNode);
 			newNode.setPrev(target);
-			
 		}
 		else if (pos == 0)
 		{
-			// OK
 			target = getNode(pos);
-			
 			newNode.setNext(target);
 			target.setPrev(newNode);
-			
 			head = newNode;
-			
 		}
 		else
 		{
 			target = getNode(pos);
-			
+	
 			newNode.setNext(target);
 			newNode.setPrev(target.getPrev());
 			
 			target.setPrev(newNode);
 			newNode.getPrev().setNext(newNode);
-			
+		}
+		
+		if (pos > count)
+		{
+			tail = newNode;
 		}
 		
 		count++;
@@ -197,19 +124,21 @@ public class ListContainer {
 		Node target = null;
 		Node newNode = _newNode;
 		
-		// 노드가 하나도 없음.
+
 		if (count == 0)
 		{
 			head = newNode;			
 		}
 		else
 		{
-			// 마지막 노드를 가지고 와서 그 뒤에 물린다.
+
 			target = getNode(count - 1);
 			
 			target.setNext(newNode);
 			newNode.setPrev(target);
 		}
+		
+		tail = newNode;
 		
 		count++;
 
@@ -229,13 +158,13 @@ public class ListContainer {
 		
 		if (count == 0)
 		{
-			//OK
+
 			head = newNode;
 			
 		}
 		else if (pos > count)
 		{
-			//OK
+
 			target = getNode(count - 1);
 			target.setNext(newNode);
 			newNode.setPrev(target);
@@ -243,14 +172,13 @@ public class ListContainer {
 		}
 		else if (pos == 0)
 		{
-			// OK
+
 			target = getNode(pos);
 			
 			newNode.setNext(target);
 			target.setPrev(newNode);
 			
 			head = newNode;
-			
 		}
 		else
 		{
@@ -261,7 +189,11 @@ public class ListContainer {
 			
 			target.setPrev(newNode);
 			newNode.getPrev().setNext(newNode);
-			
+		}
+		
+		if (pos > count)
+		{
+			tail = newNode;
 		}
 		
 		count++;
@@ -276,19 +208,20 @@ public class ListContainer {
 		
 		newNode.setData(_newNodeData);
 		
-		// 노드가 하나도 없음.
+
 		if (count == 0)
 		{
 			head = newNode;			
 		}
 		else
 		{
-			// 마지막 노드를 가지고 와서 그 뒤에 물린다.
 			target = getNode(count - 1);
 			
 			target.setNext(newNode);
 			newNode.setPrev(target);
 		}
+		
+		tail = newNode;
 		
 		count++;
 		
@@ -309,13 +242,13 @@ public class ListContainer {
 		
 		if (count == 0)
 		{
-			//OK
+
 			head = newNode;
 			
 		}
 		else if (pos > count)
 		{
-			//OK
+
 			target = getNode(count - 1);
 			target.setNext(newNode);
 			newNode.setPrev(target);
@@ -323,7 +256,7 @@ public class ListContainer {
 		}
 		else if (pos == 0)
 		{
-			// OK
+
 			target = getNode(pos);
 			
 			newNode.setNext(target);
@@ -344,6 +277,11 @@ public class ListContainer {
 			
 		}
 		
+		if (pos > count)
+		{
+			tail = newNode;
+		}
+		
 		count++;
 		return true;
 	}
@@ -351,24 +289,20 @@ public class ListContainer {
 	public boolean insertNode(int _value1, String _value2)
 	{
 		Node target = null;
-		
 		Node newNode = new Node();
 		newNode.setData(_value1, _value2);
 		
-		// 노드가 하나도 없음.
 		if (count == 0)
 		{
 			head = newNode;			
 		}
 		else
 		{
-			// 마지막 노드를 가지고 와서 그 뒤에 물린다.
 			target = getNode(count - 1);
-			
 			target.setNext(newNode);
 			newNode.setPrev(target);
 		}
-		
+		tail = newNode;
 		count++;
 		return true;		
 	}
@@ -387,13 +321,13 @@ public class ListContainer {
 			
 		if (count == 0)
 		{
-			//OK
+
 			head = newNode;
 			
 		}
 		else if (pos > count)
 		{
-			//OK
+
 			target = getNode(count - 1);
 			target.setNext(newNode);
 			newNode.setPrev(target);
@@ -401,7 +335,7 @@ public class ListContainer {
 		}
 		else if (pos == 0)
 		{
-			// OK
+
 			target = getNode(pos);
 			
 			newNode.setNext(target);
@@ -420,6 +354,11 @@ public class ListContainer {
 			target.setPrev(newNode);
 			newNode.getPrev().setNext(newNode);
 			
+		}
+		
+		if (pos > count)
+		{
+			tail = newNode;
 		}
 		
 		count++;			
@@ -462,6 +401,11 @@ public class ListContainer {
 					
 		}
 		
+		if (_index == (count-1))
+		{
+			tail = prevNode;
+		}
+		
 		count--;
 		return true;
 	}
@@ -475,19 +419,14 @@ public class ListContainer {
 		
 		do
 		{
-			// 1. 데이터를 가지온다. 
 			data = target.getData();
 			
-			// 데이터가 지워할 놈이면
 			if (_value1 == data.getValue1())
 			{
-				//지운뒤 지운 횟수 증가
 				deleteNodebyIndex(i - delCount);
-				delCount++;
-							
+				delCount++;				
 			}
-
-			// 타겟을 다음으로 옮긴다.
+			
 			target = target.getNext();							
 			i++;
 			
@@ -506,26 +445,20 @@ public class ListContainer {
 		
 		do
 		{
-			// 1. 데이터를 가지온다. 
 			data = target.getData();
 			
-			// 데이터가 지워할 놈이면
 			if (true == _value2.equals(data.getValue2()))
 			{
-				//지운뒤 지운 횟수 증가
 				deleteNodebyIndex(i - delCount);
-				delCount++;
-							
+				delCount++;	
 			}
-
-			// 타겟을 다음으로 옮긴다.
+			
 			target = target.getNext();							
 			i++;
 			
-		} while(target != null);
+		} while (target != null);
 		
 		return delCount;
-		
 	}
 	
 	public int deleteNodebyValue(int _value1, String _value2)
@@ -537,26 +470,20 @@ public class ListContainer {
 		
 		do
 		{
-			// 1. 데이터를 가지온다. 
 			data = target.getData();
-			
-			// 데이터가 지워할 놈이면
+
 			if ((_value1 == data.getValue1()) && (true == _value2.equals(data.getValue2())))
 			{
-				//지운뒤 지운 횟수 증가
 				deleteNodebyIndex(i - delCount);
-				delCount++;
-							
+				delCount++;		
 			}
 
-			// 타겟을 다음으로 옮긴다.
 			target = target.getNext();							
 			i++;
 			
 		} while(target != null);
 		
 		return delCount;
-		
 	}
 	
 	public void printAll()
@@ -564,17 +491,20 @@ public class ListContainer {
 		Node target = head;
 		NodeData data = null;
 		
-		for (int i = 0; i < count; i++)
+		for (int i = 0; i < count - 1; i++)
 		{
 			data = target.getData();
 			
 			System.out.println("index = " + i);
 
-			if (null == data)				
+			if (null == data)
+			{
 				System.out.println("null");
+			}
 			else
+			{
 				System.out.printf("%d, %s\n", data.getValue1(), data.getValue2());
-				
+			}
 			System.out.println("-------------------");
 			
 			target = target.getNext();
