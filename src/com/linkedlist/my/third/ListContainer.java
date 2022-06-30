@@ -6,20 +6,6 @@ public class ListContainer
 	private Node	tail;
 	private int		count;
 	
-	// Old
-	/*
-	public Node getNode(int _index)
-	{
-		Node target = head;
-		
-		for (int i = 0; i < _index; i++)
-		{
-			target = target.getNext();
-		}
-		return target;
-	}
-	*/
-	
 	// Complete (Unchecked)
 	public Node getNode(int _index)
 	{
@@ -27,7 +13,7 @@ public class ListContainer
 		
 		int middle = count / 2;
 		
-		if ((_index < 0) || (_index >=count))
+		if ((_index < 0) || (_index >= count))
 		{
 			return null;
 		}
@@ -51,6 +37,12 @@ public class ListContainer
 			}
 		}
 		return target; 
+	}
+	
+	// Complete (Unchecked)
+	public int getCount()
+	{
+		return count;
 	}
 	
 	// Completed (Checked)
@@ -83,6 +75,27 @@ public class ListContainer
 		return true;
 	}
 
+	// Completed (Unchecked)
+	public boolean insertNode(NodeData _newNodeData)
+	{
+		Node target = null;
+		Node newNode = new Node();
+		newNode.setData(_newNodeData);
+		if (count == 0)
+		{
+			head = newNode;			
+		}
+		else
+		{
+			target = getNode(count - 1);
+			target.setNext(newNode);
+			newNode.setPrev(target);
+		}
+		tail = newNode;
+		count++;
+		return true;
+	}
+	
 	// Completed (Checked)
 	public boolean insertNode(int _value1, String _value2)
 	{	

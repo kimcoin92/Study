@@ -7,46 +7,28 @@ public class LinkedList
 		// getNode
 		ListContainer list = new ListContainer();
 		
-		// 분기 테스트
-		// 모든 분기에 들어가는 테스트 코드를 만드는 것
-		System.out.println("1. Over & Under Statements");
+		Node node = null;
 		
-		if (null == list.getNode(-1))
+		for (int i = 0; i < 1000; i++)
 		{
-			System.out.println("(1) index < 0 : OK");
+			list.insertNode(i + 1, "data");
 		}
-		else
-		{
-			System.out.println("(1) index < 0 : NO");
-		}
+		// _index < 0
+		// _index >= count
+		node = list.getNode(0);
+		node = list.getNode(-1);
+		node = list.getNode(1001);
 		
-		for (int i = 0; i < 100; i++)
-		{
-			list.insertNode();
-		}
+		// _index <= middle
+		node = list.getNode(0);
+		node = list.getNode(250);
+		node = list.getNode(499);
+		node = list.getNode(500);
 		
-		if (null == list.getNode(100))
-		{
-			System.out.println("(2) index >=count : OK");
-		}
-		else
-		{
-			System.out.println("(2) index >=count : NO\n");
-		}
-		
-		System.out.println("2. Over & Under Statements");
-		
-		// 동등분할 또는 경계값 분석
-//		if ((target == head) == list.getNode(49))
-//		{
-//			
-//		}
-//		if else (list.getNode(50))
-//		{
-//			
-//		}
-
-		
+		// _index > middle
+		node = list.getNode(501);
+		node = list.getNode(750);
+		node = list.getNode(999);
 	}
 	
 	public static void main(String[] args)
