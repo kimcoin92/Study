@@ -8,6 +8,7 @@ public class Index
 {
 	public static void main(String[] args)
 	{
+		@SuppressWarnings("unused")
 		boolean res;
 		
 		Set<IntValue> hset = new HashSet<>();

@@ -1,7 +1,9 @@
 package com.collection.teacher.hashset;
 
+
 import java.util.Objects;
 
+@SuppressWarnings("unused")
 public class IntValue
 {
 	private int value;
@@ -56,10 +58,10 @@ public class IntValue
 		return result;
 	}
 	
-	@Override
-	public int hashCode() {
-		return Objects.hash(value);
-	}
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(value);
+//	}
 	
 	// 분류한다.
 //	@Override

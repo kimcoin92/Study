@@ -5,11 +5,14 @@ import com.linkedlist.my.third.*;
 public class Stack
 {
 	private ListContainer list1;
+	@SuppressWarnings("unused")
 	private Node[] frame;
+	@SuppressWarnings("unused")
 	private int sp;
 	
 	public Stack()
 	{
+		list1 = new ListContainer();
 		frame = null;
 		sp = 0;
 	}

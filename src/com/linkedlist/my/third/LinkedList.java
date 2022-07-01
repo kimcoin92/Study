@@ -1,5 +1,7 @@
 package com.linkedlist.my.third;
 
+import com.algorithm.teacher.*;
+
 public class LinkedList
 {
 	public static void test_getNode()
@@ -7,6 +9,7 @@ public class LinkedList
 		// getNode
 		ListContainer list = new ListContainer();
 		
+		@SuppressWarnings("unused")
 		Node node = null;
 		
 		for (int i = 0; i < 1000; i++)
@@ -33,6 +36,16 @@ public class LinkedList
 	
 	public static void main(String[] args)
 	{
-		test_getNode();
+//		test_getNode();
+		
+		
+		
+		Stack st = new Stack();
+		
+		st.push(2, "abc");
+		
+		NodeData nod = st.pop();
+		
+		System.out.printf("%d, %s\n", nod.getValue1(), nod.getValue2());
 	}
 }
