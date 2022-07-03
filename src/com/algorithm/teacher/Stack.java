@@ -1,49 +1,59 @@
 package com.algorithm.teacher;
 
-import com.linkedlist.my.third.*;
-
-public class Stack
-{
-	private ListContainer list1;
-	@SuppressWarnings("unused")
-	private Node[] frame;
-	@SuppressWarnings("unused")
-	private int sp;
+public class Stack {
+	private DoubleListContainer dlc;
+	
 	
 	public Stack()
 	{
-		list1 = new ListContainer();
-		frame = null;
-		sp = 0;
+		dlc = new DoubleListContainer();
+	}
+			
+	public int size()
+	{
+		return dlc.getCount();
+		
 	}
 	
 	public boolean push(NodeData _data)
 	{
 		boolean result;
-		
-		result = list1.insertNode(_data);
+	
+		result = dlc.insertNode(_data);
 		
 		return result;
+		
 	}
 	
 	public boolean push(int _value1, String _value2)
-	{
-		boolean result;
+	{		
+		return dlc.insertNode(_value1, _value2);
 		
-		result = list1.insertNode(_value1, _value2);
-		
-		return result;
 	}
 	
 	public NodeData pop()
 	{
-		int lastIndex = list1.getCount() - 1;
+		int lastIndex = dlc.getCount() - 1;
 		
-		Node lastNode = list1.getNode(lastIndex);
+		Node lastNode = dlc.getNode(lastIndex);		
 		NodeData data = lastNode.getData();
 		
-		list1.deleteNode(lastIndex);
+		dlc.deleteNodebyIndex(lastIndex);		
 		
 		return data;
+	
 	}
+	
+	public void printAll()
+	{
+		dlc.printAll();
+		
+	}
+	
+	public void cleanUp()
+	{
+		dlc.deleteAll();
+		
+	}
+
 }

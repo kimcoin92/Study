@@ -43,9 +43,5 @@ public class LinkedList
 		Stack st = new Stack();
 		
 		st.push(2, "abc");
-		
-		NodeData nod = st.pop();
-		
-		System.out.printf("%d, %s\n", nod.getValue1(), nod.getValue2());
 	}
 }

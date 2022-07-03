@@ -14,19 +14,23 @@ public class DLink
 	Node tail;
 	int  count;
 	
-	// Complete (Unchecked)
-	public Node getNode(int _index)
+	// Complete (✗) - 인덱스와 개수를 동일하게 맞출경우 null값 노드에 대한 처리문제
+	public Node getNode (int _index)
 	{
 		Node target = null;	
 		
-		int middle = count / 2;
+		int center = count / 2;
 		
-		if ((_index < 0) || (_index >= count))
+		if (_index < 0)
 		{
-			return null;
+			target = head;
+		}
+		else if (_index >= count)
+		{
+			target = tail;
 		}
 		
-		if (_index <= middle)
+		if (_index <= center)
 		{
 			target = head;
 			
@@ -47,48 +51,18 @@ public class DLink
 		return target; 
 	}
 	
-	// Completed (Checked)
+	// Complete (✓)
 	public int getCount()
 	{
 		return count;
 	}
 	
-	// Completed (Checked)
+	// Complete (✓)
 	public boolean insertNode()
 	{	
+		Node target  = null;
 		Node newNode = new Node();
-		Node target = null;
 		
-		if (0 == count)
-		{
-			head = newNode;
-		}
-		else
-		if (1 == count)
-		{
-			target = head;
-			
-			target.setNext(newNode);
-			newNode.setPrev(target);
-		}
-		else
-		{
-			target = getNode(count - 1);
-			
-			target.setNext(newNode);
-			newNode.setPrev(target);
-		}
-		tail = newNode;
-		count++;
-		return true;
-	}
-
-	// Completed (Checked)
-	public boolean insertNode(Record _newData)
-	{
-		Node target = null;
-		Node newNode = new Node();
-		newNode.setData(_newData);
 		if (count == 0)
 		{
 			head = newNode;			
@@ -96,31 +70,69 @@ public class DLink
 		else
 		{
 			target = getNode(count - 1);
+			
 			target.setNext(newNode);
 			newNode.setPrev(target);
 		}
+		
 		tail = newNode;
 		count++;
 		return true;
 	}
-	
-	// Completed (Checked)
-	public boolean insertNode(int _value1, String _value2)
-	{	
-		Node newNode = new Node(_value1, _value2);
-		Node target = null;
+
+	// Complete (✗) - #1 : getNode의 null target으로 인한 pointer 예외
+	public boolean insertNode(int _index)
+	{
+		Node target  = null;
+		Node newNode = new Node();
 		
-		if (0 == count)
+		if (0 > _index)
 		{
+			return false;
+		}
+		
+		if (count == 0)
+		{
+			head = newNode;			
+		}
+		else if (_index == 0)
+		{
+			target = getNode(_index);
+			
+			newNode.setNext(target);
+			target.setPrev(newNode);
+			
 			head = newNode;
 		}
 		else
-		if (1 == count)
 		{
-			target = head;
+			target = getNode(_index);
 			
-			target.setNext(newNode);
-			newNode.setPrev(target);
+			newNode.setNext(target);
+			newNode.setPrev(target.getPrev());
+			
+			target.setPrev(newNode);
+			newNode.getPrev().setNext(newNode);
+		}
+		
+		if (_index > count)
+		{
+			tail = newNode;			
+		}
+		count++;
+		return true;
+	}
+	
+	// Complete (✓)
+	public boolean insertNode(Record _newData)
+	{
+		Node target  = null;
+		Node newNode = new Node();
+		newNode.setData(_newData);
+		
+		if (count == 0)
+		{
+			head = newNode;			
 		}
 		else
 		{
@@ -129,63 +141,123 @@ public class DLink
 			target.setNext(newNode);
 			newNode.setPrev(target);
 		}
+		
 		tail = newNode;
 		count++;
 		return true;
 	}
 	
-	// Incomplete
-	public boolean insertNode(int _value1, String _value2 , int _index)
-	{	
-		Node newNode  = new Node(_value1, _value2);
-		Node target   = null;
-		Node nextNode = null;
+	// Complete (✗) - #1
+	public boolean insertNode(Record _newData, int _index)
+	{
+		Node target  = null;
+		Node newNode = new Node();
+		newNode.setData(_newData);
 		
-		if ((0 > _index) || (count <= _index))
+		if (0 > _index)
 		{
 			return false;
 		}
 		
-		if (0 == count)
+		if (count == 0)
 		{
-			head = newNode;
-			tail = newNode;
+			head = newNode;			
 		}
-		else if (1 == count)
-		{
-			target = head;
-			
-			target.setNext(newNode);
-			newNode.setPrev(target);
-		}
-		else if (_index == count - 1)
+		else if (_index == 0)
 		{
 			target = getNode(_index);
 			
-			target.setNext(newNode);
-			newNode.setPrev(target);
+			newNode.setNext(target);
+			target.setPrev(newNode);
+			
+			head = newNode;
 		}
 		else
 		{
-			target   = getNode(_index);
-			nextNode = target.getNext();
+			target = getNode(_index);
 			
-			target.setNext(newNode);
-			newNode.setPrev(target);
+			newNode.setNext(target);
+			newNode.setPrev(target.getPrev());
 			
-			nextNode.setPrev(newNode);
-			newNode.setNext(nextNode);
+			target.setPrev(newNode);
+			newNode.getPrev().setNext(newNode);
 		}
 		
 		if (_index > count)
 		{
-			tail = newNode;
+			tail = newNode;			
+		}
+		count++;
+		return true;
+	}
+	
+	// Complete (✓)
+	public boolean insertNode(int _value1, String _value2)
+	{	
+		Node target  = null;
+		Node newNode = new Node(_value1, _value2);
+		
+		if (count == 0)
+		{
+			head = newNode;			
+		}
+		else
+		{
+			target = getNode(count - 1);
+			
+			target.setNext(newNode);
+			newNode.setPrev(target);
+		}
+		
+		tail = newNode;
+		count++;
+		return true;
+	}
+	
+	// Complete (✗) - #1
+	public boolean insertNode(int _value1, String _value2 , int _index)
+	{	
+		Node newNode  = new Node(_value1, _value2);
+		Node target   = null;
+		
+		if (0 > _index)
+		{
+			return false;
+		}
+		
+		if (count == 0)
+		{
+			head = newNode;			
+		}
+		else if (_index == 0)
+		{
+			target = getNode(_index);
+			
+			newNode.setNext(target);
+			target.setPrev(newNode);
+			
+			head = newNode;
+		}
+		else
+		{
+			target = getNode(_index);
+			
+			newNode.setNext(target);
+			newNode.setPrev(target.getPrev());
+			
+			target.setPrev(newNode);
+			newNode.getPrev().setNext(newNode);
+		}
+		
+		if (_index > count)
+		{
+			tail = newNode;			
 		}
 		count++;
 		return true;
 	}
 
-	// Completed (Checked)
+	// Complete (✓)
 	public boolean deleteNode(int _index)
 	{
 		Node target = null;
@@ -240,7 +312,7 @@ public class DLink
 		return true;
 	}
 	
-	// Completed (Checked)
+	// Complete (✓)
 	public void deleteAll()
 	{
 		Node target   = head;
@@ -262,7 +334,7 @@ public class DLink
 		count = 0;
 	}
 	
-	// Completed (Checked)
+	// Complete (✓)
 	public void printAll()
 	{
 		Node target = head;

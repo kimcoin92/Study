@@ -12,6 +12,6 @@ public class CheckUp
 {
 	public static void main(String[] args)
 	{
-		DLink doubleL = new DLink();
+		
 	}
 }

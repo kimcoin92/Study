@@ -10,6 +10,5 @@ package com.algorithm.my;
 
 public class SLink
 {
-	private Node head;
-	private Record data;
+	
 }
