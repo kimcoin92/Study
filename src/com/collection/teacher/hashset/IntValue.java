@@ -35,6 +35,7 @@ public class IntValue
 	}
 	
 	// 같냐 다르냐를 판단한다.
+	// 유일한 값만 가지려면 equals가 필요하다.
 	@Override
 	public boolean equals(Object _obj)
 	{
@@ -58,17 +59,12 @@ public class IntValue
 		return result;
 	}
 	
-//	@Override
-//	public int hashCode() {
-//		return Objects.hash(value);
-//	}
-	
 	// 분류한다.
-//	@Override
-//	public int hashCode()
-//	{
-//		return value % 3;
-//	}
+	@Override
+	public int hashCode()
+	{
+		return value % 3;
+	}
 	
 	
 }

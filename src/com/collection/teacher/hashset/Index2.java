@@ -1,28 +1,30 @@
 package com.collection.teacher.hashset;
 
+import java.util.HashSet;
 import java.util.Iterator;
-import java.util.TreeSet;
+
+//import java.util.TreeSet;
 
 public class Index2
 {
 	public static void main(String[] args)
 	{
-		TreeSet<Integer> tree = new TreeSet<>();
+		HashSet<Integer> hash = new HashSet<>();
 		
-		tree.add(5);
-		tree.add(3);
-		tree.add(4);
-		tree.add(1);
-		tree.add(2);
+		hash.add(1);
+		hash.add(2);
+		hash.add(3);
+		hash.add(4);
+		hash.add(5);
 		
-		System.out.println("count = " + tree.size());
+		System.out.println("count = " + hash.size());
 		
-		for (Integer n : tree)
+		for (Integer n : hash)
 		{
 			System.out.println(n);
 		}
 		
-		Iterator<Integer> iter = tree.iterator();
+		Iterator<Integer> iter = hash.iterator();
 		
 		while (iter.hasNext())
 		{
