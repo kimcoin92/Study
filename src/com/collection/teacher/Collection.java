@@ -21,7 +21,7 @@ public class Collection
 		// 3. iterator를 가지고 온다.
 		Iterator<String> iter = list1.iterator();
 		
-		// 4. itorator로 데이터를 순회하면서 찍어본다.
+		// 4. iterator로 데이터를 순회하면서 찍어본다.
 		
 		System.out.println("while문");
 		
