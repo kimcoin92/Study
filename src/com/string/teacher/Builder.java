@@ -1,5 +1,3 @@
-// StringBuilder의 특징
-
 package com.string.teacher;
 
 public class Builder {
