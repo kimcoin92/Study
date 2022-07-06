@@ -12,11 +12,11 @@
 
 // ## 내 코드 (강사님 코드 참조했음) ##
 
-package com.stack;
+package com.algorithm.stack;
 
 import java.util.Arrays;
 
-public class Stack {
+public class _Stack {
 	
 	public static final int DEFAULT_STACK_SIZE   = 10;
 	public static final int ERROR_STACK_FULL     = 0;
@@ -29,12 +29,12 @@ public class Stack {
 	private int   pointer;
 	private int   count;
 	
-	public Stack()
+	public _Stack()
 	{
-		this(Stack.DEFAULT_STACK_SIZE);
+		this(_Stack.DEFAULT_STACK_SIZE);
 	}
 	
-	public Stack(int _size)
+	public _Stack(int _size)
 	{
 		pointer = 0;
 		count   = 0;

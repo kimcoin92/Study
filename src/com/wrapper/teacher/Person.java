@@ -2,6 +2,8 @@ package com.wrapper.teacher;
 
 public class Person implements Comparable<Object>
 {
+	// 정성훈 강사님 코드
+	
 	private String name;
 	private int    age;
 	

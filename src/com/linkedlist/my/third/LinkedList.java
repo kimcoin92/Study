@@ -1,7 +1,5 @@
 package com.linkedlist.my.third;
 
-import com.algorithm.teacher.*;
-
 public class LinkedList
 {
 	public static void test_getNode()
@@ -32,16 +30,5 @@ public class LinkedList
 		node = list.getNode(501);
 		node = list.getNode(750);
 		node = list.getNode(999);
-	}
-	
-	public static void main(String[] args)
-	{
-//		test_getNode();
-		
-		
-		
-		Stack st = new Stack();
-		
-		st.push(2, "abc");
 	}
 }

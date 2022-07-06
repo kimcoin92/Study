@@ -10,13 +10,13 @@
  * 
  */
 
-package com.queue;
+package com.algorithm.queue;
 
 import java.util.Arrays;
 
 // ## 내 코드 ##
 
-public class Queue {
+public class _Queue {
 
 	public static final int DEFAULT_SIZE       = 10;
 	public static final int ERROR_FULL         = 0;
@@ -33,12 +33,12 @@ public class Queue {
 	private int   count;
 
 
-	public Queue()
+	public _Queue()
 	{
-		this(Queue.DEFAULT_SIZE);
+		this(_Queue.DEFAULT_SIZE);
 	}
 	
-	public Queue(int _size)
+	public _Queue(int _size)
 	{
 		count = 0;
 		front  = INITIALIZE_POINTER;
