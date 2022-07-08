@@ -1,4 +1,4 @@
-package com.wrapper.teacher;
+package com.wrapper;
 
 public class Person implements Comparable<Object>
 {

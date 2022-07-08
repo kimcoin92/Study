@@ -1,10 +1,10 @@
 /**  
- *   ● 총 정리 / 테스트 로직
+ *   총 정리 / 테스트 로직
  *   
- *   ● 작성일 : 2022년 7월 1일
- *   ● 수정일 : 2022년 7월 6일
+ *   작성일 : 2022년 7월 1일
+ *   수정일 : 2022년 7월 6일
  *   
- *   ● Thanks to Instructor, Sung-Hun Jung!
+ *   Thanks to Instructor, Sung-Hun Jung!
  *   
  */  
 
@@ -21,11 +21,12 @@ import java.util.HashSet;
 import java.util.TreeSet;
 import java.util.Iterator;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class Main
 {
-	// 1. Algorithm Stack : Data Structure 구현
+	// Algorithm Stack : Data Structure 구현
 	public static boolean callAlgorithmStack()
 	{
 		_Stack stk = new _Stack(10);
@@ -34,7 +35,7 @@ public class Main
 		return true;
 	}
 	
-	// 2. Algorithm Queue : Data Structure 구현
+	// Algorithm Queue : Data Structure 구현
 	public static boolean callAlgorithmQueue()
 	{
 		_Queue que = new _Queue(10);
@@ -43,7 +44,7 @@ public class Main
 		return true;
 	}
 	
-	// 3. Comparator : Person에 대한 변수값 상하정렬
+	// Comparator : Person에 대한 변수값 상하정렬
 	public static boolean callComparePerson()
 	{
 		// new PersonComparator : 역순 정렬
@@ -62,7 +63,7 @@ public class Main
 		return true;
 	}
 
-	// 4. HashSet : 중복의 제거
+	// HashSet : 중복의 제거
 	public static boolean callHashSet()
 	{
 		ArrayList<String> list = new ArrayList<>();
@@ -85,7 +86,7 @@ public class Main
 		return true;
 	}
 	
-	// 5. Interface Queue : Linked-list 형태의 자료구조 구성
+	// Interface Queue : Linked-list 형태의 자료구조 구성
 	public static boolean callInterfaceQueue()
 	{
 		String peekTemp;
@@ -166,7 +167,7 @@ public class Main
 		return true;
 	}
 	
-	// 6. HashMap : Key와 Value의 개념과 Set을 이용한 중복 제거
+	// HashMap : Key와 Value의 개념과 Set을 이용한 중복 제거
 	public static boolean callHashMap()
 	{
 		// HashMap<K, V> : Key와 Value
@@ -206,7 +207,7 @@ public class Main
 		return true;
 	}
 	
-	// 7. HashMap : Person에 대한 변수값 순회 출력
+	// HashMap : Person에 대한 변수값 순회 출력
 	public static boolean callHashMapPerson()
 	{
 		HashMap<Integer, Person> p1 = new HashMap<>();
@@ -231,7 +232,105 @@ public class Main
 		return true;
 	}
 
+	// Wrapper : Auto-Boxing 예제
+	@SuppressWarnings({ "removal", "unused" })
+	public static boolean callWrapperAutoBox()
+	{
+		// Boxing : 구버전
+		Integer iii1 = new Integer(10);
+		Double  ddd1 = new Double(20.32);
+		
+		Integer iii3 = Integer.valueOf("4"); // Boxing을 static method인 valueOf로 처리
+		
+		// Sugar-code
+		// Boxing (Auto-Boxing) : 신버전
+		Integer iii2 = 10;
+		
+		// Unboxing
+		int iii = iii1.intValue();
+		
+		// Auto-Unboxing
+		int jjj = iii2;
+		
+		iii2 = iii2 + 10;
+		
+		// 값의 강제변환
+		double ddd = iii1.doubleValue();
+		
+		// -------------------------
+		
+		int aaa1 = 10;
+		aaa1++;
+		
+		Integer aaa2 = 10;
+		aaa2++;
+		
+//		자바에 허용하지 않는 Wrapper
+//		IntData aaa3 = 10;
+//		aaa3++;
+		
+		return true;
+	}
 	
+	// Wrapper : Arrays를 통한 Person의 Binary-search
+	public static boolean callArrayBinarySearch()
+	{
+		double[] arOrg = {1.1, 2.2, 3.3, 4.4, 5.5};
+		
+		// 1. arOrg와 동일한 배열을 만든다.
+		double[] arCpy = Arrays.copyOf(arOrg, arOrg.length);
+		System.out.println(Arrays.toString(arCpy));
+		
+		arCpy[0] = 0;
+		for (double dd : arOrg)
+		{
+			System.out.println(dd);
+		}
+		
+		// 2. arOrg의 일부분으로 배열을 만든다.
+		// - (index 1부터 index 3의 전까지)
+		double[] arCpyPart = Arrays.copyOfRange(arOrg, 1, 3);
+		System.out.println(Arrays.toString(arCpyPart));
+		
+		// 3. 이미 할당된 배열에 외부의 값을 복사한다.
+		double[] arr = new double[3];
+		
+		// arOrg의 index 1부터 arr의 3개의 index로 값을 복사한다.
+		System.arraycopy(arOrg, 1, arr, 0, 3);
+		System.out.println(Arrays.toString(arr));
+		
+		// 4. 배열을 비교한다.
+		System.out.println(Arrays.equals(arOrg, arCpy));
+		
+		// 5. 배열 값을 정렬한다.
+		int[] ar1 = {43, 2, 0, 4, 5};
+		
+		Arrays.sort(ar1);
+		System.out.println(Arrays.toString(ar1));
+		
+		// 6. 특정 Object 배열을 정렬한다.
+		//  - Compareable interface를 구현한다.
+		//  - compareTo() 함수를 구현한다.
+		Person[] arPerson = new Person[4];
+		
+		arPerson[0] = new Person("a", 5);
+		arPerson[1] = new Person("b", 8);
+		arPerson[2] = new Person("c", 7);
+		arPerson[3] = new Person("d", 4);
+		
+		Arrays.sort(arPerson);
+		
+		for (Person p : arPerson)
+		{
+			System.out.println(p);
+		}
+		
+		int idx = Arrays.binarySearch(arPerson, new Person("e", 4));
+		
+		System.out.println(idx);
+		
+		return true;
+	}
 	
 	public static void main(String[] args)
 	{	
