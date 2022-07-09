@@ -2,7 +2,7 @@
  *   총 정리 / 테스트 로직
  *   
  *   작성일 : 2022년 7월 1일
- *   수정일 : 2022년 7월 6일
+ *   수정일 : 2022년 7월 9일
  *   
  *   Thanks to Instructor, Sung-Hun Jung!
  *   
@@ -14,6 +14,10 @@ import com.algorithm.stack._Stack;
 import com.comparable.Person;
 import com.comparable.PersonComparator;
 
+import com.inheritance.phone.*;
+import com.inheritance.animal.*;
+import com.inheritance.starcraft.*;
+
 import java.util.Set;
 import java.util.Queue;
 import java.util.HashMap;
@@ -24,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 
+// 호출부
 public class Main
 {
 	// Algorithm Stack : Data Structure 구현
@@ -328,6 +333,46 @@ public class Main
 		int idx = Arrays.binarySearch(arPerson, new Person("e", 4));
 		
 		System.out.println(idx);
+		
+		return true;
+	}
+	
+	// Inheritance : Phone에 대한 상속관계 예제
+	public static boolean callPhone()
+	{
+		MobilePhone phone1 = new MobilePhone();
+		MobilePhone phone2 = new SmartPhone();
+		
+		phone1.call();
+		phone2.call();
+		
+		return true;
+	}
+	
+	// Inheritance : Starcraft에 대한 상속관계예제
+	public static boolean callStarcraft()
+	{
+		Unit[] ar = new Unit[4];
+		ar[0] = new Hydra();
+		ar[1] = new Hydra();
+		ar[2] = new Ultra();
+		ar[3] = new Ultra();
+		ar[0].state = 1;
+		ar[1].state = 1;
+		ar[2].state = 1;
+		ar[3].state = 1;
+		for(int i = 0; i < ar.length; i++)
+		ar[i].run(4);
+		
+		return true;
+	}
+	
+	// Inheritance : Pet에 대한 상속관계예제
+	public static boolean callAnimal()
+	{
+		Dog kenny = new Dog();
+		
+		System.out.println(kenny);
 		
 		return true;
 	}
