@@ -55,9 +55,17 @@ public class Main
 	{
 		SinglyListContainer sList = new SinglyListContainer();
 		
-		sList.insertNode(0);
-		sList.insertNode(1);
-		sList.insertNode(2);
+		sList.insertNode(1, "a", 0);
+		sList.insertNode(2, "b", 1);
+		sList.insertNode(3, "c", 2);
+		sList.insertNode(4, "d", 3);
+		sList.insertNode(5, "e", 4);
+		
+		System.out.println(sList.deleteNode(4));
+		System.out.println(sList.deleteNode(3));
+		System.out.println(sList.deleteNode(2));
+		System.out.println(sList.deleteNode(2));
+		System.out.println(sList.deleteNode(0));
 		
 		sList.printAll();
 		
@@ -521,6 +529,6 @@ public class Main
 
 	public static void main(String[] args)
 	{	
-		callAlgorithmDoublyLinkedList();
+		callAlgorithmSinglyLinkedList();
 	}
 }

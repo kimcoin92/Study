@@ -12,12 +12,7 @@ public class SinglyListContainer
 	private Node head;
 	private int  count;
 	
-	public SinglyListContainer()
-	{
-		head  = null;
-		count = 0;
-	}
-	
+	// Complete (✓)
 	private Node getLastNode()
 	{
 		Node target = head;
@@ -29,6 +24,7 @@ public class SinglyListContainer
 		return target;
 	}
 	
+	// Complete (✓)
 	private Node getNode(int _index)
 	{
 		Node target = head;
@@ -51,6 +47,7 @@ public class SinglyListContainer
 		return target;
 	}
 	
+	// Complete (✓)
 	public boolean insertNode()
 	{
 		Node newNode = new Node();
@@ -69,6 +66,7 @@ public class SinglyListContainer
 		return true;
 	}
 	
+	// Complete (✓)
 	public boolean insertNode(Node _newNode)
 	{
 		Node newNode = _newNode;
@@ -87,6 +85,7 @@ public class SinglyListContainer
 		return true;
 	}
 	
+	// Complete (✓)
 	public boolean insertNode(int _value1, String _value2)
 	{
 		Node newNode = new Node(_value1, _value2);
@@ -105,6 +104,7 @@ public class SinglyListContainer
 		return true;
 	}
 	
+	// Complete (✓)
 	public boolean insertNode(int _index)
 	{
 		Node newNode = new Node();
@@ -124,6 +124,7 @@ public class SinglyListContainer
 		return true;
 	}
 	
+	// Complete (✓)
 	public boolean insertNode(Node _newNode, int _index)
 	{
 		Node newNode = _newNode;
@@ -143,6 +144,7 @@ public class SinglyListContainer
 		return true;
 	}
 	
+	// Complete (✓)
 	public boolean insertNode(int _value1, String _value2, int _index)
 	{
 		Node newNode = new Node(_value1, _value2);
@@ -162,12 +164,74 @@ public class SinglyListContainer
 		return true;
 	}
 	
+	// Complete (✓)
+	public NodeData deleteNode()
+	{
+		Node     target = null;
+		NodeData data   = null;
+		
+		if(0 == count)
+		{
+			return null;
+		}
+		if(1 == count)
+		{
+			target = head;
+			data = target.getData();
+			head = null;
+		}
+		else
+		{
+			target = getNode(count - 1);
+			data = target.getNext().getData();
+			target.setNext(null);
+		}
+		count--;
+		return data;
+	}
+	
+	// Complete (✗) null 문제 해결 필요
+	public NodeData deleteNode(int _index)
+	{
+		Node     target = null;
+		NodeData data   = null;
+		
+		if(0 == count)
+		{
+			return null;
+		}
+		if((1 == count) || (0 >= _index))
+		{
+			target = head;
+			data = target.getData();
+			head = null;
+		}
+		else if(count <= _index)
+		{
+			target = getNode(count);
+		}
+		else
+		{
+			target = getNode(_index);
+//			data = target.getNext().getData();
+			target.setNext(null);
+		}
+		count--;
+		return data;
+	}
+	
+	// Complete (✓)
 	public void printAll()
 	{
 		Node target   = head;
 		NodeData data = null;
 		
 		System.out.println("------------------------------------");
+		
+		if(0 == count)
+		{
+			System.out.println("No Data");
+		}
 		
 		for(int i = 0; i < count; i++)
 		{
