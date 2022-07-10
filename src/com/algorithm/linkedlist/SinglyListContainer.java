@@ -9,12 +9,189 @@ package com.algorithm.linkedlist;
 public class SinglyListContainer
 {
 	// 내 코드
+	private Node head;
+	private int  count;
+	
+	public SinglyListContainer()
+	{
+		head  = null;
+		count = 0;
+	}
+	
+	private Node getLastNode()
+	{
+		Node target = head;
+		
+		for(int i = 0; i < count - 1; i++)
+		{
+			target = target.getNext();
+		}
+		return target;
+	}
+	
+	private Node getNode(int _index)
+	{
+		Node target = head;
+		
+		if(0 >= _index)
+		{
+			target = head;
+		}
+		else if (count <= _index)
+		{
+			target = getLastNode();
+		}
+		else
+		{
+			for(int i = 0; i < _index - 1; i++)
+			{
+				target = target.getNext();
+			}
+		}
+		return target;
+	}
+	
+	public boolean insertNode()
+	{
+		Node newNode = new Node();
+		Node target  = null;
+		
+		if(0 == count)
+		{
+			head = newNode;
+		}
+		else
+		{
+			target = getLastNode();
+			target.setNext(newNode);
+		}
+		count++;
+		return true;
+	}
+	
+	public boolean insertNode(Node _newNode)
+	{
+		Node newNode = _newNode;
+		Node target  = null;
+		
+		if(0 == count)
+		{
+			head = newNode;
+		}
+		else
+		{
+			target = getLastNode();
+			target.setNext(newNode);
+		}
+		count++;
+		return true;
+	}
+	
+	public boolean insertNode(int _value1, String _value2)
+	{
+		Node newNode = new Node(_value1, _value2);
+		Node target  = null;
+		
+		if(0 == count)
+		{
+			head = newNode;
+		}
+		else
+		{
+			target = getLastNode();
+			target.setNext(newNode);
+		}
+		count++;
+		return true;
+	}
+	
+	public boolean insertNode(int _index)
+	{
+		Node newNode = new Node();
+		Node target  = null;
+		
+		if (0 == count)
+		{
+			head = newNode;
+		}
+		else
+		{
+			target = getNode(_index);
+			newNode.setNext(target.getNext());
+			target.setNext(newNode);
+		}
+		count++;
+		return true;
+	}
+	
+	public boolean insertNode(Node _newNode, int _index)
+	{
+		Node newNode = _newNode;
+		Node target  = null;
+		
+		if(0 == count)
+		{
+			head = newNode;
+		}
+		else
+		{
+			target = getNode(_index);
+			newNode.setNext(target.getNext());
+			target.setNext(newNode);
+		}
+		count++;
+		return true;
+	}
+	
+	public boolean insertNode(int _value1, String _value2, int _index)
+	{
+		Node newNode = new Node(_value1, _value2);
+		Node target  = null;
+		
+		if(0 == count)
+		{
+			head = newNode;
+		}
+		else
+		{
+			target = getNode(_index);
+			newNode.setNext(target.getNext());
+			target.setNext(newNode);
+		}
+		count++;
+		return true;
+	}
+	
+	public void printAll()
+	{
+		Node target   = head;
+		NodeData data = null;
+		
+		System.out.println("------------------------------------");
+		
+		for(int i = 0; i < count; i++)
+		{
+			data = target.getData();
+			
+			if(data == null)
+			{
+				System.out.printf("Index: %d, Number: null, String: null%n", i);
+			}
+			else
+			{
+				System.out.printf("index: %d, value1: %d, value2: %s\n", i, data.getValue1(), data.getValue2());
+			}
+			target = target.getNext();
+		}
+		System.out.println("------------------------------------");
+	}
+	
+	
 	
 	
 	// 정성훈 강사님의 코드
 	
 	/*
-	
 	private Node 	header;
 	private int 	count;
 	

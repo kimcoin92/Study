@@ -10,13 +10,15 @@
 
 import com.algorithm.queue._Queue;
 import com.algorithm.stack._Stack;
+import com.algorithm.linkedlist.*;
 
 import com.comparable.Person;
 import com.comparable.PersonComparator;
-
 import com.inheritance.phone.*;
 import com.inheritance.animal.*;
 import com.inheritance.starcraft.*;
+import com.linear.*;
+import com.quadratic.*;
 
 import java.util.Set;
 import java.util.Queue;
@@ -28,7 +30,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-// 호출부
 public class Main
 {
 	// Algorithm Stack : Data Structure 구현
@@ -45,6 +46,36 @@ public class Main
 	{
 		_Queue que = new _Queue(10);
 		System.out.println(que);
+		
+		return true;
+	}
+	
+	// Algorithm Singly Linked-List : Data Structure 구현
+	public static boolean callAlgorithmSinglyLinkedList()
+	{
+		SinglyListContainer sList = new SinglyListContainer();
+		
+		sList.insertNode(0);
+		sList.insertNode(1);
+		sList.insertNode(2);
+		
+		sList.printAll();
+		
+		return true;
+	}
+	
+	// Algorithm Doubly Linked-List : Data Structure 구현
+	public static boolean callAlgorithmDoublyLinkedList()
+	{
+		DoublyListContainer dList = new DoublyListContainer();
+		
+		dList.insertNode(0);
+		dList.insertNode(1);
+		dList.insertNode(2);
+		dList.insertNode(2);
+		dList.insertNode(4);
+		
+		dList.printAll();
 		
 		return true;
 	}
@@ -277,8 +308,8 @@ public class Main
 		return true;
 	}
 	
-	// Wrapper : Arrays를 통한 Person의 Binary-search
-	public static boolean callArrayBinarySearch()
+	// Arrays : Person의 Binary-search
+	public static boolean callArraysBinarySearch()
 	{
 		double[] arOrg = {1.1, 2.2, 3.3, 4.4, 5.5};
 		
@@ -338,7 +369,7 @@ public class Main
 	}
 	
 	// Inheritance : Phone에 대한 상속관계 예제
-	public static boolean callPhone()
+	public static boolean exampleInteritancePhone()
 	{
 		MobilePhone phone1 = new MobilePhone();
 		MobilePhone phone2 = new SmartPhone();
@@ -350,7 +381,7 @@ public class Main
 	}
 	
 	// Inheritance : Starcraft에 대한 상속관계예제
-	public static boolean callStarcraft()
+	public static boolean exampleInheritanceStarcraft()
 	{
 		Unit[] ar = new Unit[4];
 		ar[0] = new Hydra();
@@ -368,7 +399,7 @@ public class Main
 	}
 	
 	// Inheritance : Pet에 대한 상속관계예제
-	public static boolean callAnimal()
+	public static boolean exampleInheritanceAnimal()
 	{
 		Dog kenny = new Dog();
 		
@@ -377,8 +408,119 @@ public class Main
 		return true;
 	}
 	
+	// String : Builder를 이용한 문자열 합치기 예제
+	public static boolean exampleStringBuilder()
+	{
+		String str1 = "def";
+		String str2 = "abc";
+		
+		int comp = str1.compareTo(str2);
+		
+		     if(0 == comp)
+		{
+			System.out.println("두 문자열이 같다");
+		}
+		else if(0 < comp)
+		{
+			System.out.println("사전 상 앞에 있는 경우");
+		}
+		else if(0 > comp)
+		{
+			System.out.println("사전 상 뒤에 있는 경우");
+		}
+		else
+		{
+			
+		}
+		     
+		     StringBuilder numPart = new StringBuilder();
+		     
+		     numPart.append("801010");
+		     numPart.append("1001234");
+		     
+		     StringBuilder numFull = new StringBuilder(numPart);
+		     
+		     System.out.println(numFull);
+		
+		return true;
+	}
+
+	// String : 일반코드와 슈가코드의 차이점 비교
+	public static boolean exampleStringEquals()
+	{
+		String str1 = "abc";
+		String str2 = "bc";
+		
+		if(true == str1.equals(str2))
+		{
+			System.out.println("같다");
+		}
+		else
+		{
+			System.out.println("다르다");
+		}
+		
+		String str3 = new String ("def");
+		String str4 = new String ("def");
+		
+		if(true == str3.equals(str4))
+		{
+			System.out.println("같다");
+		}
+		else
+		{
+			System.out.println("다르다");
+		}
+		
+		String str5 = new String ("ghi");
+		String str6 = new String ("Ghi");
+		
+		if(true == str5.equalsIgnoreCase(str6))
+		{
+			System.out.println("같다");
+		}
+		else
+		{
+			System.out.println("다르다");
+		}
+		return true;
+	}
+	
+	// String : Substring으로 문자열 일부 추려내기
+	public static boolean exampleStringSubstring()
+	{
+		String a = new String("unhappy");
+		
+		System.out.println(a.substring(2));
+		
+		String b = new String("antidisestablishmentarianism");
+		
+		System.out.println(b.substring(b.indexOf("i"), b.indexOf("m")));
+		
+		return true;
+	}
+
+	// Quadratic Function : 이차 함수, ax^2 + bx + c = 0의 근
+	public static boolean callQuadratic()
+	{
+		Quadratic qd = new Quadratic(5, 10, 15);
+		
+		System.out.println(qd.getSolution(true));
+		
+		return true;
+	}
+	
+	// Linear Function : 일자 함수, y = ax + b의 근
+	public static boolean callLinear()
+	{
+		Linear lf = new Linear(new Position(3, 6), new Position(2, 4));
+		System.out.println(lf.printForm());
+		
+		return true;
+	}
+
 	public static void main(String[] args)
 	{	
-		
+		callAlgorithmDoublyLinkedList();
 	}
 }

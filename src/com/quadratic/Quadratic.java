@@ -1,6 +1,4 @@
-// ax^2 + bx + c = 0의 근을 구하는 클래스.
-
-package com.quadratic.teacher;
+package com.quadratic;
 
 public class Quadratic
 {
@@ -17,7 +15,7 @@ public class Quadratic
 	
 	public double getSolution(boolean bPlus)
 	{
-		 double solution = 0;		// 2차 방정식의 근.
+		 double result = 0;
 		 
 		 double d = Math.pow(b, 2) - (4 * a * c);
 		 
@@ -30,12 +28,12 @@ public class Quadratic
 
 		 if (bPlus == true)
 		 {
-			 solution = (-b + Math.sqrt(d)) / (2 * a);
+			 result = (-b + Math.sqrt(d)) / (2 * a);
 		 }
 		 else
 		 {
-			 solution = (-b - Math.sqrt(d)) / (2 * a);
+			 result = (-b - Math.sqrt(d)) / (2 * a);
 		 }
-		return solution;
+		return result;
 	}
 }

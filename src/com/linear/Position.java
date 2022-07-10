@@ -1,4 +1,4 @@
-package com.linear.my;
+package com.linear;
 
 //	클래스명과 생성자 이름은 같아야한다
 public class Position

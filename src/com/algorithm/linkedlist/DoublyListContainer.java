@@ -17,12 +17,11 @@ package com.algorithm.linkedlist;
 public class DoublyListContainer
 {
 	// 내 코드
-	
 	Node head;
 	Node tail;
 	int  count;
 	
-	// Complete (✗) - 인덱스와 개수를 동일하게 맞출경우 null값 노드에 대한 처리문제
+	// Complete (✓)
 	public Node getNode (int _index)
 	{
 		Node target = null;	
@@ -42,7 +41,7 @@ public class DoublyListContainer
 		{
 			target = head;
 			
-			for (int i = 0; i < _index; i++)
+			for (int i = 0; i < _index - 1; i++)
 			{
 				target = target.getNext();
 			}
@@ -51,7 +50,7 @@ public class DoublyListContainer
 		{
 			target = tail;
 			
-			for (int i = 0; i < (count -_index - 1); i++)
+			for (int i = 0; i < (count - _index); i++)
 			{
 				target = target.getPrev();
 			}
@@ -73,59 +72,40 @@ public class DoublyListContainer
 		
 		if (count == 0)
 		{
-			head = newNode;			
+			head = newNode;
 		}
 		else
 		{
-			target = getNode(count - 1);
-			
+			target = getNode(count);
 			target.setNext(newNode);
-			newNode.setPrev(target);
+			tail.setPrev(newNode);
 		}
-		
 		tail = newNode;
 		count++;
 		return true;
 	}
 
-	// Complete (✗) - #1 : getNode의 null target으로 인한 pointer 예외
+	// Complete (✗)
 	public boolean insertNode(int _index)
 	{
-		Node target  = null;
-		Node newNode = new Node();
+		Node target   = null;
+		Node newNode  = new Node();
 		
-		if (0 > _index)
+		if(0 == count)
 		{
-			return false;
-		}
-		
-		if (count == 0)
-		{
-			head = newNode;			
-		}
-		else if (_index == 0)
-		{
-			target = getNode(_index);
-			
-			newNode.setNext(target);
-			target.setPrev(newNode);
-			
 			head = newNode;
+			tail = newNode;
 		}
 		else
 		{
 			target = getNode(_index);
-			
-			newNode.setNext(target);
+			target.setNext(newNode);
 			newNode.setPrev(target.getPrev());
-			
-			target.setPrev(newNode);
-			newNode.getPrev().setNext(newNode);
 		}
 		
-		if (_index > count)
+		if(count <= _index)
 		{
-			tail = newNode;			
+			tail = newNode;
 		}
 		count++;
 		return true;
@@ -144,10 +124,9 @@ public class DoublyListContainer
 		}
 		else
 		{
-			target = getNode(count - 1);
-			
+			target = getNode(count);
 			target.setNext(newNode);
-			newNode.setPrev(target);
+			tail.setPrev(newNode);
 		}
 		
 		tail = newNode;
@@ -349,30 +328,29 @@ public class DoublyListContainer
 		NodeData data	= null;
 		int index		= 0;
 		
-		System.out.println("--------------");
+		System.out.println("------------------------------------");
 		
 		if (0 == count)
 		{
-			System.out.println("    NoData");
-			System.out.println("--------------");
+			System.out.println("No Data");
 		}
 		
 		while (target != null)
 		{
 			data = target.getData();
 			
-			if (data == null)
+			if(null == data)
 			{
-				System.out.printf("Index  : %d%nNumber : null%nString : null%n", index);
+				System.out.printf("Index: %d, Number: null, String: null%n", index);
 			}
 			else
 			{
-				System.out.printf("Index  : %d%nNumber : %d%nString : %s%n", index, data.getValue1(), data.getValue2());
+				System.out.printf("Index: %d, Number: %d, String: %s%n", index, data.getValue1(), data.getValue2());
 			}
 			index++;
 			target = target.getNext();
-			System.out.println("--------------");
 		}
+		System.out.println("------------------------------------");
 	}
 
 	

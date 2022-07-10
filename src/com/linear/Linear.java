@@ -1,4 +1,4 @@
-package com.linear.my;
+package com.linear;
 
 public class Linear
 {
