@@ -24,7 +24,8 @@ public class Apple<L, R>
 	}
 	
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return "ABox [left=" + left + ", right=" + right + "]";
 	}
 }

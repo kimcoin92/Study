@@ -42,9 +42,20 @@ public class DBox<L, R>
 		left = _left;
 		right = _right;
 	}
+	
+	public L getLeft()
+	{
+		return left;
+	}
+	
+	public R getRight()
+	{
+		return right;
+	}
 
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return "DBox [left=" + left + ", right=" + right + "]";
 	}
 }

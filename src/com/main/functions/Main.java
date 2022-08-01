@@ -20,9 +20,7 @@ import com.inheritance.animal.*;
 import com.inheritance.starcraft.*;
 import com.linear.*;
 import com.quadratic.*;
-import com.generic.*;
-import com.generic.box.Apple;
-import com.generic.box.DBox;
+import com.generic.box.*;
 
 import java.util.Set;
 import java.util.Queue;
@@ -549,13 +547,26 @@ public class Main
 	public static boolean callDoubleBox()
 	{
 		// (run-time) 타입을 정해줘야 한다.
+		
+		// Left  : String
+		// Right : Integer
 		DBox<String, Integer> box = new DBox</* (!Suger-code!) String, Integer */>();
 		box.setBox("Apple", 20);
 		System.out.println(box);
 		
+		// Right(String)는 AutoBoxing으로 처리된다.
+		box.setBox("Apple", 20);
+		String str = box.getLeft();
+		
+		// Integer → int : AutoUnboxing으로 처리된다.
+		int i = box.getRight();
+		
+		System.out.println(str);
+		System.out.println(i);
+		System.out.println(box);
+		
 		return true;
 	}
-	
 	
 	public static void main(String[] args)
 	{	
