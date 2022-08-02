@@ -14,13 +14,13 @@ import com.algorithm.queue._Queue;
 import com.algorithm.stack._Stack;
 import com.comparable.person.Person;
 import com.comparable.person.PersonComparator;
+import com.generic.fruits.*;
 import com.algorithm.linkedlist.*;
 import com.inheritance.phone.*;
 import com.inheritance.animal.*;
 import com.inheritance.starcraft.*;
 import com.linear.*;
 import com.quadratic.*;
-import com.generic.box.*;
 
 import java.util.Set;
 import java.util.Queue;
@@ -529,12 +529,12 @@ public class Main
 		return true;
 	}
 	
-	// Generic : Apple에 대한 Generic 상속
-	public static boolean callAppleBox()
+	// Generic : Generic을 이용한 서로 다른 자료형의 Generic 클래스 구현
+	public static boolean callDualBox()
 	{
-		Apple<String, Integer> boxx = new Apple<>("Apple", 10);
+		DualBox<String, Integer> boxx = new DualBox<>("Apple", 10);
 		
-		Apple<Apple<String, Integer>, Apple<String, Integer>> boxx2 = new Apple<>();
+		DualBox<DualBox<String, Integer>, DualBox<String, Integer>> boxx2 = new DualBox<>();
 		
 		boxx2.setBox(boxx, boxx);
 		
@@ -543,14 +543,14 @@ public class Main
 		return true;
 	}
 	
-	// Generic : Apple에 대한 Double Box의 Generic 상속
-	public static boolean callDoubleBox()
+	// Generic : AutoBoxing 처리 기능 예제
+	public static boolean callDualAutoBoxing()
 	{
 		// (run-time) 타입을 정해줘야 한다.
 		
 		// Left  : String
 		// Right : Integer
-		DBox<String, Integer> box = new DBox</* (!Suger-code!) String, Integer */>();
+		DualBox<String, Integer> box = new DualBox</* (!Suger-code!) String, Integer */>();
 		box.setBox("Apple", 20);
 		System.out.println(box);
 		
@@ -564,6 +564,28 @@ public class Main
 		System.out.println(str);
 		System.out.println(i);
 		System.out.println(box);
+		
+		return true;
+	}
+	
+	public static boolean callBoxinBox()
+	{
+		// 첫 Box의 데이터는 String
+		SingleBox <String> sBox = new SingleBox <>();
+		sBox.set("apple");
+		System.out.println(sBox.get());
+		
+		// 1. Box에 Box를 넣어본다.
+		SingleBox<SingleBox<String>> bBox = new SingleBox<>();
+		bBox.set(sBox);
+		
+		System.out.println(bBox.get().get());
+		
+		// 2. Box에 Box에 Box를 넣어본다.
+		SingleBox<SingleBox<SingleBox<String>>> bbBox = new SingleBox<>();
+		bbBox.set(bBox);
+		
+		System.out.println(bbBox.get().get().get());
 		
 		return true;
 	}

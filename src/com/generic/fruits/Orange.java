@@ -1,4 +1,4 @@
-package com.generic.teacher.restrict;
+package com.generic.fruits;
 
 public class Orange {
 	

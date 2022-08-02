@@ -1,16 +1,16 @@
-package com.generic.teacher.restrict;
+package com.generic.fruits;
 
 // Number나 Number로부터 상속받은 요소를 사용할때 extends
-public class Box <T> {
+public class SingleBox <T> {
 
 	protected T obj;
 	
-	public Box()
+	public SingleBox()
 	{
 		
 	}
 	
-	public Box(T _obj)
+	public SingleBox(T _obj)
 	{
 		obj = _obj;
 	}
@@ -18,6 +18,11 @@ public class Box <T> {
 	public void set(T _obj)
 	{
 		obj = _obj;
+	}
+	
+	public T get()
+	{
+		return obj;
 	}
 	
 	public T get(T _obj)

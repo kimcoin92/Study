@@ -1,4 +1,4 @@
-package com.generic.teacher.restrict;
+package com.generic.fruits;
 
 public class Apple implements Eatable {
 	
@@ -21,7 +21,7 @@ public class Apple implements Eatable {
 		// 이 시점에서 데이터타입을 결정해줘야 한다.
 //		Box<T> box = new Box<>();
 		
-		Box<Apple> box = new Box<>();
+		SingleBox<Apple> box = new SingleBox<>();
 		
 		System.out.println(box.get(null));
 	}
