@@ -568,27 +568,30 @@ public class Main
 		return true;
 	}
 	
+	// Generic : Box안의 Box안의 Box
 	public static boolean callBoxinBox()
 	{
 		// 첫 Box의 데이터는 String
-		SingleBox <String> sBox = new SingleBox <>();
-		sBox.set("apple");
-		System.out.println(sBox.get());
+		SingleBox <String> aBox = new SingleBox <>();
+		aBox.set("apple");
+		System.out.println(aBox.get());
 		
 		// 1. Box에 Box를 넣어본다.
 		SingleBox<SingleBox<String>> bBox = new SingleBox<>();
-		bBox.set(sBox);
+		bBox.set(aBox);
 		
 		System.out.println(bBox.get().get());
 		
 		// 2. Box에 Box에 Box를 넣어본다.
-		SingleBox<SingleBox<SingleBox<String>>> bbBox = new SingleBox<>();
-		bbBox.set(bBox);
+		SingleBox<SingleBox<SingleBox<String>>> cBox = new SingleBox<>();
+		cBox.set(bBox);
 		
-		System.out.println(bbBox.get().get().get());
+		System.out.println(cBox.get().get().get());
 		
 		return true;
 	}
+	
+	
 	
 	public static void main(String[] args)
 	{	
